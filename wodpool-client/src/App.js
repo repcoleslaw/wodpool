@@ -22,10 +22,10 @@ function App() {
       <Switch>
         <Route exact path='/' component={Landing} />
         <Route exact path='/home' component={Home} />
-        <Route path='/pool' component={Pool} />
-        <Route path='/store' component={Store} />
-        <Route path='/user' component={Userpage} />
-        <Route path='/admin' component={Admin} />
+        <Route exact path='/pool' component={Pool} />
+        <Route exact path='/store' component={Store} />
+        <Route exact path='/user' component={Userpage} />
+        <Route exact path='/admin' component={Admin} />
       </Switch>
     </Router>
 
