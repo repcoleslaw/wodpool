@@ -4,6 +4,5 @@ require('dotenv').config();
 require('./models');
 
 module.exports = Q3.config({
-  enableServerToServer: false,
   location: __dirname,
 });
