@@ -23,9 +23,11 @@
     "q3-ui-datatables": "^1.27.18",
     "q3-ui-dialog": "^1.27.3",
     "q3-ui-exports": "^1.27.3",
+    "q3-ui-filemanager": "^1.27.18",
     "q3-ui-forms": "^1.27.17",
     "q3-ui-helpers": "^1.27.16",
     "q3-ui-locale": "^1.27.17",
+    "q3-ui-notifications": "^1.27.3",
     "q3-ui-permissions": "^1.27.3",
     "q3-ui-repeater": "^1.27.19",
     "q3-ui-rest": "^1.27.3",
@@ -33,15 +35,21 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-i18next": "11.7.3"
+    "react-i18next": "11.7.3",
+    "yarn-deduplicate": "^3.1.0"
   },
   "license": "MIT",
   "scripts": {
+    "postinstall": "yarn-deduplicate",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest --silent"
+  },
+  "resolutions": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }
