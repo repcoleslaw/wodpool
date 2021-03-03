@@ -1,0 +1,10 @@
+{
+  "name": "wp",
+  "engines": {
+    "node": "12.9.x",
+    "yarn": "^1.17.3"
+  },
+  "scripts": {
+    "postinstall": "cd server; yarn install"
+  }
+}
