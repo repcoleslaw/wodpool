@@ -26,5 +26,27 @@
     "fields": "*",
     "op": "Update",
     "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "pools",
+    "fields": "*",
+    "op": "Read",
+    "inClient": true,
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "pools",
+    "fields": "*",
+    "op": "Create",
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "pools",
+    "fields": "*",
+    "op": "Update",
+    "ownership": "Any"
   }
 ]
