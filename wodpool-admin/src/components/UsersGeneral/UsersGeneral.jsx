@@ -5,8 +5,18 @@ import { isCompetitor } from '../UsersAdd/UsersAdd';
 
 const UsersGeneral = connect(({ data, ...rest }) => (
   <Builders.Form {...rest} initialValues={data}>
-    <Builders.Field name="firstName" type="text" xl={6} />
-    <Builders.Field name="lastName" type="text" xl={6} />
+    <Builders.Field
+      required
+      name="firstName"
+      type="text"
+      xl={6}
+    />
+    <Builders.Field
+      required
+      name="lastName"
+      type="text"
+      xl={6}
+    />
     <Builders.Field
       name="handle"
       type="text"
@@ -14,7 +24,12 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       required
       xl={6}
     />
-    <Builders.Field name="email" type="email" xl={6} />
+    <Builders.Field
+      required
+      name="email"
+      type="email"
+      xl={6}
+    />
     <Builders.Field
       name="bio"
       type="text"

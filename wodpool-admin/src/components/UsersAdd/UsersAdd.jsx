@@ -1,6 +1,5 @@
 import React from 'react';
 import { Builders, helpers } from 'q3-ui-forms';
-import { connect } from 'q3-admin/lib/containers';
 
 export const ADMINISTRATOR = 'Administrator';
 export const COMPETITOR = 'Competitor';
@@ -18,13 +17,29 @@ const UsersAdd = (props) => (
       __t: [assignDiscriminator],
     }}
   >
-    <Builders.Field name="firstName" type="text" xl={6} />
-    <Builders.Field name="lastName" type="text" xl={6} />
-    <Builders.Field name="email" type="email" xl={6} />
+    <Builders.Field
+      name="firstName"
+      required
+      type="text"
+      xl={6}
+    />
+    <Builders.Field
+      name="lastName"
+      required
+      type="text"
+      xl={6}
+    />
+    <Builders.Field
+      name="email"
+      required
+      type="email"
+      xl={6}
+    />
     <Builders.Field
       xl={6}
       name="role"
       type="select"
+      required
       options={helpers.asOptions([
         ADMINISTRATOR,
         COMPETITOR,

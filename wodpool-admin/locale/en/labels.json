@@ -3,5 +3,11 @@
   "q3-api-usersSearchPlaceholder": "Search by name or email",
   "users": "Users",
   "user": "User",
-  "handle": "Handle"
+  "handle": "Handle",
+  "pools": "Pools",
+  "pool": "pool",
+  "poolsSearchPlaceholder": "Search by name or description",
+  "maximumCompetitors": "Maximum number of competitors",
+  "price": "Price",
+  "description": "Description"
 }
