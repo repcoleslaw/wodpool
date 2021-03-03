@@ -4,5 +4,27 @@
     "coll": "profile",
     "fields": "{_id,id,firstName,lastName,email,lang,role,tours}",
     "op": "Read"
+  },
+  {
+    "role": "Administrator",
+    "coll": "q3-api-users",
+    "fields": "*",
+    "op": "Read",
+    "inClient": true,
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "q3-api-users",
+    "fields": "*",
+    "op": "Create",
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "q3-api-users",
+    "fields": "*",
+    "op": "Update",
+    "ownership": "Any"
   }
 ]
