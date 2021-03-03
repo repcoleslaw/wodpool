@@ -1,0 +1,8 @@
+[
+  {
+    "role": "Administrator",
+    "coll": "profile",
+    "fields": "{_id,id,firstName,lastName,email,lang,role,tours}",
+    "op": "Read"
+  }
+]

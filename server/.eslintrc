@@ -1,0 +1,6 @@
+{
+  "extends": ["node-3merge"],
+  "rules": {
+    "func-names": 0
+  }
+}
