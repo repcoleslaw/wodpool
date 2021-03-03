@@ -1,0 +1,24 @@
+name: WODPool Dev-ops
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+      - development
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Server API
+        working-directory: server
+        run: |
+          yarn install
+          yarn lint
+          yarn test
