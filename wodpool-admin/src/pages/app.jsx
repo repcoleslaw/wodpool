@@ -4,7 +4,7 @@ import AdminApp from 'q3-admin';
 import logoSrc from '../../static/icon.png';
 import AdminPrivateGateway from 'gatsby-theme-q3/src/components/AdminPrivateGateway';
 import { AppWrapper } from '../components';
-import pages from '../views';
+import pages from '../components';
 
 export default () => (
   <AdminPrivateGateway>
