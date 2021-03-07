@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Competitor = require('./competitor');
-const Exercise = require('./exercise');
+const Event = require('./events');
 const countCompetitors = require('../middleware/countCompetitors');
 
 const Schema = new mongoose.Schema(
@@ -11,7 +11,7 @@ const Schema = new mongoose.Schema(
       required: true,
       gram: true,
     },
-    exercises: [Exercise],
+    events: [Event],
     maximumCompetitors: {
       type: Number,
     },
@@ -20,10 +20,6 @@ const Schema = new mongoose.Schema(
       type: String,
       required: true,
       gram: true,
-    },
-    numberOfWeeks: {
-      type: Number,
-      default: 4,
     },
     price: {
       type: Number,

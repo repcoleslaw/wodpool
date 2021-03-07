@@ -48,5 +48,33 @@
     "fields": "*",
     "op": "Update",
     "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "pools",
+    "fields": "*",
+    "op": "Delete",
+    "ownership": "Any"
+  },
+  {
+    "role": "Public",
+    "coll": "pools",
+    "fields": "{name,description,numberOfWeeks,startsOn}",
+    "op": "Read",
+    "ownership": "Any"
+  },
+  {
+    "role": "Competitor",
+    "coll": "profile",
+    "fields": "{firstName,lastName,handle,bio,email}",
+    "op": "Read",
+    "ownership": "Any"
+  },
+  {
+    "role": "Competitor",
+    "coll": "pools",
+    "fields": "{name,description,numberOfWeeks,startsOn,events.*.equipment,events.*.duration,events.*.exercises*.{name,description}}",
+    "op": "Read",
+    "ownership": "Any"
   }
 ]
