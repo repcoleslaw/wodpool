@@ -5,7 +5,7 @@ import { SubDetail } from 'q3-admin/lib/containers';
 const PoolsExercises = (props) => (
   <SubDetail
     th="name"
-    root="exercises"
+    root="events"
     cardProps={{
       title: 'name',
       describe: 'description',
@@ -16,28 +16,37 @@ const PoolsExercises = (props) => (
   >
     <Builders.Form>
       <Builders.Field
-        required
-        name="name"
-        type="text"
-        required
-        xl={12}
-        lg={12}
-      />
-      <Builders.Field
-        required
-        name="description"
+        name="equipment"
         type="text"
         multiline
         rows={8}
+        required
         xl={12}
         lg={12}
       />
       <Builders.Field
         required
-        name="reps"
+        name="duration"
         type="number"
-        required
       />
+      <Builders.Repeater group="exercises">
+        <Builders.Field
+          name="name"
+          type="text"
+          required
+          xl={12}
+          lg={12}
+        />
+        <Builders.Field
+          name="description"
+          type="text"
+          required
+          multiline
+          rows={8}
+          xl={12}
+          lg={12}
+        />
+      </Builders.Repeater>
     </Builders.Form>
   </SubDetail>
 );

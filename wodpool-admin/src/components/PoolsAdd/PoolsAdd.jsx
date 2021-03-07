@@ -25,6 +25,13 @@ const PoolsAdd = (props) => (
       lg={12}
       required
     />
+    <Builders.Field
+      name="startsOn"
+      required
+      type="date"
+      xl={12}
+      lg={12}
+    />
   </Builders.Form>
 );
 
