@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Competitor = require('./competitor');
 const Exercise = require('./exercise');
+const countCompetitors = require('../middleware/countCompetitors');
 
-module.exports = new mongoose.Schema(
+const Schema = new mongoose.Schema(
   {
     competitors: [Competitor],
     description: {
@@ -39,3 +40,6 @@ module.exports = new mongoose.Schema(
     collectionSingularName: 'pool',
   },
 );
+
+Schema.pre('save', countCompetitors);
+module.exports = Schema;
