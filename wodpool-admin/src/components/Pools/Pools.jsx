@@ -30,6 +30,7 @@ export default new AbstractCollectionBuilder({
   .genDetail({
     notes: true,
     picture: true,
+    files: true,
   })
   .genListSettings({
     defaultSortPreference: 'name',

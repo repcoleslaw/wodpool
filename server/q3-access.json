@@ -76,5 +76,16 @@
     "fields": "{name,description,numberOfWeeks,startsOn,events.*.equipment,events.*.duration,events.*.exercises*.{name,description}}",
     "op": "Read",
     "ownership": "Any"
+  },
+  {
+    "role": "Public",
+    "coll": "q3-api-users",
+    "fields": "*",
+    "op": "Create",
+    "ownership": "Any",
+    "documentConditions": [
+      "role=Competitor",
+      "__t=competitors"
+    ]
   }
 ]

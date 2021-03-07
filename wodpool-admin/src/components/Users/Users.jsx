@@ -8,12 +8,24 @@ export default new AbstractCollectionBuilder({
   collectionName: 'q3-api-users',
   resourceName: 'users',
   resourceNameSingular: 'user',
+  resolvers: (args) => ({
+    ...args,
+    createdAt: {
+      toDate: true,
+      base: args.createdAt,
+    },
+  }),
 })
   .genNew(UsersAdd)
   .genHeader({ titleProp: 'email' })
   .genViews({ General: UsersGeneral })
   .genList({
-    defaultColumns: ['email', 'role', 'createdAt'],
+    defaultColumns: [
+      'email',
+      'handle',
+      'role',
+      'createdAt',
+    ],
     io: {},
   })
   .genDetail({
@@ -22,6 +34,7 @@ export default new AbstractCollectionBuilder({
   })
   .genListSettings({
     defaultSortPreference: 'firstName',
-    select: 'email,firstName,lastName,name,role,createdAt',
+    select:
+      'handle,email,firstName,lastName,name,role,createdAt',
   })
   .build();

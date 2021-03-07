@@ -29,6 +29,7 @@ const PoolsExercises = (props) => (
         name="duration"
         type="number"
       />
+      <Builders.Field name="url" type="url" />
       <Builders.Repeater group="exercises">
         <Builders.Field
           name="name"
