@@ -16,9 +16,15 @@ import Landing from './Pages/landingPage';
 import AuthProvider from './util/AuthProvider';
 import AdminProvider from './util/AdminProvider';
 
+//import Components
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+
 function App() {
   return (
     <Router>
+      <Header/>
+      <div className="app-wrapper">
       <Switch>
         <Route exact path='/' component={Landing} />
         <Route exact path='/home' component={Home} />
@@ -27,6 +33,9 @@ function App() {
         <Route exact path='/user' component={Userpage} />
         <Route exact path='/admin' component={Admin} />
       </Switch>
+      </div>
+      
+      <Footer/>
     </Router>
 
   );

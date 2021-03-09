@@ -1,0 +1,42 @@
+.Footer-Cont{
+  background-color: #1a1a1a;
+  padding: 3em;
+  position:relative;
+  bottom:0;
+  width:100%;
+  text-align: center;
+}
+
+.Footer-Socials{
+  text-align: center;
+  margin: 2em 0;
+}
+
+.Footer-Socials img{
+  height: 2.5em;
+  margin: 0 2em;
+}
+
+
+.Footer-Pages{
+  margin: 2em 0;
+  color:#eee;
+}
+
+.Footer-PoweredBy{
+  text-align: center;
+  margin: 1em 0;
+  color:#eee;
+}
+
+.copyright{
+  color:#eee;
+  padding:0 0 2em 0;
+}
+
+.Footer-rule{
+  background-color:#4d4d4d;
+  height:1px;
+  border:none;
+}
+
