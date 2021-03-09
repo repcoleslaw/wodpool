@@ -1,0 +1,35 @@
+.Landing-Hero{
+  
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("WP-HeroBanner-v1.jpg");
+
+  /* Set a specific height */
+  height: 50vh;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  font-size: 4em;
+}
+
+.hero-btn{
+  text-align: center;
+  color:white;
+  background-color: #B00909 ;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

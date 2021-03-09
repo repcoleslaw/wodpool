@@ -11,6 +11,7 @@ import Pool from './Pages/poolPage';
 import Store from './Pages/storePage';
 import Userpage from './Pages/userPage';
 import Landing from './Pages/landingPage';
+import Signup from './Pages/signupPage';
 
 //import util 
 import AuthProvider from './util/AuthProvider';
@@ -27,6 +28,7 @@ function App() {
       <div className="app-wrapper">
       <Switch>
         <Route exact path='/' component={Landing} />
+        <Route exact path='/signup' component={Signup} />
         <Route exact path='/home' component={Home} />
         <Route exact path='/pool' component={Pool} />
         <Route exact path='/store' component={Store} />
