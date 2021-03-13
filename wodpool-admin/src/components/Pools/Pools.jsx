@@ -2,7 +2,7 @@ import AbstractCollectionBuilder from 'q3-admin/lib/builders';
 import PoolsAdd from '../PoolsAdd';
 import Competitors from '../PoolsCompetitors';
 import General from '../PoolsGeneral';
-import Exercises from '../PoolsExercises';
+import Events from '../PoolsEvents';
 
 export default new AbstractCollectionBuilder({
   collectionName: 'pools',
@@ -13,7 +13,7 @@ export default new AbstractCollectionBuilder({
   .genHeader({ titleProp: 'name' })
   .genViews({
     General,
-    Exercises,
+    Events,
     Competitors,
   })
   .genList({

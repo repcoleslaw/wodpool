@@ -7,7 +7,21 @@
   "pools": "Pools",
   "pool": "pool",
   "poolsSearchPlaceholder": "Search by name or description",
-  "maximumCompetitors": "Maximum number of competitors",
+  "maximumCompetitors": "Max. competitors",
   "price": "Price",
-  "description": "Description"
+  "description": "Description",
+  "startsOn": "Starts on",
+  "numberOfWeeks": "# of weeks",
+  "sizeOfExercises": "# of exercises",
+  "equipment": "Equipment",
+  "duration": "Duration",
+  "url": "URL",
+  "exercises.name": "Name",
+  "exercises.description": "Description",
+  "competitors": "Competitors",
+  "events": "Events",
+  "general": "General",
+  "week": "Week #",
+  "exercises.reps": "Reps",
+  "exercises.duration": "Duration"
 }
