@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
-module.exports = new mongoose.Schema({
+const Competitor = new mongoose.Schema({
   handle: {
     type: String,
     required: true,
+    distinct: true,
   },
   weeks: [
     {
@@ -22,3 +23,5 @@ module.exports = new mongoose.Schema({
     },
   ],
 });
+
+module.exports = Competitor;
