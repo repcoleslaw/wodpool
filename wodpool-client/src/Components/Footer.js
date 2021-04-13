@@ -57,9 +57,7 @@ function Footer() {
               </ul>
             </div>
           </Grid>
-
-        </Grid>
-        
+        </Grid>       
         <hr style={{ marginLeft: "1em", marginRight: "1em" }} />
       </Container>
 
