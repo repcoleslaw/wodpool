@@ -1,34 +1,50 @@
 // import style
-import './App.css';
+import "./App.css";
 
 //import packages
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import axios from "axios";
 
 //import pages
-import Admin from './Pages/adminPage';
-import Home from './Pages/homePage';
-import Pool from './Pages/poolPage';
-import Store from './Pages/storePage';
-import Userpage from './Pages/userPage';
-import Landing from './Pages/landingPage';
+import Admin from "./Pages/adminPage";
+import Home from "./Pages/homePage";
+import Pool from "./Pages/poolPage";
+import Store from "./Pages/storePage";
+import Userpage from "./Pages/userPage";
+import Landing from "./Pages/landingPage";
+import NotFound from "./Pages/404";
 
-//import util 
-import AuthProvider from './util/AuthProvider';
-import AdminProvider from './util/AdminProvider';
+// import components
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+
+//import util
+import AuthProvider from "./util/AuthProvider";
+import AdminProvider from "./util/AdminProvider";
+
+// Set Authentication of login
+const token = localStorage.FBIdToken;
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/' component={Landing} />
-        <Route exact path='/home' component={Home} />
-        <Route exact path='/pool' component={Pool} />
-        <Route exact path='/store' component={Store} />
-        <Route exact path='/user' component={Userpage} />
-        <Route exact path='/admin' component={Admin} />
-      </Switch>
-    </Router>
+    <div className="page-container">
+     <Header />
+      <div className="content-wrap">
+        <Router>
+          <Switch>
+            <Route exact path="/landing" component={Landing} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/pool" component={Pool} />
+            <Route exact path="/store" component={Store} />
+            <Route exact path="/user" component={Userpage} />
+            <Route exact path="/admin" component={Admin} />
+            <Route component={NotFound} />
+          </Switch>
+        </Router>
+      </div>
 
+      <Footer />
+    </div>
   );
 }
 
