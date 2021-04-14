@@ -14,19 +14,7 @@ import Login from './Registration/Login';
 function landingPage() {
   return (
     <>
-      <div className="Landing-Hero">
-        <h1 className="hero-text">Welcome, Competitors!</h1>
-        <Button 
-        type="submit"
-        variant="contained"
-        color="#B00909"
-        className="hero-btn"
-      >
-        <Link to="/signup">Sign Up</Link>
-      </Button>
-      </div>
-
-      <Login/>
+        
     </>
   )
 }

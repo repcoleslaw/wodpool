@@ -13,6 +13,7 @@ import Store from "./Pages/storePage";
 import Userpage from "./Pages/userPage";
 import Landing from "./Pages/landingPage";
 import NotFound from "./Pages/404";
+import Registration from "./Pages/Registration/Registration";
 
 // import components
 import Header from "./Components/Header";
@@ -38,6 +39,7 @@ function App() {
             <Route exact path="/store" component={Store} />
             <Route exact path="/user" component={Userpage} />
             <Route exact path="/admin" component={Admin} />
+            <Route exact path="/registration" component={Registration} />
             <Route component={NotFound} />
           </Switch>
         </Router>

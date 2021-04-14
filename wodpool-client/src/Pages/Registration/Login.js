@@ -60,12 +60,12 @@ function Login() {
   // Set hooks
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-
+  // const [acceptedTerms, setAcceptedTerms] = React.useState(false);
   var myurl = 'myurl'
   var bodyFormData = new FormData();
   bodyFormData.append("email", {email})
   bodyFormData.append("Password", {password})
-
+  // bodyFormData.append(`Accepted Terms, ${acceptedTerms}`)
 
 
   const handleSubmit = (event) => {
@@ -89,12 +89,6 @@ function Login() {
       });
     event.preventDefault();
   };
-
-
-
-
- 
- 
 
   return (
     <Container component="main" maxWidth="xs">

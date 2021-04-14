@@ -16,19 +16,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import axios from 'axios';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -53,6 +43,47 @@ const useStyles = makeStyles((theme) => ({
 function Signup() {
   const classes = useStyles();
 
+  // Establish Required hooks
+  const [firstname, setFirstName] = React.useState("");
+  const [lastname, setLastName] = React.useState("");
+  const [handle, setHandle] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [acceptTerms, setAcceptTerms] = React.useState("false");
+  const [acceptEmails, setAcceptEmails] = React.useState("false");
+
+  //Optional Hooks
+
+  //data bind
+  var myurl = 'myurl'
+  var bodyFormData = new FormData();
+  bodyFormData.append("firstName", {firstname})
+  bodyFormData.append("lastName", {lastname})
+  bodyFormData.append("email", {email})
+  bodyFormData.append("password", {password})
+  bodyFormData.append("handle", {handle})
+  bodyFormData.append("acceptedTerms", {acceptTerms})
+
+  //handle onSubmit
+ 
+  const handleSubmit = (event) => {
+    console.log(bodyFormData);
+    axios({
+      method: "post",
+      url: `${myurl}`,
+      data: bodyFormData,
+    })
+      .then(function (response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+    event.preventDefault();
+  };
+  
   return (
  <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -61,9 +92,9 @@ function Signup() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Register
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -75,6 +106,7 @@ function Signup() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                onChange = {e=>setFirstName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -86,6 +118,7 @@ function Signup() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                onChange = {e=>setLastName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -97,6 +130,7 @@ function Signup() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange = {e=>setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -109,12 +143,34 @@ function Signup() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange = {e=>setPassword(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="handle"
+                label="Handle"
+                type="handle"
+                id="handle"
+                onChange = {e=>setHandle(e.target.value)}
+
               />
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
+                onChange={e=>{setAcceptEmails(!acceptEmails)}}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <FormControlLabel
+                control={<Checkbox value="termsAccepted" color="primary" />}
+                label="I accept the Terms of Service, Privacy Policy, and Assumption of Risk Waiver."
+                onChange={e=>{setAcceptTerms(!acceptTerms)}}
               />
             </Grid>
           </Grid>
@@ -136,9 +192,7 @@ function Signup() {
           </Grid>
         </form>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
+
     </Container>
   )
 }
