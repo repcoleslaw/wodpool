@@ -4,10 +4,13 @@ import React from 'react'
 // This will also be the hub to which future features will click into
 // ie - gym finder, tips, links back to the store on the godaddy site, etc.
 
+import Login from './Registration/Login';
+
 function homePage() {
   return (
     <div>
-      This is the home page
+      this is home page
+      <Login/>
     </div>
   )
 }
