@@ -10,7 +10,6 @@ function homePage() {
   return (
     <div>
       this is home page
-      <Login/>
     </div>
   )
 }

@@ -8,13 +8,16 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import {Link} from 'react-router-dom';
 
 // Header will be only on logged in version of app
+import './Header.css'
 
 // Style
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    color:"black"
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -44,13 +47,9 @@ function Header() {
     setAnchorEl(null);
   };
   return (
-    <div className={classes.root}>
-
-      <AppBar position="static">
+    <div>
+      <AppBar className="app-bar" position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
             Wodpool
           </Typography>
@@ -80,7 +79,8 @@ function Header() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link to={`/user`}></Link>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleChange}>Logout</MenuItem>
               </Menu>

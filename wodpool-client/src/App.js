@@ -29,9 +29,10 @@ const token = localStorage.FBIdToken;
 function App() {
   return (
     <div className="page-container">
-     <Header />
+
       <div className="content-wrap">
         <Router>
+        <Header/>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/pool" component={Pool} />
