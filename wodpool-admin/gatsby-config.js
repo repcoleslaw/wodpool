@@ -17,7 +17,7 @@ const locale = loadContent(
 
 module.exports = {
   siteMetadata: {
-    title: 'WODPool',
+    title: 'Admin Portal',
     description:
       'WODPool is a community that focuses on the distribution of Fitness Equipment, Health Products, and Exercise Programs.',
     siteUrl: 'https://wodpool.com',

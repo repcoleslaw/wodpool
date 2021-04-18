@@ -1,10 +1,17 @@
 import React from 'react';
-import { Builders } from 'q3-ui-forms';
+import { Builders, helpers } from 'q3-ui-forms';
 import { connect } from 'q3-admin/lib/containers';
 import { isCompetitor } from '../UsersAdd/UsersAdd';
 
 const UsersGeneral = connect(({ data, ...rest }) => (
-  <Builders.Form {...rest} initialValues={data}>
+  <Builders.Form
+    {...rest}
+    initialValues={data}
+    marshalSelectively
+    marshal={{
+      startsOn: [helpers.castToUTC],
+    }}
+  >
     <Builders.Field
       required
       name="name"
