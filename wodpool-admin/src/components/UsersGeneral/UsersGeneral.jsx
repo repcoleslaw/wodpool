@@ -4,7 +4,18 @@ import { connect } from 'q3-admin/lib/containers';
 import { isCompetitor } from '../UsersAdd/UsersAdd';
 
 const UsersGeneral = connect(({ data, ...rest }) => (
-  <Builders.Form {...rest} initialValues={data}>
+  <Builders.Form
+    {...rest}
+    initialValues={data}
+    keep={[
+      'role',
+      'firstName',
+      'lastName',
+      'handle',
+      'email',
+      'bio',
+    ]}
+  >
     <Builders.Field
       required
       name="firstName"
@@ -32,9 +43,8 @@ const UsersGeneral = connect(({ data, ...rest }) => (
     />
     <Builders.Field
       name="bio"
-      type="text"
+      type="editor"
       conditional={isCompetitor}
-      multiline
       rows={12}
       lg={12}
       xl={12}

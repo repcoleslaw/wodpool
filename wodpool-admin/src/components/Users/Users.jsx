@@ -26,7 +26,6 @@ export default new AbstractCollectionBuilder({
       'role',
       'createdAt',
     ],
-    io: {},
   })
   .genDetail({
     notes: true,

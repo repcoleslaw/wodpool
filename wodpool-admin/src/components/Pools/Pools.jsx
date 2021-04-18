@@ -25,7 +25,6 @@ export default new AbstractCollectionBuilder({
         toPrice: true,
       },
     }),
-    io: {},
   })
   .genDetail({
     notes: true,

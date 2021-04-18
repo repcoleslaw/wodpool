@@ -1,10 +1,24 @@
 import React from 'react';
-import { Builders } from 'q3-ui-forms';
+import { Builders, helpers } from 'q3-ui-forms';
 import { connect } from 'q3-admin/lib/containers';
 import { isCompetitor } from '../UsersAdd/UsersAdd';
 
 const UsersGeneral = connect(({ data, ...rest }) => (
-  <Builders.Form {...rest} initialValues={data}>
+  <Builders.Form
+    {...rest}
+    initialValues={data}
+    marshalSelectively
+    marshal={{
+      startsOn: [helpers.castToUTC],
+    }}
+    keep={[
+      'name',
+      'description',
+      'price',
+      'maximumCompetitors',
+      'startsOn',
+    ]}
+  >
     <Builders.Field
       required
       name="name"
@@ -28,7 +42,6 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       type="number"
     />
     <Builders.Field name="startsOn" type="date" required />
-    <Builders.Field name="numberOfWeeks" type="number" />
   </Builders.Form>
 ));
 
