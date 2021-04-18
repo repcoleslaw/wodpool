@@ -1,4 +1,5 @@
 const Mailer = require('q3-core-mailer');
+const { getClientUrl } = require('./utils');
 
 module.exports = async (user) =>
   Mailer('en-verify')
@@ -6,7 +7,7 @@ module.exports = async (user) =>
     .subjecti18n('verify')
     .mjml({
       name: user.firstName,
-      url: process.env.WEB_APP,
+      url: getClientUrl(user),
       code: user.secret,
       id: user.id,
     })
