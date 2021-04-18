@@ -11,6 +11,13 @@ const UsersGeneral = connect(({ data, ...rest }) => (
     marshal={{
       startsOn: [helpers.castToUTC],
     }}
+    keep={[
+      'name',
+      'description',
+      'price',
+      'maximumCompetitors',
+      'startsOn',
+    ]}
   >
     <Builders.Field
       required
@@ -35,7 +42,6 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       type="number"
     />
     <Builders.Field name="startsOn" type="date" required />
-    <Builders.Field name="numberOfWeeks" type="number" />
   </Builders.Form>
 ));
 
