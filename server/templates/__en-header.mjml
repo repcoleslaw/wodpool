@@ -1,0 +1,9 @@
+<mj-wrapper background-color="whitesmoke" padding="0">
+  <mj-hero background-color="whitesmoke">
+    <mj-image
+      alt="Placeholder"
+      width="75px"
+      src="https://wodpooladmin.netlify.app/static/icon-4bb57bd92b0b9a1e79b9cce1f85a2dfb.png"
+    />
+  </mj-hero>
+</mj-wrapper>

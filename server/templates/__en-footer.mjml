@@ -1,0 +1,18 @@
+<mj-section padding="0" padding-bottom="30px">
+  <mj-column width="450px">
+    <mj-text font-weight="bold" align="center" padding="16px"
+      >3merge Inc.</mj-text
+    >
+    <mj-text mj-class="small" align="center" padding-bottom="0"
+      >Street address, city and postal code
+    </mj-text>
+    <mj-text mj-class="small" align="center" padding-bottom="0"
+      ><a style="color: #ff7917" href="tel:9051111234">905-111-1234</a>
+    </mj-text>
+    <mj-text mj-class="small" align="center"
+      ><a style="color: #ff7917" href="https://placeholder.com"
+        >www.placeholder.com</a
+      >
+    </mj-text>
+  </mj-column>
+</mj-section>
