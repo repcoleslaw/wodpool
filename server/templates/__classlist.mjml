@@ -1,0 +1,115 @@
+<mj-head>
+  <mj-attributes>
+    <mj-body />
+    <mj-all font-family="Verdana" />
+    <mj-class
+      name="background"
+      background-color="#f5f5f5"
+      full-width
+      padding="20px 0"
+      align="center"
+    />
+    <mj-class
+      name="foreground"
+      background-color="#FFF"
+      border-bottom="2px solid #333"
+      padding="20px"
+    />
+    <mj-class
+      name="section"
+      background-color="#FFF"
+      padding="20px 20px 0"
+    />
+    <mj-class
+      name="h1"
+      font-weight="800"
+      font-size="18px"
+      padding-bottom="15px"
+      color="#333"
+    />
+    <mj-class
+      name="h2"
+      font-size="14px"
+      font-weight="bold"
+      padding-bottom="8px"
+    />
+    <mj-class name="main" width="100%" padding="15px 0" />
+    <mj-class name="wrapper" padding="8px" />
+    <mj-class name="full-width" width="100%" />
+    <mj-class
+      name="half-width"
+      width="50%"
+      margin="15px 0"
+    />
+    <mj-class
+      name="muted"
+      width="100%"
+      background-color="#f3f8fa"
+      padding="12px"
+      border-bottom="1px solid #FFF"
+    />
+    <mj-class name="strong" font-weight="800" />
+    <mj-class
+      name="small"
+      align="center"
+      font-size="12px"
+      color="#676271"
+    />
+    <mj-class
+      name="link"
+      font-size="12px"
+      background-color="transparent"
+      color="#676271"
+      text-decoration="underline"
+      width="100%"
+      padding="0 !important"
+      height="auto"
+      text-align="left"
+      align="left"
+    />
+    <mj-class
+      name="inline-link"
+      text-align="left"
+      font-size="14px"
+      background-color="transparent"
+      color="#333"
+      text-decoration="underline"
+      width="auto"
+      padding="0"
+      margin="0"
+      inner-padding="0"
+      text-align="left"
+      padding="0"
+      height="auto"
+    />
+    <mj-class
+      name="sign"
+      border-width="1px"
+      border-color="#000"
+      padding-bottom="6px"
+    />
+    <mj-class
+      name="fineprint"
+      font-size="10px"
+      font-style="italic"
+    />
+    <mj-class
+      name="link-label"
+      font-weight="bold"
+      font-size="10px"
+      text-transform="uppercase"
+    />
+    <mj-button
+      background-color="#333"
+      color="#fff"
+      align="left"
+      padding="0px"
+    />
+    <mj-divider
+      border-width="1px"
+      padding="18px 0"
+      border-color="#eceff1"
+    />
+    <mj-text padding="0" />
+  </mj-attributes>
+</mj-head>

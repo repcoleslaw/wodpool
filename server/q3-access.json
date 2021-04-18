@@ -4,5 +4,88 @@
     "coll": "profile",
     "fields": "{_id,id,firstName,lastName,email,lang,role,tours}",
     "op": "Read"
+  },
+  {
+    "role": "Administrator",
+    "coll": "q3-api-users",
+    "fields": "*",
+    "op": "Read",
+    "inClient": true,
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "q3-api-users",
+    "fields": "*",
+    "op": "Create",
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "q3-api-users",
+    "fields": "*",
+    "op": "Update",
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "pools",
+    "fields": "*",
+    "op": "Read",
+    "inClient": true,
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "pools",
+    "fields": "*",
+    "op": "Create",
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "pools",
+    "fields": "*",
+    "op": "Update",
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "pools",
+    "fields": "*",
+    "op": "Delete",
+    "ownership": "Any"
+  },
+  {
+    "role": "Public",
+    "coll": "pools",
+    "fields": "{name,description,numberOfWeeks,startsOn}",
+    "op": "Read",
+    "ownership": "Any"
+  },
+  {
+    "role": "Competitor",
+    "coll": "profile",
+    "fields": "{firstName,lastName,handle,bio,email}",
+    "op": "Read",
+    "ownership": "Any"
+  },
+  {
+    "role": "Competitor",
+    "coll": "pools",
+    "fields": "{name,description,numberOfWeeks,startsOn,events.*.equipment,events.*.duration,events.*.exercises*.{name,description}}",
+    "op": "Read",
+    "ownership": "Any"
+  },
+  {
+    "role": "Public",
+    "coll": "q3-api-users",
+    "fields": "*",
+    "op": "Create",
+    "ownership": "Any",
+    "documentConditions": [
+      "role=Competitor",
+      "__t=competitors"
+    ]
   }
 ]

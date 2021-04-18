@@ -1,0 +1,5 @@
+{
+  "handle": "Used to casually identify users in the app",
+  "maximumCompetitors": "Defaults to limitless",
+  "price": "Set to zero for a free pool"
+}
