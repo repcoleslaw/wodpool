@@ -2,7 +2,13 @@ import React from 'react';
 import { Builders, helpers } from 'q3-ui-forms';
 
 const PoolsAdd = (props) => (
-  <Builders.Form {...props}>
+  <Builders.Form
+    {...props}
+    marshalSelectively
+    marshal={{
+      startsOn: [helpers.castToUTC],
+    }}
+  >
     <Builders.Field
       name="name"
       type="text"

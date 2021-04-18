@@ -4,41 +4,16 @@ import { SubDetail } from 'q3-admin/lib/containers';
 
 const PoolsCompetitors = (props) => (
   <SubDetail
-    th="name"
+    th="handle"
     root="competitors"
-    // disable it
     addComponent={<div />}
     disableEditor
     disableMultiselect
-    cardProps={{}}
+    cardProps={{
+      title: 'handle',
+    }}
     {...props}
-  >
-    <Builders.Form>
-      <Builders.Field
-        required
-        name="name"
-        type="text"
-        required
-        xl={12}
-        lg={12}
-      />
-      <Builders.Field
-        required
-        name="description"
-        type="text"
-        multiline
-        rows={8}
-        xl={12}
-        lg={12}
-      />
-      <Builders.Field
-        required
-        name="reps"
-        type="number"
-        required
-      />
-    </Builders.Form>
-  </SubDetail>
+  />
 );
 
 export default PoolsCompetitors;

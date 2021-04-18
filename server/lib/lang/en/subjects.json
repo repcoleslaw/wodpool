@@ -1,0 +1,5 @@
+{
+  "verify": "Email verification required",
+  "reverify": "Email re-verification requested",
+  "passwordReset": "Password reset requested"
+}

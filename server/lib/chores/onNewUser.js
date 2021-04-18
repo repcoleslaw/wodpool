@@ -2,12 +2,13 @@ const Mailer = require('q3-core-mailer');
 const { getClientUrl } = require('./utils');
 
 module.exports = async (user) =>
-  Mailer('en-password-reset')
+  Mailer('en-verify')
     .to([user.email])
-    .subjecti18n('passwordReset')
+    .subjecti18n('verify')
     .mjml({
       name: user.firstName,
       url: getClientUrl(user),
-      ...user,
+      code: user.secret,
+      id: user.id,
     })
     .send();
