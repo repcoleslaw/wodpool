@@ -33,7 +33,6 @@ function App() {
       <div className="content-wrap">
         <Router>
           <Switch>
-            <Route exact path="/landing" component={Landing} />
             <Route exact path="/" component={Home} />
             <Route exact path="/pool" component={Pool} />
             <Route exact path="/store" component={Store} />

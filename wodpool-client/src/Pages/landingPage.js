@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 // single page for both login- and if not already, sign up.
 
 //import components
-import Login from './Registration/Login';
+import Registration from './Registration/Login';
 
 //import Assets
 
@@ -14,7 +14,7 @@ import Login from './Registration/Login';
 function landingPage() {
   return (
     <>
-        
+      {/* <Registration/> */}
     </>
   )
 }
