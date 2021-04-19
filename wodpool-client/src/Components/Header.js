@@ -17,7 +17,7 @@ import './Header.css'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    color:"black"
+    backgroundColor:"black"
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  menuItem:{
+    textDecoration:"none",
+    color:"black"
+  }
 }));
 
 function Header() {
@@ -48,10 +52,10 @@ function Header() {
   };
   return (
     <div>
-      <AppBar className="app-bar" position="static">
+      <AppBar className={classes.root} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Wodpool
+            wodpool
           </Typography>
           {auth && (
             <div>
@@ -79,9 +83,7 @@ function Header() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>
-                  <Link to={`/user`}></Link>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}><Link className={classes.menuItem} to="/profile">Profile</Link></MenuItem>
                 <MenuItem onClick={handleChange}>Logout</MenuItem>
               </Menu>
             </div>
