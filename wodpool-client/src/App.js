@@ -24,7 +24,7 @@ import Footer from "./Components/Footer";
 
 //import util
 import AuthProvider from "./util/AuthProvider";
-import AdminProvider from "./util/AdminProvider";
+
 
 // Set Authentication of login
 const token = localStorage.FBIdToken;

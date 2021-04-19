@@ -13,7 +13,7 @@ import axios from 'axios';
 
 // Header will be only on logged in version of app
 import './Header.css'
-import wordmark from '../assets/whitewordmark.png';
+import wpbadge from '../assets/WhiteBadge.png';
 
 
 // Style
@@ -34,9 +34,9 @@ const useStyles = makeStyles((theme) => ({
     color:"black"
   },
   wordmark:{
-    height:"2.5em",
+    height:"2em",
     width:"auto",
-    padding:".5em"
+    paddingTop:".5em"
   }
 }));
 
@@ -67,7 +67,7 @@ function Header() {
       <AppBar className={classes.root} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <img src={wordmark} className={classes.wordmark}alt="wodpool"/>
+            <img src={wpbadge} className={classes.wordmark}alt="wodpool"/>
           </Typography>
           {auth && (
             <div>

@@ -1,29 +1,16 @@
-// This is used to determine if a user is authenticated and
-// if they are allowed to visit the page they navigated to.
+import React from "react"
+import { Route, Redirect } from "react-router-dom"
+import { useAuth } from "../util/AuthContext"
 
-// If they are: they proceed to the page
-// If not: they are redirected to the login page.
-import React from 'react'
-
-import { Redirect, Route } from 'react-router-dom'
-
-const PrivateRoute = ({ component: Component, ...rest }) => {
-
-  // Add your own authentication on the below line.
-  const isLoggedIn = Boolean(true)
+export default function PrivateRoute({ component: Component, ...rest }) {
+  const { currentUser } = useAuth()
 
   return (
     <Route
       {...rest}
-      render={props =>
-        isLoggedIn ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-        )
-      }
-    />
+      render={props => {
+        return currentUser ? <Component {...props} /> : <Redirect to="/login" />
+      }}
+    ></Route>
   )
 }
-
-export default PrivateRoute
