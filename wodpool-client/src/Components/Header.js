@@ -50,9 +50,7 @@ function Header() {
     <div>
       <AppBar className="app-bar" position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Wodpool
-          </Typography>
+          
           {auth && (
             <div>
               <IconButton

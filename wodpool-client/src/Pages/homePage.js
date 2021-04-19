@@ -1,17 +1,62 @@
-import React from 'react'
+import React from 'react';
+import { makeStyles, withTheme } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import {Link} from 'react-router-dom';
 
-// Home page will handle all the pools available to the user.
-// This will also be the hub to which future features will click into
-// ie - gym finder, tips, links back to the store on the godaddy site, etc.
+//
+import wordmark from '../assets/WP-Wordmark.png';
+import { Button } from '@material-ui/core';
 
-import Login from './Registration/Login';
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    textAlign: 'center',
+    padding: "4em"
 
-function homePage() {
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    color: 'white'
+  },
+  btn: {
+    width: '100%',
+    textDecoration:"none",
+    color:'white'
+  }
+}));
+
+export default function HomePage() {
+  const classes = useStyles();
+
   return (
-    <div>
-      this is home page
-    </div>
-  )
-}
+    <div className={classes.root}>
+      <Grid container spacing={3} style={{ justifyContent: "center" }}>
+        <Grid item xs={12}>
+          <img src={wordmark} alt="wodpool" />
+        </Grid>
+        <Grid item xs={12} sm={8}>
+          <Paper className={classes.paper}>
+            <h2>It is time to register your account!</h2>
+            <Grid container spacing={3} style={{justifyContent:"center"}}>
+        <Grid item xs={12} sm={4}>
+          <Button href="/registration"className={classes.btn} variant="contained" color="primary">
+         Register
+           </Button> 
+           </Grid>
+           <Grid item xs={12} sm={4}>          
+           <Button className={classes.btn} variant="contained" color="secondary">
+            Login
+          </Button>
+        </Grid>
+        </Grid>
+          </Paper>
+        </Grid>
+        </Grid>
 
-export default homePage
+
+    </div>
+  );
+}

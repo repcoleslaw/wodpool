@@ -71,7 +71,7 @@ function Signup() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" style={{backgroundColor:"grey", borderRadius:".5em", marginBottom:"4em"}} maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}></Avatar>
@@ -80,7 +80,6 @@ function Signup() {
         </Typography>
         <form
           className={classes.form}
-          style={{ marginBottom: "4em" }}
           noValidate
           onSubmit={handleSubmit}
         >
