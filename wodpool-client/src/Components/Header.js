@@ -9,15 +9,19 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 // Header will be only on logged in version of app
 import './Header.css'
+import wordmark from '../assets/whitewordmark.png';
+
 
 // Style
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor:"black"
+    backgroundColor:"rgba(0,0,0,0.5)",
+    boxShadow:"5px 0px 6px black"
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -28,6 +32,11 @@ const useStyles = makeStyles((theme) => ({
   menuItem:{
     textDecoration:"none",
     color:"black"
+  },
+  wordmark:{
+    height:"2.5em",
+    width:"auto",
+    padding:".5em"
   }
 }));
 
@@ -50,12 +59,15 @@ function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleLogout = () => {
+    delete axios.defaults.headers.common['Authorization'];
+  };
   return (
     <div>
       <AppBar className={classes.root} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            wodpool
+            <img src={wordmark} className={classes.wordmark}alt="wodpool"/>
           </Typography>
           {auth && (
             <div>
@@ -84,7 +96,7 @@ function Header() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}><Link className={classes.menuItem} to="/profile">Profile</Link></MenuItem>
-                <MenuItem onClick={handleChange}>Logout</MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </Menu>
             </div>
           )}
