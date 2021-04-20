@@ -9,15 +9,19 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 // Header will be only on logged in version of app
 import './Header.css'
+import wpbadge from '../assets/WhiteBadge.png';
+
 
 // Style
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    color:"black"
+    backgroundColor:"rgba(0,0,0,0.5)",
+    boxShadow:"5px 0px 6px black"
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -25,6 +29,15 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  menuItem:{
+    textDecoration:"none",
+    color:"black"
+  },
+  wordmark:{
+    height:"2em",
+    width:"auto",
+    paddingTop:".5em"
+  }
 }));
 
 function Header() {
@@ -46,11 +59,20 @@ function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleLogout = () => {
+    delete axios.defaults.headers.common['Authorization'];
+  };
   return (
     <div>
-      <AppBar className="app-bar" position="static">
+      <AppBar className={classes.root} position="static">
         <Toolbar>
+<<<<<<< HEAD
           
+=======
+          <Typography variant="h6" className={classes.title}>
+            <img src={wpbadge} className={classes.wordmark}alt="wodpool"/>
+          </Typography>
+>>>>>>> 823b38c49e065ef4ed3e75ea265704ec126b01d8
           {auth && (
             <div>
               <IconButton
@@ -77,10 +99,8 @@ function Header() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>
-                  <Link to={`/user`}></Link>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleChange}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}><Link className={classes.menuItem} to="/profile">Profile</Link></MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </Menu>
             </div>
           )}

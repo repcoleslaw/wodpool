@@ -1,12 +1,16 @@
-import React from 'react'
-// need to check user authentication on log in
+import React from "react"
+import { Route, Redirect } from "react-router-dom"
+import { useAuth } from "../util/AuthContext"
 
-function AuthProvider() {
+export default function PrivateRoute({ component: Component, ...rest }) {
+  const { currentUser } = useAuth()
+
   return (
-    <div>
-      
-    </div>
+    <Route
+      {...rest}
+      render={props => {
+        return currentUser ? <Component {...props} /> : <Redirect to="/login" />
+      }}
+    ></Route>
   )
 }
-
-export default AuthProvider

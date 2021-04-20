@@ -19,17 +19,22 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    backgroundColor:"#eeeeee",
+    padding:"3em",
+    borderRadius:"1em"
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#B00909",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(3), 
+
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#B00909"
   },
 }));
 
@@ -75,7 +80,7 @@ function Signup() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}></Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{color:"black"}}>
           Register
         </Typography>
         <form
@@ -138,6 +143,7 @@ function Signup() {
                 control={
                   <Checkbox value="allowExtraEmails" required color="primary" />
                 }
+                style={{color:"black"}}
                 label="I want to receive inspiration, marketing promotions and updates via email."
                 onChange={(e) => {
                   setAcceptEmails(!acceptEmails);
@@ -149,6 +155,7 @@ function Signup() {
                 control={
                   <Checkbox value="termsAccepted" required color="primary" />
                 }
+                style={{color:"black"}}
                 label="I accept the Terms of Service, Privacy Policy, and Assumption of Risk Waiver."
                 onChange={(e) => {
                   setAcceptTerms(!acceptTerms);
