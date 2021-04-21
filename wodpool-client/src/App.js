@@ -38,7 +38,7 @@ function App() {
     <div className="page-container">
       <div className="content-wrap">
         <Router>
-          {/* <Header /> */}
+          <Header />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/pool" component={Pool} />

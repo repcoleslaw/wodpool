@@ -76,7 +76,7 @@ function Signup() {
   };
 
   return (
-    <Container component="main" style={{backgroundColor:"grey", borderRadius:".5em", marginBottom:"4em"}} maxWidth="xs">
+    <Container component="main" style={{marginBottom:"4em"}} maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}></Avatar>

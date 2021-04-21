@@ -66,13 +66,9 @@ function Header() {
     <div>
       <AppBar className={classes.root} position="static">
         <Toolbar>
-<<<<<<< HEAD
-          
-=======
           <Typography variant="h6" className={classes.title}>
             <img src={wpbadge} className={classes.wordmark}alt="wodpool"/>
           </Typography>
->>>>>>> 823b38c49e065ef4ed3e75ea265704ec126b01d8
           {auth && (
             <div>
               <IconButton
