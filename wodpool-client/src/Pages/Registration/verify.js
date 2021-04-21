@@ -4,6 +4,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -17,10 +18,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    backgroundColor:"#eeeeee",
+    padding:"3em",
+    borderRadius:"1em"
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#B00909",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -28,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#B00909"
   },
 }));
 
@@ -69,9 +74,20 @@ function Verify(props) {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}></Avatar>
-        <Typography component="h1" variant="h5">
-          Verify
+      <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5" style={{color:"black"}}>
+          Account Verified!
+        </Typography>
+        <Typography style={{color:"#1a1a1a"}}>
+        <p> Please enter a password.</p>
+        <p> The password must contain at least:
+          <li>Uppercase character</li>
+          <li>Lowercase character</li>
+          <li>Number</li>
+          <li>Special Character</li>
+        </p>
         </Typography>
         <form
           className={classes.form}
@@ -112,15 +128,8 @@ function Verify(props) {
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+            Finish Sign Up!
           </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
     </Container>
