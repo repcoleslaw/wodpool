@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     width: '100%',
-    textDecoration:"none"
+    backgroundColor:"#B00909"
   }
 }));
 
@@ -41,12 +41,12 @@ export default function HomePage() {
             <h2>It is time to register your account!</h2>
             <Grid container spacing={3} style={{justifyContent:"center"}}>
         <Grid item xs={12} sm={4}>
-          <Button className={classes.btn} variant="contained" color="primary">
-          <Link to="/registration">Register</Link>
+          <Button className={classes.btn} variant="contained" color="secondary" href="/registration">
+            Register
            </Button> 
            </Grid>
            <Grid item xs={12} sm={4}>          
-           <Button className={classes.btn} variant="contained" color="secondary">
+           <Button className={classes.btn} variant="contained" color="secondary" href="/login">
             Login
           </Button>
         </Grid>
