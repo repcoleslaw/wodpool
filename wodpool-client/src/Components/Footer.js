@@ -11,9 +11,9 @@ import ThreeLogo from "../assets/3mergeLogo.png";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" style={{color:"white"}} align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://donttalkaboutwodpool.ca">
         Wodpool
       </Link>{" "}
       {new Date().getFullYear()}
