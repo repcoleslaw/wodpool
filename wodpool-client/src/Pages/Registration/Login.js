@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
+import {useHistory} from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,8 +43,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 function Login() {
   const classes = useStyles();
+  const history = useHistory();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -57,6 +61,9 @@ function Login() {
       .then(console.log)
       .catch(console.error);
   };
+
+  const redirectToRegistration = () => history.push("/registration");
+  const redirectToForgotPass = () => history.push("/forgotpassword");
 
   return (
     <Container component="main" maxWidth="xs">
@@ -107,12 +114,12 @@ function Login() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link onClick={redirectToForgotPass} variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link onClick={redirectToRegistration} variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

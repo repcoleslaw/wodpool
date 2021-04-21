@@ -43,6 +43,7 @@ function Signup() {
   const history = useHistory();
 
   const redirectToThankYouPage = () => history.push("/thanks");
+  const redirectToLogin = () => history.push("/login");
 
   // Establish Required hooks
   const [firstName, setFirstName] = React.useState("");
@@ -174,7 +175,7 @@ function Signup() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link onClick={redirectToLogin} variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
