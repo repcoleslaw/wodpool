@@ -33,8 +33,8 @@ function Thanks() {
 
   return(
     <div className={classes.root}>
-      <Grid container style={{justifyContent:"center"}} xs={12} sm={6}>
-        <Grid item className={classes.paper}>
+      <Grid container style={{justifyContent:"center"}} >
+        <Grid item xs={12} sm={6} className={classes.paper}>
         <p> Thanks for Registering! An email is on its way to complete the process! </p>
         
         <Button variant="contained" className={classes.btn} onClick={redirectToHome}>Back to Home Page</Button>
