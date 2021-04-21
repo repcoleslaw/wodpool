@@ -46,6 +46,8 @@ function Signup() {
   const redirectToLogin = () => history.push("/login");
 
   // Establish Required hooks
+  const [formState, setFormState] = React.useState({});
+  
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [handle, setHandle] = React.useState("");
@@ -71,6 +73,7 @@ function Signup() {
         lastName,
         email,
         handle,
+        acceptTerms,
       })
       .then(redirectToThankYouPage)
       .catch(console.error);

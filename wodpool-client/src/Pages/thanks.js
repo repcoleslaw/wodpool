@@ -36,6 +36,7 @@ function Thanks() {
       <Grid container style={{justifyContent:"center"}} >
         <Grid item xs={12} sm={6} className={classes.paper}>
         <p> Thanks for Registering! An email is on its way to complete the process! </p>
+        <p> If you are having problems receiving the email, please check your inbox and spam folders for the sender 3merge. </p>
         
         <Button variant="contained" className={classes.btn} onClick={redirectToHome}>Back to Home Page</Button>
         </Grid>

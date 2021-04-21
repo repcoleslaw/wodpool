@@ -1,22 +1,52 @@
-import { Button } from '@material-ui/core';
-import React from 'react'
-import {Link} from 'react-router-dom';
+import React from "react";
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 
-// Landing page will be the first screen seen handling authentication/
-// single page for both login- and if not already, sign up.
+import wordmark from "../assets/WP-Wordmark.png";
 
-//import components
-import Registration from './Registration/Login';
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    textAlign: "center",
+    padding: "4em",
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    color: 'white'
+  },
+  btn: {
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#B00909",
 
-//import Assets
+  }
+}));
 
 
-function landingPage() {
-  return (
-    <>
-      {/* <Registration/> */}
-    </>
-  )
+function LandingPage() {
+  const classes = useStyles();
+  const history = useHistory();
+  
+  const redirectToLogin = () => history.push("/login");
+  const redirectToRegistration = () => history.push("/registration");
+
+  return(
+    <div className={classes.root} >
+        <img src={wordmark} alt="wodpool" />
+        <Paper className={classes.paper}>
+        <p>Welcome to WODPool.</p>
+        <Button className={classes.btn} onClick={redirectToLogin}>Login</Button>
+        <Button className={classes.btn} onClick={redirectToRegistration}>Register</Button>
+        </Paper>
+
+    </div>
+  );
+
+
 }
 
-export default landingPage
+export default LandingPage;
