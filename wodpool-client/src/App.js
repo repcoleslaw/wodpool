@@ -28,6 +28,8 @@ import Footer from "./Components/Footer";
 import AuthRoute from "./util/AuthRoute";
 
 import AuthenticationContextProvider from "./Components/AuthenticationContext";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import PublicRoute from "./Components/PublicRoute";
 import useAxios from "./Components/useAxios";
 
 // Set Authentication of login
@@ -38,8 +40,8 @@ function App() {
   return (
     <div className="page-container">
       <div className="content-wrap">
-        <AuthenticationContextProvider>
-          <Router>
+        <Router>
+          <AuthenticationContextProvider>
             <Header />
             <Switch>
               {/* Private Routes */}
@@ -50,15 +52,19 @@ function App() {
               <Route exact path="/pool" component={Pool} />
               <Route exact path="/user" component={Userpage} />
               <Route exact path="/admin" component={Admin} />
-              <Route exact path="/registration" component={Registration} />
-              <Route exact path="/verify" component={Verify} />
-              <Route exact path="/login" component={Login} />
+              <PublicRoute
+                exact
+                path="/registration"
+                component={Registration}
+              />
+              <PublicRoute exact path="/verify" component={Verify} />
+              <PublicRoute exact path="/login" component={Login} />
               <Route exact path="/thanks" component={Thanks} />
-              <Route exact path="/profile" component={Profile} />
+              <ProtectedRoute exact path="/profile" component={Profile} />
               <Route component={NotFound} />
             </Switch>
-          </Router>
-        </AuthenticationContextProvider>
+          </AuthenticationContextProvider>
+        </Router>
       </div>
       <Footer />
     </div>

@@ -12,10 +12,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Cookies from "js-cookie";
-import { TOKEN, NONCE } from "../../Components/AuthenticationContext";
+import { AuthenticationContext } from "../../Components/AuthenticationContext";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -46,20 +44,14 @@ function Login() {
   const history = useHistory();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const { authenticate } = React.useContext(AuthenticationContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    return axios
-      .post("/authenticate", {
-        email,
-        password,
-      })
-      .then(({ data }) => {
-        Cookies.set(TOKEN, data?.token);
-        Cookies.set(NONCE, data?.nonce);
-        history.push("/profile");
-      })
-      .catch(console.error);
+    return authenticate({
+      email,
+      password,
+    }).catch(console.error);
   };
 
   const redirectToRegistration = () => history.push("/registration");
