@@ -1,7 +1,10 @@
 import React from 'react'
 
+
 // this page will be the users page showcasing their
 // -pools , points, progress, future user property visuals.
+
+
 
 function userPage() {
   return (

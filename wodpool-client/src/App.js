@@ -9,7 +9,7 @@ import axios from "axios";
 import Admin from "./Pages/adminPage";
 import Home from "./Pages/homePage";
 import Pool from "./Pages/poolPage";
-import Store from "./Pages/storePage";
+// import Store from "./Pages/storePage";
 import Userpage from "./Pages/userPage";
 import Landing from "./Pages/landingPage";
 import NotFound from "./Pages/404";
@@ -23,11 +23,11 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
 //import util
-import AuthProvider from "./util/AuthProvider";
+
+import AuthRoute from './util/AuthRoute';
 
 
 // Set Authentication of login
-const token = localStorage.FBIdToken;
 
 function App() {
   // if you config a base URL at the top of your app
@@ -37,12 +37,16 @@ function App() {
   return (
     <div className="page-container">
       <div className="content-wrap">
+
         <Router>
           <Header />
           <Switch>
-            <Route exact path="/" component={Home} />
+            {/* Private Routes */}
+            <AuthRoute exact path="/" component={Home} />
+
+            {/* Public Routes */}
+            <Route exact path="/landing" component={Landing} />
             <Route exact path="/pool" component={Pool} />
-            <Route exact path="/store" component={Store} />
             <Route exact path="/user" component={Userpage} />
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/registration" component={Registration} />
@@ -52,6 +56,8 @@ function App() {
             <Route component={NotFound} />
           </Switch>
         </Router>
+
+       
       </div>
 
       <Footer />

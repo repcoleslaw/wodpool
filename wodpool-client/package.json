@@ -10,6 +10,8 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
     "gatsby": "^3.2.1",
+    "js-cookie": "^2.2.1",
+    "minimatch": "^3.0.4",
     "q3-ui-assets": "^1.28.0",
     "q3-ui-forms": "^1.30.0",
     "q3-ui-permissions": "^1.27.3",
