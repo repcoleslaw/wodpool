@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 
 import placeholder from '../assets/placeholder.png'
 import { findLastIndex } from 'lodash';
-import axios from 'axios';
+
 
 const useStyles = makeStyles({
   root: {
@@ -29,42 +29,34 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImgMediaCard() {
+export default function Poolcard(props) {
   const classes = useStyles();
 
-  axios.get()
- 
+  console.log(props.pools)
+
+  const displayPools = (props) =>{
+    const {pools} = props;
+
+    if (pools.length > 0) {
+      return (
+        pools.map((pool, index) => {
+          console.log(pool);
+          return(
+              // STYLE THE POOL CARDS HERE
+              <p style={{color:'black'}}>{pool.name}</p>
+
+          )
+        })
+      )
+    } else { 
+      return (<p style={{color:'black'}}> haven't found pools</p>)
+    }
+  }
+
 
   return (
-    <Card className={classes.root}>
-       <CardMedia
-          className={classes.media}
-          component="img"
-          alt="Contemplative Reptile"
-          height="140"
-          image={placeholder}
-          title="Contemplative Reptile"
-        />
-      <div className={classes.details}>
-      <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Pool Title
-            {/* {pool.title} */}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Pool Description
-            {/* {pool.desc} */}
-          </Typography>
-        </CardContent>
-        <CardActions>
-        <Button size="small" color="primary">
-          Join Pool
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-      </div>
-    </Card>
+    <>
+      {displayPools(props)}
+    </>
   );
 }
