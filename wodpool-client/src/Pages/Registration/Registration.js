@@ -13,6 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
 
+// styles are global scoped to all this document.
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Signup() {
+function Registration() {
   const classes = useStyles();
   const history = useHistory();
 
@@ -47,14 +48,20 @@ function Signup() {
 
   // Establish Required hooks
   const [formState, setFormState] = React.useState({});
-  
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
-  const [handle, setHandle] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [acceptTerms, setAcceptTerms] = React.useState("false");
-  const [acceptEmails, setAcceptEmails] = React.useState("false");
+  const [isError, setIsError] = React.useState(false)
+  const [errors, getErrors] = React.useState('');
 
+  const [acceptTerms, setAcceptTerms] = React.useState(false);
+  const [acceptEmails, setAcceptEmails] = React.useState(false);
+
+  const handleChange = (e) =>{
+    const {name, value} = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]:value,
+    }));
+  };
+  
   const handleSubmit = (event) => {
     // need to do this earlier in the callback
     // some frameworks use a "synthesized" event
@@ -69,17 +76,25 @@ function Signup() {
         // typically, I'd only do that for file sending
         __t: "competitors",
         role: "Competitor",
-        firstName,
-        lastName,
-        email,
-        handle,
+        ...formState,
         acceptTerms,
       })
+      // on success
       .then(redirectToThankYouPage)
-      .catch(console.error);
+      // catch errors on failure.
+      .catch((err) => {
+        console.log(err)
+        setIsError(true);
+        getErrors(err)
+      });
   };
 
+  const printError = () => {
+    console.log(errors.message)
+  }
+
   return (
+
     <Container component="main" style={{marginBottom:"4em"}} maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -103,7 +118,7 @@ function Signup() {
                 id="firstName"
                 label="First Name"
                 autoFocus
-                onChange={(e) => setFirstName(e.target.value)}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -115,7 +130,7 @@ function Signup() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -127,7 +142,7 @@ function Signup() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -139,7 +154,7 @@ function Signup() {
                 label="Handle"
                 type="handle"
                 id="handle"
-                onChange={(e) => setHandle(e.target.value)}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -183,10 +198,19 @@ function Signup() {
               </Link>
             </Grid>
           </Grid>
+          {
+            isError && <>
+
+            <p style={{color:"red"}}>An Error occured, try:</p>
+            <Button onClick={printError}>Print Error</Button>
+
+            </>
+            
+          }
         </form>
       </div>
     </Container>
   );
 }
 
-export default Signup;
+export default Registration;

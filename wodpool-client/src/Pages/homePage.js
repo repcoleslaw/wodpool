@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles} from "@material-ui/core/styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import PoolCard from '../Components/PoolCard';
 
 //
 import wordmark from "../assets/WP-Wordmark.png";
@@ -30,32 +31,26 @@ export default function HomePage() {
   const history = useHistory();
 
   // set pool data
-  const [pool, setPool] = React.useState("");
+  const [pools, getPools] = React.useState("");
 
-  const handleLoad = (e) => {
-    e.preventDefault();
-    return axios
-      .get("/pools")
+  React.useEffect (() => {
+    getAllPools();
+  }, []);
+
+  const getAllPools = () => {
+    axios.get("/pools")
       .then((res) => {
-        setPool({
-          pools: res.data,
-        });
+        const allPools = res.data.pools;
+        getPools(allPools);
       })
-      .catch((err) => console.log(err));
-  };
-
-  let poolsMarkup = pool ? <p>TeeHee, I have the pool data and you can't render it</p> : <p>loading...</p>;
-
-  const printData = (e) => {
-    e.preventDefault();
-    console.log(pool)
+      .catch(error => console.error(`Error: ${error}`))
   }
 
+
   return (
-    <div className={classes.root} onLoad={handleLoad}>
+    <div className={classes.root}>
         <img src={wordmark} alt="wodpool" />
-        {poolsMarkup}
-        <Button onClick={printData}> print pools</Button>
+        <PoolCard pools={pools}/>
     </div>
   );
 }

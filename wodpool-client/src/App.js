@@ -6,11 +6,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 
 //import pages
-import Admin from "./Pages/adminPage";
 import Home from "./Pages/homePage";
 import Pool from "./Pages/poolPage";
 // import Store from "./Pages/storePage";
-import Userpage from "./Pages/userPage";
 import Landing from "./Pages/landingPage";
 import NotFound from "./Pages/404";
 import Registration from "./Pages/Registration/Registration";
@@ -24,9 +22,6 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
 //import util
-
-import AuthRoute from "./util/AuthRoute";
-
 import AuthenticationContextProvider from "./Components/AuthenticationContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
@@ -45,13 +40,13 @@ function App() {
             <Header />
             <Switch>
               {/* Private Routes */}
-              <AuthRoute exact path="/" component={Home} />
+              <PublicRoute exact path="/" component={Home} />
+              <ProtectedRoute exact path="/pool" component={Pool} />
+              <ProtectedRoute exact path="/profile" component={Profile} />
 
               {/* Public Routes */}
-              <Route exact path="/landing" component={Landing} />
-              <Route exact path="/pool" component={Pool} />
-              <Route exact path="/user" component={Userpage} />
-              <Route exact path="/admin" component={Admin} />
+              <PublicRoute exact path="/landing" component={Landing} />
+  
               <PublicRoute
                 exact
                 path="/registration"
@@ -60,7 +55,7 @@ function App() {
               <PublicRoute exact path="/verify" component={Verify} />
               <PublicRoute exact path="/login" component={Login} />
               <Route exact path="/thanks" component={Thanks} />
-              <ProtectedRoute exact path="/profile" component={Profile} />
+
               <Route component={NotFound} />
             </Switch>
           </AuthenticationContextProvider>
