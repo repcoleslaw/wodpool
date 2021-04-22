@@ -31,7 +31,6 @@ const AuthenticationContextProvider = ({ children }) => {
         return getProfile();
       })
       .then(() => {
-        console.log(history);
         history.push("/profile");
       });
 
