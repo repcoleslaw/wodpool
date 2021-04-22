@@ -17,6 +17,7 @@ import Registration from "./Pages/Registration/Registration";
 import Login from "./Pages/Registration/Login";
 import Thanks from "./Pages/thanks";
 import Verify from "./Pages/Registration/verify";
+import Profile from "./Pages/profile";
 
 // import components
 import Header from "./Components/Header";
@@ -24,42 +25,41 @@ import Footer from "./Components/Footer";
 
 //import util
 
-import AuthRoute from './util/AuthRoute';
+import AuthRoute from "./util/AuthRoute";
 
+import AuthenticationContextProvider from "./Components/AuthenticationContext";
+import useAxios from "./Components/useAxios";
 
 // Set Authentication of login
 
 function App() {
-  // if you config a base URL at the top of your app
-  // you don't need to reference it again per request
-  axios.defaults.baseURL = process.env.REACT_APP_API;
+  useAxios();
 
   return (
     <div className="page-container">
       <div className="content-wrap">
+        <AuthenticationContextProvider>
+          <Router>
+            <Header />
+            <Switch>
+              {/* Private Routes */}
+              <AuthRoute exact path="/" component={Home} />
 
-        <Router>
-          <Header />
-          <Switch>
-            {/* Private Routes */}
-            <AuthRoute exact path="/" component={Home} />
-
-            {/* Public Routes */}
-            <Route exact path="/landing" component={Landing} />
-            <Route exact path="/pool" component={Pool} />
-            <Route exact path="/user" component={Userpage} />
-            <Route exact path="/admin" component={Admin} />
-            <Route exact path="/registration" component={Registration} />
-            <Route exact path="/verify" component={Verify} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/thanks" component={Thanks} />
-            <Route component={NotFound} />
-          </Switch>
-        </Router>
-
-       
+              {/* Public Routes */}
+              <Route exact path="/landing" component={Landing} />
+              <Route exact path="/pool" component={Pool} />
+              <Route exact path="/user" component={Userpage} />
+              <Route exact path="/admin" component={Admin} />
+              <Route exact path="/registration" component={Registration} />
+              <Route exact path="/verify" component={Verify} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/thanks" component={Thanks} />
+              <Route exact path="/profile" component={Profile} />
+              <Route component={NotFound} />
+            </Switch>
+          </Router>
+        </AuthenticationContextProvider>
       </div>
-
       <Footer />
     </div>
   );

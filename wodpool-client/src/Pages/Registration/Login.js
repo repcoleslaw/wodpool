@@ -13,8 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
-import {useHistory} from 'react-router-dom';
-
+import { useHistory } from "react-router-dom";
+import Cookies from "js-cookie";
+import { TOKEN, NONCE } from "../../Components/AuthenticationContext";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -22,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor:"#eeeeee",
-    padding:"3em",
-    borderRadius:"1em"
+    backgroundColor: "#eeeeee",
+    padding: "3em",
+    borderRadius: "1em",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -36,11 +37,9 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#B00909"
+    backgroundColor: "#B00909",
   },
 }));
-
-
 
 function Login() {
   const classes = useStyles();
@@ -55,7 +54,11 @@ function Login() {
         email,
         password,
       })
-      .then(console.log)
+      .then(({ data }) => {
+        Cookies.set(TOKEN, data?.token);
+        Cookies.set(NONCE, data?.nonce);
+        history.push("/profile");
+      })
       .catch(console.error);
   };
 
@@ -69,7 +72,7 @@ function Login() {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5" style={{color:"black"}}>
+        <Typography component="h1" variant="h5" style={{ color: "black" }}>
           Sign in
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
