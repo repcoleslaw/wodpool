@@ -49,7 +49,7 @@ function Registration() {
   // Establish Required hooks
   const [formState, setFormState] = React.useState({});
   const [isError, setIsError] = React.useState(false)
-  const [errors, getErrors] = React.useState('');
+  const [errors, getErrors] = React.useState('null');
 
   const [acceptTerms, setAcceptTerms] = React.useState(false);
   const [acceptEmails, setAcceptEmails] = React.useState(false);
@@ -68,12 +68,10 @@ function Registration() {
     // so the preventDefault is not guarenteed to still exist later on in the stack
     event.preventDefault();
 
+
     return axios
       .post(`/q3-api-users`, {
         // just send a basic object to the API
-        // if you use FormData, then you need to also send something called MultiPart headers
-        // and that just is a little overkill for this type of app
-        // typically, I'd only do that for file sending
         __t: "competitors",
         role: "Competitor",
         ...formState,
@@ -83,15 +81,18 @@ function Registration() {
       .then(redirectToThankYouPage)
       // catch errors on failure.
       .catch((err) => {
-        console.log(err)
         setIsError(true);
-        getErrors(err)
+        getErrors(err.response.data);
+        console.log(errors)
+
       });
   };
 
-  const printError = () => {
-    console.log(errors.message)
-  }
+  // stupid little error helper. 
+  let emailHelper = '';
+  if (errors.errors?.email) {
+    emailHelper = errors.errors.email.msg
+  };
 
   return (
 
@@ -99,6 +100,7 @@ function Registration() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}></Avatar>
+
         <Typography component="h1" variant="h5" style={{color:"black"}}>
           Register
         </Typography>
@@ -108,7 +110,7 @@ function Registration() {
           onSubmit={handleSubmit}
         >
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -117,11 +119,12 @@ function Registration() {
                 fullWidth
                 id="firstName"
                 label="First Name"
+                error={Boolean(errors.errors?.firstName)}
                 autoFocus
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -129,6 +132,7 @@ function Registration() {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
+                error={Boolean(errors.errors?.lastName)}
                 autoComplete="lname"
                 onChange={handleChange}
               />
@@ -142,6 +146,8 @@ function Registration() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                error={Boolean(errors.errors?.email)}
+                helperText={emailHelper}
                 onChange={handleChange}
               />
             </Grid>
@@ -154,6 +160,7 @@ function Registration() {
                 label="Handle"
                 type="handle"
                 id="handle"
+                error={Boolean(errors.errors?.handle)}
                 onChange={handleChange}
               />
             </Grid>
@@ -198,15 +205,6 @@ function Registration() {
               </Link>
             </Grid>
           </Grid>
-          {
-            isError && <>
-
-            <p style={{color:"red"}}>An Error occured, try:</p>
-            <Button onClick={printError}>Print Error</Button>
-
-            </>
-            
-          }
         </form>
       </div>
     </Container>
