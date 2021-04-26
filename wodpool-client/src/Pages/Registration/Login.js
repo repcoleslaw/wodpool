@@ -45,14 +45,30 @@ function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const { authenticate } = React.useContext(AuthenticationContext);
+  const [isError, setIsError] = React.useState(false)
+  const [errors, getErrors] = React.useState('null');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     return authenticate({
       email,
       password,
-    }).catch(console.error);
+    }).catch((err)=>{
+      setIsError(true);
+      getErrors(err.response.data);
+      console.log(errors);
+    });
   };
+
+    // stupid little error helper. 
+    let emailHelper = '';
+    if (errors.errors?.email) {
+      emailHelper = "Please Enter your Email"
+    };
+    let passHelper = '';
+    if (errors.errors?.password) {
+      passHelper = "Incorrect Password, please try again."
+    };
 
   const redirectToRegistration = () => history.push("/registration");
   const redirectToForgotPass = () => history.push("/forgotpassword");
@@ -80,6 +96,8 @@ function Login() {
             autoFocus
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            error={Boolean(errors.errors?.email)}
+            helperText={emailHelper}
           />
           <TextField
             variant="outlined"
@@ -93,6 +111,8 @@ function Login() {
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            error={Boolean(errors.errors?.password)}
+            helperText={passHelper}
           />
 
           <Button
