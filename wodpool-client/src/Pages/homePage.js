@@ -3,6 +3,7 @@ import { makeStyles} from "@material-ui/core/styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import PoolCard from '../Components/PoolCard';
+import Header from '../Components/HeaderFooter/Header';
 
 //
 import wordmark from "../assets/WP-Wordmark.png";
@@ -48,9 +49,13 @@ export default function HomePage() {
 
 
   return (
+    <>
+    <Header/>
     <div className={classes.root}>
         <img src={wordmark} alt="wodpool" />
         <PoolCard pools={pools}/>
     </div>
+    </>
+    
   );
 }

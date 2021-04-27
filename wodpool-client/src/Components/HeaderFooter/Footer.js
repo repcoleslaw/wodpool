@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 import "./Footer.css";
-import ThreeLogo from "../assets/3mergeLogo.png";
+import ThreeLogo from "../../assets/3mergeLogo.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {

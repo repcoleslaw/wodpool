@@ -18,14 +18,15 @@ import Verify from "./Pages/Registration/verify";
 import Profile from "./Pages/profile";
 
 // import components
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
+import Header from "./Components/HeaderFooter/Header";
+import Footer from "./Components/HeaderFooter/Footer";
 
 //import util
 import AuthenticationContextProvider from "./Components/AuthenticationContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
 import useAxios from "./Components/useAxios";
+
 
 // Set Authentication of login
 
@@ -37,16 +38,14 @@ function App() {
       <div className="content-wrap">
         <Router>
           <AuthenticationContextProvider>
-            <Header />
             <Switch>
               {/* Private Routes */}
-              <PublicRoute exact path="/" component={Home} />
+              <ProtectedRoute exact path="/" component={Home} />
               <ProtectedRoute exact path="/pool" component={Pool} />
               <ProtectedRoute exact path="/profile" component={Profile} />
 
               {/* Public Routes */}
               <PublicRoute exact path="/landing" component={Landing} />
-  
               <PublicRoute
                 exact
                 path="/registration"

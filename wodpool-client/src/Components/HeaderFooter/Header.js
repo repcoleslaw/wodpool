@@ -8,12 +8,12 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { Link } from "react-router-dom";
-import { NONCE, TOKEN } from "./AuthenticationContext";
+import { NONCE, TOKEN } from "../AuthenticationContext/AuthenticationContext";
 import Cookies from "js-cookie";
 
-// Header will be only on logged in version of app
+//import assets
 import "./Header.css";
-import wpbadge from "../assets/WhiteBadge.png";
+import wpbadge from "../../assets/WhiteBadge.png";
 
 // Style
 const useStyles = makeStyles((theme) => ({
@@ -58,10 +58,11 @@ function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const handleLogout = () => {
+    //removes headers
     Cookies.remove(TOKEN);
     Cookies.remove(NONCE);
-
     // ensure all state has been cleared from the session
     window.location.reload();
   };

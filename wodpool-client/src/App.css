@@ -2,11 +2,13 @@
   text-align: center;
 }
 
+
 .page-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 .content-wrap {
   flex: 1;
 }
@@ -18,15 +20,7 @@ html{
   background-color: rgba(0,0,0,.5);
 }
 
-.row {
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-}
 
-.col {
-  margin:2em;
-}
 
 .unstyled-list{
   text-decoration: none;
