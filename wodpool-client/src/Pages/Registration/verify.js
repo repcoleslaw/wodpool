@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor:"#eeeeee",
-    padding:"3em",
-    borderRadius:"1em"
+    backgroundColor: "#eeeeee",
+    padding: "3em",
+    borderRadius: "1em",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#B00909"
+    backgroundColor: "#B00909",
   },
 }));
 
@@ -43,6 +43,8 @@ function Verify(props) {
   const redirectToLoginPage = () => history.push("/login");
 
   const [formState, setFormState] = React.useState({});
+  const [isError, setIsError] = React.useState(false);
+  const [errors, getErrors] = React.useState("null");
   const params = new URLSearchParams(props.location.search);
 
   // you might want to use something like this in the registration form
@@ -67,28 +69,71 @@ function Verify(props) {
         ...formState,
       })
       .then(redirectToLoginPage)
-      .catch(console.error);
+      .catch((err) => {
+        // check general
+        console.log(err);
+        setIsError(true);
+        getErrors(err.response.data);
+        console.log(errors);
+      });
   };
+
+  // stupid little error helper.
+  let errorHelper = "";
+  let errorHelper1 = "";
+  let errorHelper2 = "";
+  let password1 = "";
+  let password2 = "";
+  password1 = formState.newPassword;
+  password2 = formState.confirmNewPassword;
+
+  if (isError) {
+    // Password 1
+    //null check
+    if (!password1) {
+      errorHelper1 = "This field cannot be empty";
+    }
+    // length check
+    else if (password1.length < 8) {
+      errorHelper1 = "The password provided is not long enough.";
+    }
+    // capital letters character
+    else if (!password1.match(/[A-Z]/)) {
+      errorHelper1 = "The password provide does not have Capital Letters";
+    }
+    // Numbers
+    else if (!password1.match(/[0-9]/)) {
+      errorHelper1 = "The password provide does not have any Numbers";
+    }
+    // Special character
+    else if (!password1.match(/[!@#$%^&*()?<>]/)) {
+      errorHelper1 =
+        "The password provide does not have any Special Characters ( e.g. @#$% )";
+    } else if (!password2) {
+      errorHelper2 = "This field cannot be empty";
+    }
+    // Passwords Match?
+    else if (password1 !== password2) {
+      errorHelper1 = "These passwords do not match.";
+      errorHelper2 = "These passwords do not match.";
+    }
+  }
+
+  if (errors.statusCode === 403) {
+    errorHelper = "Timed out, get a new verification code.";
+  }
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-      <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5" style={{color:"black"}}>
+        <Typography component="h1" variant="h5" style={{ color: "black" }}>
           Account Verified!
         </Typography>
-        <Typography style={{color:"#1a1a1a"}}>
-        <p> Please enter a password.</p>
-        <p> The password must contain at least:
-          <li>Uppercase character</li>
-          <li>Lowercase character</li>
-          <li>Number</li>
-          <li>Special Character</li>
-        </p>
-        </Typography>
+        <p style={{ color: "red" }}>{errorHelper}</p>
         <form
           className={classes.form}
           style={{ marginBottom: "4em" }}
@@ -105,6 +150,8 @@ function Verify(props) {
                 id="newPassword"
                 label="Password"
                 autoFocus
+                error={Boolean(errors)}
+                helperText={errorHelper1}
                 onChange={handleChange}
               />
             </Grid>
@@ -117,6 +164,8 @@ function Verify(props) {
                 id="confirmNewPassword"
                 label="Confim password"
                 autoFocus
+                error={Boolean(errors)}
+                helperText={errorHelper2}
                 onChange={handleChange}
               />
             </Grid>
@@ -128,7 +177,7 @@ function Verify(props) {
             color="primary"
             className={classes.submit}
           >
-            Finish Sign Up!
+            Set Password
           </Button>
         </form>
       </div>
