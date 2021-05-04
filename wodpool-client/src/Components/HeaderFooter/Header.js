@@ -37,6 +37,11 @@ const useStyles = makeStyles((theme) => ({
     width: "auto",
     paddingTop: ".5em",
   },
+  menuBarItem:{
+    padding:"0 1em",
+    textDecoration:"none",
+    color:"white"
+  }
 }));
 
 function Header() {
@@ -73,6 +78,9 @@ function Header() {
           <Typography variant="h6" className={classes.title}>
             <img src={wpbadge} className={classes.wordmark} alt="wodpool" />
           </Typography>
+          <Link className={classes.menuBarItem} to="/">Home</Link>
+          <Link className={classes.menuBarItem} to="/pools">Pools</Link>
+
           {auth && (
             <div>
               <IconButton
@@ -99,6 +107,16 @@ function Header() {
                 open={open}
                 onClose={handleClose}
               >
+                <MenuItem onClick={handleClose}>
+                  <Link className={classes.menuItem} to="/">
+                    Home
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link className={classes.menuItem} to="/pools">
+                    Pools
+                  </Link>
+                </MenuItem>
                 <MenuItem onClick={handleClose}>
                   <Link className={classes.menuItem} to="/profile">
                     Profile

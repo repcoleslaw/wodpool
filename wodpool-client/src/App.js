@@ -41,7 +41,7 @@ function App() {
             <Switch>
               {/* Private Routes */}
               <ProtectedRoute exact path="/" component={Home} />
-              <ProtectedRoute exact path="/pool" component={Pool} />
+              <ProtectedRoute exact path="/pools"pool component={Pool} />
               <ProtectedRoute exact path="/profile" component={Profile} />
 
               {/* Public Routes */}

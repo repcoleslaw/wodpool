@@ -65,7 +65,7 @@ const Profile = () => {
           <Grid item xs={12} md={6} lg={4}>
             <Paper className={classes.paper}>
               <h2>Quick Navigation</h2>
-              <Link to="/">Pools</Link>
+              <Link to="/pools">Pools</Link>
             </Paper>
           </Grid>
 
