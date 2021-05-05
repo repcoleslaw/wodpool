@@ -5,6 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import {Link} from 'react-router-dom';
+import Button from '@material-ui/core/Button'
+import Tutorial from '../Components/Tutorial/Tutorial';
 
 //import assets
 import placeholder from "../assets/placeholder.png";
@@ -31,11 +33,13 @@ const Profile = () => {
   const classes = useStyles();
   const [profileData, setProfileData] = React.useState("");
 
+
   const auth = React.useContext(AuthenticationContext);
 
   React.useEffect (() => {
     getMyProfile();
   }, []);
+
 
   const getMyProfile = () => {
     axios.get("/profile")
@@ -66,6 +70,7 @@ const Profile = () => {
             <Paper className={classes.paper}>
               <h2>Quick Navigation</h2>
               <Link to="/pools">Pools</Link>
+              <Link to="/tutorial"> Tutorial</Link>
             </Paper>
           </Grid>
 

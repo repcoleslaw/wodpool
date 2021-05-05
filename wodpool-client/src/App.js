@@ -16,6 +16,7 @@ import Login from "./Pages/Registration/Login";
 import Thanks from "./Pages/thanks";
 import Verify from "./Pages/Registration/verify";
 import Profile from "./Pages/profile";
+import Tutorial from "./Components/Tutorial/Tutorial";
 
 // import components
 import Header from "./Components/HeaderFooter/Header";
@@ -43,6 +44,7 @@ function App() {
               <ProtectedRoute exact path="/" component={Home} />
               <ProtectedRoute exact path="/pools"pool component={Pool} />
               <ProtectedRoute exact path="/profile" component={Profile} />
+              <ProtectedRoute exact path="/tutorial" component={Tutorial} />
 
               {/* Public Routes */}
               <PublicRoute exact path="/landing" component={Landing} />
