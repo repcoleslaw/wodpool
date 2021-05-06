@@ -9,7 +9,7 @@ export const TOKEN = "X-Session-Token";
 export const AuthenticationContext = React.createContext({});
 
 const AuthenticationContextProvider = ({ children }) => {
-  const [init, setInit] = React.useState(true);
+  const [init, setInit] = React.useState(false);
   const [profile, setProfile] = React.useState(null);
   const history = useHistory();
 
@@ -36,9 +36,15 @@ const AuthenticationContextProvider = ({ children }) => {
 
   React.useEffect(() => {
     getProfile().finally(() => {
-      setInit(false);
+      setInit(true);
     });
   }, []);
+
+  const El = (p) =>
+    React.cloneElement(children, {
+      ...p,
+      init,
+    });
 
   return (
     <AuthenticationContext.Provider
@@ -48,7 +54,7 @@ const AuthenticationContextProvider = ({ children }) => {
         authenticate,
       }}
     >
-      {children}
+      <El />
     </AuthenticationContext.Provider>
   );
 };

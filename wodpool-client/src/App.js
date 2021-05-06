@@ -1,6 +1,6 @@
 // import style
 import "./App.css";
-
+import { Box, CircularProgress } from "@material-ui/core";
 //import packages
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
@@ -27,8 +27,30 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
 import useAxios from "./Components/useAxios";
 
-
 // Set Authentication of login
+
+const Routes = (r) => {
+  return r.init ? (
+    <Switch>
+      <ProtectedRoute exact default path="/" component={Home} />
+      <ProtectedRoute exact path="/pools" pool component={Pool} />
+      <ProtectedRoute exact path="/profile" component={Profile} />
+
+      {/* Public Routes */}
+      <PublicRoute exact path="/landing" component={Landing} />
+      <PublicRoute exact path="/registration" component={Registration} />
+      <PublicRoute exact path="/verify" component={Verify} />
+      <PublicRoute exact path="/login" component={Login} />
+      <Route exact path="/thanks" component={Thanks} />
+
+      <Route component={NotFound} />
+    </Switch>
+  ) : (
+    <Box p={4} align="center">
+      <CircularProgress />
+    </Box>
+  );
+};
 
 function App() {
   useAxios();
@@ -38,25 +60,7 @@ function App() {
       <div className="content-wrap">
         <Router>
           <AuthenticationContextProvider>
-            <Switch>
-              {/* Private Routes */}
-              <ProtectedRoute exact path="/" component={Home} />
-              <ProtectedRoute exact path="/pools"pool component={Pool} />
-              <ProtectedRoute exact path="/profile" component={Profile} />
-
-              {/* Public Routes */}
-              <PublicRoute exact path="/landing" component={Landing} />
-              <PublicRoute
-                exact
-                path="/registration"
-                component={Registration}
-              />
-              <PublicRoute exact path="/verify" component={Verify} />
-              <PublicRoute exact path="/login" component={Login} />
-              <Route exact path="/thanks" component={Thanks} />
-
-              <Route component={NotFound} />
-            </Switch>
+            <Routes />
           </AuthenticationContextProvider>
         </Router>
       </div>
