@@ -4,9 +4,9 @@ import Header from "../Components/HeaderFooter/Header";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import {Link} from 'react-router-dom';
-import PoolCard from '../Components/PoolCard/PoolCard';
-
+import { Link } from "react-router-dom";
+import PoolCard from "../Components/PoolCard/PoolCard";
+import usePools from "../Components/usePools";
 
 //import assets
 import placeholder from "../assets/placeholder.png";
@@ -29,6 +29,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const MyPools = () => {
+  const us = usePools();
+
+  React.useEffect(() => {
+    us.fetchWithHandle();
+  }, []);
+
+  return us.hasPools() ? "YES" : null;
+};
+
+const OtherPools = () => {
+  const us = usePools();
+  const classes = useStyles();
+  React.useEffect(() => {
+    us.fetchWithoutHandle();
+  }, []);
+
+  return (
+    <Paper className={classes.paper}>
+      <h2>Available Pools</h2>
+      <hr />
+      {us.hasPools() ? <PoolCard pools={us.pools} /> : null}
+    </Paper>
+  );
+};
+
 const Profile = () => {
   const classes = useStyles();
   const [profileData, setProfileData] = React.useState("");
@@ -38,37 +64,36 @@ const Profile = () => {
 
   const auth = React.useContext(AuthenticationContext);
 
-  React.useEffect (() => {
+  React.useEffect(() => {
     getMyProfile();
     getAllPools();
     assignPools(pools, profileData);
   }, []);
 
   const getMyProfile = () => {
-    axios.get("/profile")
-    .then((res) =>{
-      const myProfile = res.data.profile;
-      setProfileData(myProfile);
-      console.log(myProfile)
-    })
-    .catch(error => console.error(`Error: ${error}`))
-  }
+    axios
+      .get("/profile")
+      .then((res) => {
+        const myProfile = res.data.profile;
+        setProfileData(myProfile);
+        console.log(myProfile);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  };
 
   const getAllPools = () => {
-    axios.get("/pools")
+    axios
+      .get("/pools")
       .then((res) => {
         const allPools = res.data.pools;
         getPools(allPools);
       })
-      .catch(error => console.error(`Error: ${error}`))
-  }
+      .catch((error) => console.error(`Error: ${error}`));
+  };
 
   const assignPools = (pools, profileData) => {
-    console.log(pools)
-   
-  }
-
-
+    console.log(pools);
+  };
 
   return (
     <>
@@ -89,24 +114,14 @@ const Profile = () => {
           <Grid item xs={12}>
             <Paper className={classes.paper}>
               <h2>Your Pools</h2>
+              <MyPools />
               {auth?.profile
                 ? `Hey, ${auth.profile.firstName}`
                 : "Not logged in"}
             </Paper>
           </Grid>
           {/* Available Pools */}
-          <Grid item xs={12}>
-
-            
-            <Paper className={classes.paper}>
-
-            <h2>Available Pools</h2>
-            <hr/>
-            <PoolCard pools={pools} key={pools.id}/>
-
-             
-            </Paper>
-          </Grid>
+          <OtherPools />
         </Grid>
       </div>
     </>
