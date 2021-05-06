@@ -59,7 +59,7 @@
   {
     "role": "Public",
     "coll": "pools",
-    "fields": "{name,description,numberOfWeeks,startsOn}",
+    "fields": "{id,name,description,numberOfWeeks,startsOn}",
     "op": "Read",
     "ownership": "Any"
   },
@@ -73,7 +73,7 @@
   {
     "role": "Competitor",
     "coll": "pools",
-    "fields": "{name,description,numberOfWeeks,startsOn,events.*.equipment,events.*.duration,events.*.exercises*.{name,description}}",
+    "fields": "{id,name,description,numberOfWeeks,startsOn,events.*.equipment,events.*.duration,events.*.exercises*.{name,description}}",
     "op": "Read",
     "ownership": "Any"
   },
