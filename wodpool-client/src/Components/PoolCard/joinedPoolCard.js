@@ -32,10 +32,15 @@ const useStyles = makeStyles({
     padding: "1em",
     backgroundColor: "rgba(0,0,0,0.5)",
   },
+  btn: {
+    float: "right",
+  },
 });
 
-export default function Poolcard(props) {
+export default function JoinedCard(props) {
+  const [showModal, setModal] = React.useState(false);
   const classes = useStyles();
+  
 
 
   const displayPools = (props) => {
@@ -43,44 +48,33 @@ export default function Poolcard(props) {
 
     if (pools.length > 0) {
       return pools.map((pool, index) => {
-        const join = () => {
-          return axios.post(`/registration?pool=${pool.id}`).then(() => {
-            alert("SUCCESS");
-          });
-        };
+        const submit = () => {
+          return axios.post(`/registration?pool=${pool.id}`)
+          .then((res) => {
+            alert("SUCCESS")})
+          .catch((err)=>{
+              console.log(err);
+            })
+          };
+     
+        
 
         return (
           <div key={index}>
             <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="pool-splash-image"
-                  height="200"
-                  image={placeholder}
-                  title="Pool Image"
-                />
-                <CardContent>
-                  <Typography variant="h5" component="h2">
-                    {pool.name}
-                  </Typography>
-                  <div style={{ display: "flex" }}>
-                    <PersonOutlineIcon color="primary" />
-                    0/{pool.maximumCompetitors}
-                  </div>
+              <Typography component="h1" variant="h5" color="secondary">
+                {pool.name}
+              </Typography>
+              {`To Do: Add a submit score per event`}
+              
 
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    {pool.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-
-              <Button variant="contained" color="primary" onClick={join}>
-                Join Pool
+              <Button
+                className={classes.btn}
+                variant="contained"
+                color="primary"
+                
+              >
+                Submit
               </Button>
             </Card>
           </div>
@@ -91,5 +85,5 @@ export default function Poolcard(props) {
     }
   };
 
-  return <>{displayPools(props)}</>;
+  return <>{displayPools(props, showModal, setModal)}</>;
 }

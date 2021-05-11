@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 
 //import pages
-import Home from "./Pages/homePage";
-import Pool from "./Pages/poolPage";
+import Home from "./Pages/Home/homePage";
+import Pool from "./Pages/Pool/poolPage";
 // import Store from "./Pages/storePage";
 import Landing from "./Pages/landingPage";
 import NotFound from "./Pages/404";
@@ -26,9 +26,21 @@ import AuthenticationContextProvider from "./Components/AuthenticationContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
 import useAxios from "./Components/useAxios";
+import { createMuiTheme, ThemeProvider  } from '@material-ui/core/styles';
+
+//set theme
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#B00909"
+    },
+    secondary: {
+      main: "#B00909"
+    },
+  },
+});
 
 // Set Authentication of login
-
 const Routes = (r) => {
   return r.init ? (
     <Switch>
@@ -57,6 +69,7 @@ function App() {
 
   return (
     <div className="page-container">
+      <ThemeProvider theme={theme}>
       <div className="content-wrap">
         <Router>
           <AuthenticationContextProvider>
@@ -65,6 +78,7 @@ function App() {
         </Router>
       </div>
       <Footer />
+      </ThemeProvider>
     </div>
   );
 }

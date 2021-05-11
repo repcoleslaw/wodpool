@@ -6,11 +6,15 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import PoolCard from "../Components/PoolCard/PoolCard";
+import JoinedCard from '../Components/PoolCard/joinedPoolCard';
 import usePools from "../Components/usePools";
 
 //import assets
 import placeholder from "../assets/placeholder.png";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import { Typography } from "@material-ui/core";
+import {LocationOn, EmojiPeopleOutlined, FitnessCenter} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,16 +31,31 @@ const useStyles = makeStyles((theme) => ({
     height: "40px",
     width: "40px",
   },
+  container: {
+    padding: theme.spacing(2),
+    margin: "1em",
+  },
+  userList: {
+    listStyle: "none",
+  },
 }));
 
 const MyPools = () => {
   const us = usePools();
-
+  
   React.useEffect(() => {
     us.fetchWithHandle();
   }, []);
 
-  return us.hasPools() ? "YES" : null;
+  return us.hasPools() ? 
+  <div>
+    <JoinedCard pools={us.pools}/>
+  </div> 
+  : 
+  <div>
+    Oh... you don't seem to be registered for any pools. 
+    <Button variant="contained" color="primary" href="/pools">See Pools</Button>
+  </div>;
 };
 
 const OtherPools = () => {
@@ -50,7 +69,16 @@ const OtherPools = () => {
     <Paper className={classes.paper}>
       <h2>Available Pools</h2>
       <hr />
-      {us.hasPools() ? <PoolCard pools={us.pools} /> : null}
+      {us.hasPools() ? (
+        <PoolCard pools={us.pools} />
+      ) : (
+        <div>
+          <p>Did you already join all the pools? Well, goodluck then!</p>
+          <Button variant="contained" href="/pools" color="primary">
+            See All The Pools!
+          </Button>
+        </div>
+      )}
     </Paper>
   );
 };
@@ -103,10 +131,71 @@ const Profile = () => {
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <h2>Welcome back,{auth.profile.firstName} </h2>
-              {auth?.profile
-                ? `Hey, ${auth.profile.firstName}, `
-                : "Not logged in"}
+              <h2>Welcome back, {auth.profile.firstName} </h2>
+              <hr />
+              {auth?.profile ? (
+                <div className={classes.container}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                      <Typography component="p" variant="h5">
+                        {" "}
+                        name: {auth.profile.firstName} {auth.profile.lastName}
+                      </Typography>
+                      <Typography component="p" variant="h5">
+                        {" "}
+                        handle: {auth.profile.handle}
+                      </Typography>
+
+                      <li className={classes.userList}>
+                        {auth.profile?.location ? (
+                          <Typography>
+                            <LocationOn/>: {auth.profile?.location}
+                          </Typography>
+                        ) : (
+                          <Typography>
+                          <LocationOn/> No location provided.
+                        </Typography>
+                        )}
+                      </li>
+                      <li className={classes.userList}>
+                        {auth.profile?.details ? (
+                          <Typography>
+                            <EmojiPeopleOutlined/> {auth.profile?.details}
+                          </Typography>
+                        ) : (
+                          <Typography>
+                          <EmojiPeopleOutlined/> No details provided.
+                        </Typography>
+                        )}
+                      </li>
+                      <li className={classes.userList}>
+                        {auth.profile?.pools ? (
+                          <Typography>
+                          <FitnessCenter/> {auth.profile?.pools}
+                        </Typography>
+                      ) : (
+                        <Typography>
+                        <FitnessCenter/> No pools participated in.
+                      </Typography>
+                        )}
+                      </li>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      {/* ALERT NOTE */}
+                      <Typography component="p" variant="body" color="error">
+                        Hey, {auth.profile.firstName}, welcome to the beta!
+                        Check back here when we've got more developed to update
+                        your profile data!
+                      </Typography>
+                      <Button variant="outlined" color="primary" disabled>
+                        Edit Profile
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </div>
+              ) : (
+                "Not logged in"
+              )}
             </Paper>
           </Grid>
 
@@ -114,14 +203,14 @@ const Profile = () => {
           <Grid item xs={12}>
             <Paper className={classes.paper}>
               <h2>Your Pools</h2>
+              <hr />
               <MyPools />
-              {auth?.profile
-                ? `Hey, ${auth.profile.firstName}`
-                : "Not logged in"}
             </Paper>
           </Grid>
           {/* Available Pools */}
-          <OtherPools />
+          <Grid item xs={12}>
+            <OtherPools />
+          </Grid>
         </Grid>
       </div>
     </>

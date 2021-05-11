@@ -2,12 +2,12 @@ import React from "react";
 import { makeStyles} from "@material-ui/core/styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Header from '../Components/HeaderFooter/Header';
+import Header from '../../Components/HeaderFooter/Header';
 import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
 
 //
-import wordmark from "../assets/WP-Wordmark.png";
+import wordmark from "../../assets/WP-Wordmark.png";
 import { Button, ButtonGroup } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +55,7 @@ export default function HomePage() {
     <div className={classes.root}>
         <img src={wordmark} alt="wodpool" />
         <Grid container spacing={4}>
-        <Grid item xs={12} md={6} lg={8}>
+        <Grid item xs={12}>
             <Paper className={classes.paper}>
               <h1>Welcome to Wodpool</h1>
               <p>Please mind our dust as we continue to add features to our Workout experience.</p>

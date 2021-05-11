@@ -1,14 +1,27 @@
 import React from "react";
-import { makeStyles} from "@material-ui/core/styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import PoolCard from '../Components/PoolCard/PoolCard';
-import Header from '../Components/HeaderFooter/Header';
+import PoolCard from '../../Components/PoolCard/PoolCard';
+import Header from '../../Components/HeaderFooter/Header';
 
 //
-import wordmark from "../assets/WP-Wordmark.png";
-import { Button } from "@material-ui/core";
+import wordmark from "../../assets/WP-Wordmark.png";
+import { Button, ThemeProvider, Typography, makeStyles} from "@material-ui/core";
+import { createMuiTheme } from '@material-ui/core/styles';
 
+// Manage Style for Page
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#B00909"
+    },
+    secondary: {
+      main: "#B00909"
+    },
+  },
+});
+
+// Manage Style for Page
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#B00909",
   },
 }));
+
 
 export default function PoolPage() {
   const classes = useStyles();
@@ -50,10 +64,15 @@ export default function PoolPage() {
 
   return (
     <>
+    <ThemeProvider theme={theme}>
     <Header/>
     <div className={classes.root}>
+    <img src={wordmark} alt="wodpool" />
         <PoolCard pools={pools}/>
     </div>
+    </ThemeProvider>
+
+
     </>
     
   );
