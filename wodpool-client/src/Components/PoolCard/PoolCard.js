@@ -61,17 +61,13 @@ export default function Poolcard(props) {
                   title="Pool Image"
                 />
                 <CardContent>
-                  <Typography variant="h5" component="h2">
+                  <Typography variant="h5" component="h2" color="textPrimary">
                     {pool.name}
                   </Typography>
-                  <div style={{ display: "flex" }}>
-                    <PersonOutlineIcon color="primary" />
-                    0/{pool.maximumCompetitors}
-                  </div>
 
                   <Typography
                     variant="body2"
-                    color="textSecondary"
+                    color="textPrimary"
                     component="p"
                   >
                     {pool.description}

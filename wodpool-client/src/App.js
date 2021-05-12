@@ -9,13 +9,13 @@ import axios from "axios";
 import Home from "./Pages/Home/homePage";
 import Pool from "./Pages/Pool/poolPage";
 // import Store from "./Pages/storePage";
-import Landing from "./Pages/landingPage";
+import Landing from "./Pages/Landing/landingPage";
 import NotFound from "./Pages/404";
 import Registration from "./Pages/Registration/Registration";
 import Login from "./Pages/Registration/Login";
 import Thanks from "./Pages/thanks";
 import Verify from "./Pages/Registration/verify";
-import Profile from "./Pages/profile";
+import Profile from "./Pages/Profile/profile";
 
 // import components
 import Header from "./Components/HeaderFooter/Header";
@@ -37,7 +37,12 @@ const theme = createMuiTheme({
     secondary: {
       main: "#B00909"
     },
-  },
+    text:{
+      primary:"#fff",
+      secondary:"#C4C4C4"
+    }
+
+}
 });
 
 // Set Authentication of login

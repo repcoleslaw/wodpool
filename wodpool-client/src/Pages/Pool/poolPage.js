@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import PoolCard from '../../Components/PoolCard/PoolCard';
 import Header from '../../Components/HeaderFooter/Header';
+import Grid from '@material-ui/core/Grid'
 
 //
 import wordmark from "../../assets/WP-Wordmark.png";
@@ -38,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     backgroundColor: "#B00909",
   },
+  img:{
+    maxWidth:"60vw",
+  }
 }));
 
 
@@ -67,8 +71,10 @@ export default function PoolPage() {
     <ThemeProvider theme={theme}>
     <Header/>
     <div className={classes.root}>
-    <img src={wordmark} alt="wodpool" />
-        <PoolCard pools={pools}/>
+      <div>
+      <img className={classes.img} src={wordmark} alt="wodpool" />
+      </div>
+      <PoolCard pools={pools}/>
     </div>
     </ThemeProvider>
 

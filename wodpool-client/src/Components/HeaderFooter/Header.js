@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: "rgba(0,0,0,0.5)",
-    boxShadow: "5px 0px 6px black",
+    boxShadow: "0px 5px 6px rgba(0,0,0,0.8)",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -80,6 +80,7 @@ function Header() {
           </Typography>
           <Link className={classes.menuBarItem} to="/">Home</Link>
           <Link className={classes.menuBarItem} to="/pools">Pools</Link>
+          <Link className={classes.menuBarItem} to="/profile">Profile</Link>
 
           {auth && (
             <div>
@@ -107,16 +108,6 @@ function Header() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>
-                  <Link className={classes.menuItem} to="/">
-                    Home
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={handleClose}>
-                  <Link className={classes.menuItem} to="/pools">
-                    Pools
-                  </Link>
-                </MenuItem>
                 <MenuItem onClick={handleClose}>
                   <Link className={classes.menuItem} to="/profile">
                     Profile

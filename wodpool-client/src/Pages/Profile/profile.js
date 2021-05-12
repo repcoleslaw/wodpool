@@ -1,20 +1,20 @@
 import React from "react";
-import { AuthenticationContext } from "../Components/AuthenticationContext";
-import Header from "../Components/HeaderFooter/Header";
+import { AuthenticationContext } from "../../Components/AuthenticationContext";
+import Header from "../../Components/HeaderFooter/Header";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
-import PoolCard from "../Components/PoolCard/PoolCard";
-import JoinedCard from '../Components/PoolCard/joinedPoolCard';
-import usePools from "../Components/usePools";
+import PoolCard from "../../Components/PoolCard/PoolCard";
+import JoinedCard from '../../Components/PoolCard/joinedPoolCard';
+import usePools from "../../Components/usePools";
 
 //import assets
-import placeholder from "../assets/placeholder.png";
+import placeholder from "../../assets/placeholder.png";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
-import {LocationOn, EmojiPeopleOutlined, FitnessCenter} from "@material-ui/icons";
+import {LocationOn, EmojiPeopleOutlined, FitnessCenter, Info} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +38,17 @@ const useStyles = makeStyles((theme) => ({
   userList: {
     listStyle: "none",
   },
+  ul:{
+    padding:"1em 0",  
+  },
+  btn:{
+    margin:"2em 0"
+  },
+  info:{
+    height:"0.65em",
+    width:"auto",
+    margin:"0.75em 0.5em 0 0"
+  }
 }));
 
 const MyPools = () => {
@@ -67,15 +78,23 @@ const OtherPools = () => {
 
   return (
     <Paper className={classes.paper}>
-      <h2>Available Pools</h2>
-      <hr />
+      <Typography component="h2" variant="h5">
+        Available Pools
+      </Typography>
+      <Typography component="p" variant="caption" color="textSecondary">
+        <Info className={classes.info} />
+        If there is a pool you have not registered for, it will be promoted here for you to quickly join!
+      </Typography>
       {us.hasPools() ? (
         <PoolCard pools={us.pools} />
       ) : (
         <div>
-          <p>Did you already join all the pools? Well, goodluck then!</p>
-          <Button variant="contained" href="/pools" color="primary">
-            See All The Pools!
+          <Typography component="p" variant="body">
+          Looks like you've joined everything! Good luck!
+          </Typography>
+
+          <Button className={classes.btn} variant="contained" href="/pools" color="primary">
+            Go To Pools
           </Button>
         </div>
       )}
@@ -131,22 +150,25 @@ const Profile = () => {
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <h2>Welcome back, {auth.profile.firstName} </h2>
-              <hr />
+              <Typography component="h2" variant="h5">
+              Welcome, {auth.profile.firstName} 
+              </Typography>
+              <Typography component="p" variant="caption" color="textSecondary">
+              <Info className={classes.info}/>
+              Profile Section - Where you will be able to edit all your details!
+              </Typography>
               {auth?.profile ? (
                 <div className={classes.container}>
                   <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
                       <Typography component="p" variant="h5">
-                        {" "}
-                        name: {auth.profile.firstName} {auth.profile.lastName}
+                        {auth.profile.firstName} {auth.profile.lastName}
                       </Typography>
                       <Typography component="p" variant="h5">
-                        {" "}
-                        handle: {auth.profile.handle}
+                        {auth.profile.handle}
                       </Typography>
-
-                      <li className={classes.userList}>
+                    <ul className={classes.ul}>
+                    <li className={classes.userList}>
                         {auth.profile?.location ? (
                           <Typography>
                             <LocationOn/>: {auth.profile?.location}
@@ -179,6 +201,7 @@ const Profile = () => {
                       </Typography>
                         )}
                       </li>
+                    </ul>
                     </Grid>
                     <Grid item xs={12} md={6}>
                       {/* ALERT NOTE */}
@@ -187,9 +210,6 @@ const Profile = () => {
                         Check back here when we've got more developed to update
                         your profile data!
                       </Typography>
-                      <Button variant="outlined" color="primary" disabled>
-                        Edit Profile
-                      </Button>
                     </Grid>
                   </Grid>
                 </div>
@@ -202,8 +222,13 @@ const Profile = () => {
           {/* Put Pools that I am registered for Here */}
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <h2>Your Pools</h2>
-              <hr />
+            <Typography component="h2" variant="h5">
+              Your Pools 
+              </Typography>
+              <Typography component="p" variant="caption" color="textSecondary">
+              <Info className={classes.info}/>
+             This is where you can see what pools you have registered for and upload your results!
+              </Typography>
               <MyPools />
             </Paper>
           </Grid>
