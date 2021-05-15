@@ -41,6 +41,7 @@ export default function JoinedCard(props) {
   const [showModal, setModal] = React.useState(false);
   const classes = useStyles();
   
+ 
 
 
   const displayPools = (props) => {
@@ -57,8 +58,6 @@ export default function JoinedCard(props) {
             })
           };
      
-        
-
         return (
           <div key={index}>
             <Card className={classes.card}>
@@ -72,6 +71,7 @@ export default function JoinedCard(props) {
                 className={classes.btn}
                 variant="contained"
                 color="primary"
+                href={`/pools/submit`}
                 
               >
                 Submit
@@ -85,5 +85,5 @@ export default function JoinedCard(props) {
     }
   };
 
-  return <>{displayPools(props, showModal, setModal)}</>;
+  return <>{displayPools(props)}</>;
 }

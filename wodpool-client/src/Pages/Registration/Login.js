@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    color:"black",
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -98,6 +99,7 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
             error={Boolean(errors.errors?.email)}
             helperText={emailHelper}
+            style={{color:"black"}}
           />
           <TextField
             variant="outlined"
@@ -113,6 +115,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             error={Boolean(errors.errors?.password)}
             helperText={passHelper}
+            style={{color:"black"}}
           />
 
           <Button

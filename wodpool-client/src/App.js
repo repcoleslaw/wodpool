@@ -16,6 +16,7 @@ import Login from "./Pages/Registration/Login";
 import Thanks from "./Pages/thanks";
 import Verify from "./Pages/Registration/verify";
 import Profile from "./Pages/Profile/profile";
+import Submit from "./Components/ScoreSubmit/ScoreSubmit";
 
 // import components
 import Header from "./Components/HeaderFooter/Header";
@@ -52,6 +53,7 @@ const Routes = (r) => {
       <ProtectedRoute exact default path="/" component={Home} />
       <ProtectedRoute exact path="/pools" pool component={Pool} />
       <ProtectedRoute exact path="/profile" component={Profile} />
+      <ProtectedRoute exact path="/pools/submit" component={Submit} />
 
       {/* Public Routes */}
       <PublicRoute exact path="/landing" component={Landing} />
