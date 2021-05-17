@@ -6,7 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import PoolCard from "../../Components/PoolCard/PoolCard";
-import JoinedCard from '../../Components/PoolCard/joinedPoolCard';
+import JoinedCard from '../../Components/PoolCard/ProfilePoolCard';
 import usePools from "../../Components/usePools";
 
 //import assets
@@ -57,7 +57,6 @@ const MyPools = () => {
   React.useEffect(() => {
     us.fetchWithHandle();
   }, []);
-
   return us.hasPools() ? 
   <div>
     <JoinedCard pools={us.pools}/>
@@ -113,8 +112,6 @@ const Profile = () => {
 
   React.useEffect(() => {
     getMyProfile();
-    getAllPools();
-    assignPools(pools, profileData);
   }, []);
 
   const getMyProfile = () => {
@@ -128,19 +125,8 @@ const Profile = () => {
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-  const getAllPools = () => {
-    axios
-      .get("/pools")
-      .then((res) => {
-        const allPools = res.data.pools;
-        getPools(allPools);
-      })
-      .catch((error) => console.error(`Error: ${error}`));
-  };
+ 
 
-  const assignPools = (pools, profileData) => {
-    console.log(pools);
-  };
 
   return (
     <>

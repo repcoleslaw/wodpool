@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "#B00909"
   },
+  input:{
+    color:"#000"
+  }
 }));
 
 function Registration() {
@@ -112,6 +115,9 @@ function Registration() {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
+                inputProps={{
+                  className: classes.input
+                }}
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
@@ -126,6 +132,9 @@ function Registration() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                inputProps={{
+                  className: classes.input
+                }}
                 variant="outlined"
                 required
                 fullWidth
@@ -139,6 +148,9 @@ function Registration() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                inputProps={{
+                  className: classes.input
+                }}
                 variant="outlined"
                 required
                 fullWidth
@@ -153,6 +165,9 @@ function Registration() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                inputProps={{
+                  className: classes.input
+                }}
                 variant="outlined"
                 required
                 fullWidth

@@ -37,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "#B00909",
   },
+  input:{
+    color:"#000"
+  }
+
 }));
 
 function Login() {
@@ -80,11 +84,14 @@ function Login() {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5" style={{ color: "black" }}>
+        <Typography component="h1" variant="h5" style={{color:"#000"}}>
           Sign in
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <TextField
+            inputProps={{
+              className: classes.input
+            }}
             variant="outlined"
             margin="normal"
             required
@@ -98,6 +105,7 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
             error={Boolean(errors.errors?.email)}
             helperText={emailHelper}
+            className={classes.input}
           />
           <TextField
             variant="outlined"
@@ -113,6 +121,9 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             error={Boolean(errors.errors?.password)}
             helperText={passHelper}
+            inputProps={{
+              className: classes.input
+            }}
           />
 
           <Button

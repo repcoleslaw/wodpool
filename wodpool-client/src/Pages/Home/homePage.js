@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     margin:"2em 0"
   },
   btn: {
-    margin:"2em 2em"
+    margin:"1em 0em"
   },
   img: {
     maxWidth:"65vw",
@@ -69,12 +69,16 @@ export default function HomePage() {
           <Button className={classes.btn} href="https://donttalkaboutwodpool.ca/" variant="contained" color="primary" >
             How it Works
           </Button>
+          <ButtonGroup>
           <Button className={classes.btn}  href="/pools" variant="contained" color="primary" >
             To the Pools
           </Button>
           <Button className={classes.btn} href="/profile" variant="contained" color="primary" >
             To your Profile
           </Button>
+
+          </ButtonGroup>
+          
           
         </Paper>
       </Grid>

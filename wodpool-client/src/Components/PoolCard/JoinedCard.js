@@ -38,7 +38,6 @@ const useStyles = makeStyles({
 });
 
 export default function JoinedCard(props) {
-  const [showModal, setModal] = React.useState(false);
   const classes = useStyles();
   
 
@@ -65,17 +64,18 @@ export default function JoinedCard(props) {
               <Typography component="h1" variant="h5" color="secondary">
                 {pool.name}
               </Typography>
-              {`To Do: Add a submit score per event`}
-              
+        
 
               <Button
                 className={classes.btn}
-                variant="contained"
+                variant="outlined"
                 color="primary"
+                disabled
                 
               >
                 Submit
               </Button>
+              Looks like you've already joined this one.
             </Card>
           </div>
         );
@@ -85,5 +85,5 @@ export default function JoinedCard(props) {
     }
   };
 
-  return <>{displayPools(props, showModal, setModal)}</>;
+  return <>{displayPools(props)}</>;
 }
