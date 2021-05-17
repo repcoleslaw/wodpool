@@ -40,6 +40,7 @@ const useStyles = makeStyles({
 export default function ProfileCard(props) {
   const classes = useStyles();
   
+ 
 
 
   const displayPools = (props) => {
@@ -56,8 +57,6 @@ export default function ProfileCard(props) {
             })
           };
      
-        
-
         return (
           <div key={index}>
             <Card className={classes.card}>
@@ -71,6 +70,7 @@ export default function ProfileCard(props) {
                 className={classes.btn}
                 variant="contained"
                 color="primary"
+                href={`/pools/submit`}
                 
               >
                 Submit

@@ -64,7 +64,7 @@ const MyPools = () => {
   : 
   <div>
     Oh... you don't seem to be registered for any pools. 
-    <Button variant="contained" color="primary" href="/pools">See Pools</Button>
+    <Button variant="contained" color="primary" href="/pools/submit">See Pools</Button>
   </div>;
 };
 
@@ -133,8 +133,8 @@ const Profile = () => {
       <Header />
       <div className={classes.root}>
         {/* Put Profile Banner */}
-        <Grid container spacing={4}>
-          <Grid item xs={12}>
+        <Grid container spacing={4} justify='center' >
+          <Grid item xs={12} md={8}>
             <Paper className={classes.paper}>
               <Typography component="h2" variant="h5">
               Welcome, {auth.profile.firstName} 
@@ -206,7 +206,7 @@ const Profile = () => {
           </Grid>
 
           {/* Put Pools that I am registered for Here */}
-          <Grid item xs={12}>
+          <Grid item xs={12} md={8}>
             <Paper className={classes.paper}>
             <Typography component="h2" variant="h5">
               Your Pools 
@@ -219,7 +219,7 @@ const Profile = () => {
             </Paper>
           </Grid>
           {/* Available Pools */}
-          <Grid item xs={12}>
+          <Grid item xs={12} md={8}>
             <OtherPools />
           </Grid>
         </Grid>
