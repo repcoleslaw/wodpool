@@ -18,10 +18,6 @@ const Competitor = new mongoose.Schema({
       url: {
         type: mongoose.Schema.Types.Url,
       },
-      bonusPoints: {
-        type: Number,
-        default: 0,
-      },
       points: {
         type: Number,
         default: 0,
@@ -32,6 +28,16 @@ const Competitor = new mongoose.Schema({
       },
     },
   ],
+});
+
+Competitor.virtual('pointsToDate').get(function () {
+  if (!Array.isArray(this.weeks)) return 0;
+
+  return this.weeks.reduce((acc, curr) => {
+    const num = Number(curr.points);
+    if (Number.isNaN(num)) return null;
+    return acc + num;
+  }, 0);
 });
 
 module.exports = Competitor;
