@@ -8,9 +8,19 @@ const Competitor = new mongoose.Schema({
   },
   weeks: [
     {
+      duration: {
+        type: Number,
+      },
       hasProofOfPoints: {
         type: Boolean,
         default: false,
+      },
+      url: {
+        type: mongoose.Schema.Types.Url,
+      },
+      bonusPoints: {
+        type: Number,
+        default: 0,
       },
       points: {
         type: Number,

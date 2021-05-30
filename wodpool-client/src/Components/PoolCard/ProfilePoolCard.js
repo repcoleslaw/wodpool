@@ -39,9 +39,6 @@ const useStyles = makeStyles({
 
 export default function ProfileCard(props) {
   const classes = useStyles();
-  
- 
-
 
   const displayPools = (props) => {
     const { pools } = props;
@@ -49,14 +46,16 @@ export default function ProfileCard(props) {
     if (pools.length > 0) {
       return pools.map((pool, index) => {
         const submit = () => {
-          return axios.post(`/registration?pool=${pool.id}`)
-          .then((res) => {
-            alert("SUCCESS")})
-          .catch((err)=>{
-              console.log(err);
+          return axios
+            .post(`/registration?pool=${pool.id}`)
+            .then((res) => {
+              alert("SUCCESS");
             })
-          };
-     
+            .catch((err) => {
+              console.log(err);
+            });
+        };
+
         return (
           <div key={index}>
             <Card className={classes.card}>
@@ -64,14 +63,12 @@ export default function ProfileCard(props) {
                 {pool.name}
               </Typography>
               {`To Do: Add a submit score per event`}
-              
 
               <Button
                 className={classes.btn}
                 variant="contained"
                 color="primary"
-                href={`/pools/submit`}
-                
+                href={`/pools/submit?id=${pool.id}`}
               >
                 Submit
               </Button>
