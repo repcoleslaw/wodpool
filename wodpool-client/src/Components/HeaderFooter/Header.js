@@ -19,7 +19,7 @@ import wpbadge from "../../assets/WhiteBadge.png";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: "rgba(0,0,0,1)",
     boxShadow: "0px 5px 6px rgba(0,0,0,0.5)",
   },
   menuButton: {
