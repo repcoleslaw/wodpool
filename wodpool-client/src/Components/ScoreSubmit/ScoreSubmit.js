@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {TimePicker} from '@material-ui/pickers';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 
 //import usepool
 import usePools from "../../Components/usePools";
@@ -117,7 +118,7 @@ function ScoreSubmit() {
                 </Grid>
 
             </Grid>
-
+                <Button onClick={handleSubmit}>Submit</Button>
           </form>
         </Grid>
       </Grid>
