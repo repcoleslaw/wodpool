@@ -6,31 +6,54 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { TimePicker } from "@material-ui/pickers";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
 
 //import usepool
 import usePools from "../../Components/usePools";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    margin: "1em",
+  root:{
+      flexGrow:1,
+      margin:"1em",
+
+      
   },
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    backgroundColor: "#eeeeee",
-    padding: "3em",
-    borderRadius: "1em",
+  paper:{
+      marginTop:theme.spacing(8),
+      display:"flex"
   },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+  form:{
+      backgroundColor:"#1A1A1A",
+      marginTop:theme.spacing(3),
+      color:"black",
+      padding:"2em",
+      borderRadius:"0.5em",
+
   },
+  formLabel:{
+      padding:"0.5em 0em",
+      color:"white",
+      fontSize:"1em"
+  },
+  formTitle:{
+      padding:"0.5em 0em",
+      color:"white",
+      fontSize:"1.25em",
+      textDecoration:"underline",
+      textAlign:"center"
+  },
+  gridGuide:{
+      // border:"1px solid red"
+  },
+  subBtn:{
+      marginTop:"1em",
+      width:"100%",
+      height:"50px",
+
+  }
+
 }));
 
 function ScoreSubmit({ location: { search } }) {
@@ -74,62 +97,82 @@ function ScoreSubmit({ location: { search } }) {
   };
 
   return (
-    <div className={classes.paper}>
-      <Grid container>
-        <Grid item>
-          <Typography component="h2" variant="h5" color="textSecondary">
-            Submit Score
-          </Typography>
-          <form className={classes.form} noValidate onSubmit={handleSubmit}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  name="duration"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="duration"
-                  label="duration"
-                  type="number"
-                  autoFocus
-                  onChange={handlechange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      value="allowExtraEmails"
-                      required
-                      color="primary"
-                      name="hasProofOfPoints"
+    <div className={classes.root}>
+    Test Pages
+    <Grid container justify="center" className={classes.gridGuide}>
+    <form className={classes.form}>
+        <Typography className={classes.formTitle}>Submit your Score</Typography>
+            <Typography
+             className={classes.formLabel}>Time</Typography>
+                <Grid container spacing={2}>
+                 <Grid item xs={6}>
+                    <TextField
+                    variant="outlined"
+                    name="minutes"
+                    label="minutes"
+                    type="number"
+                    color="primary"
+                    /> 
+                    </Grid>
+                    <Grid item xs={6}>
+                    <TextField
+                    variant="outlined"
+                    name="seconds"
+                    label="seconds"
+                    type="number"
+                    color="primary"
                     />
-                  }
-                  style={{ color: "black" }}
-                  label="I confirm that I have proof of my attempt if requested to provide it."
-                  onChange={(e) => {
-                    handleProof(!hasProof);
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12}>
+                    </Grid> 
+                </Grid>
+               
+            <Typography
+
+            className={classes.formLabel}>Video URL</Typography>
+
+            <Grid item xs={12} className={classes.gridGuide}>
                 <TextField
-                  name="url"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="url"
-                  label="Video upload location"
-                  autoFocus
-                  onChange={handlechange}
+                variant="outlined"
+                name="url"
+                label="Video URL"
+                type="string"
+                autoFocus
+                style={{width:"100%"}}
                 />
-              </Grid>
             </Grid>
-            <button type="submit">Submit</button>
-          </form>
-        </Grid>
-      </Grid>
-    </div>
+            <Grid item xs={12}>
+                <FormControlLabel
+                control={
+                    <Checkbox
+                    value="allowExtraEmails"
+                    required
+                    color="primary"
+                    name="hasProofOfPoints"
+                    />
+                }
+                style={{ color: "grey" }}
+                label="I confirm that I have proof of my attempt if requested to provide it."
+                onChange={(e) => {
+                    handleProof(!hasProof);
+                }}
+                />
+            </Grid>
+            <Grid item xs={12} className={classes.gridGuide}>
+                <Button type="submit"
+                variant="contained"
+                color="primary"
+                className={classes.subBtn}>Submit</Button>
+            </Grid>
+            <Grid item xs={12} className={classes.gridGuide}>
+                <Button type="submit"
+                variant="contained"
+                color="secondary"
+                href="/profile"
+                className={classes.subBtn}>Back</Button>
+            </Grid>
+
+        </form>
+    </Grid>
+</div>
   );
 }
 

@@ -8,6 +8,7 @@ import axios from "axios";
 //import pages
 import Home from "./Pages/Home/homePage";
 import Pool from "./Pages/Pool/poolPage";
+import Test from "./Pages/test"
 // import Store from "./Pages/storePage";
 import Landing from "./Pages/Landing/landingPage";
 import NotFound from "./Pages/404";
@@ -36,12 +37,11 @@ const theme = createMuiTheme({
       main: "#B00909"
     },
     secondary: {
-      main: "#fff"
+      main: "#c4c4c4"
     },
     text:{
       primary:"#fff",
       secondary:"#c4c4c4",
-
     }
 
 }
@@ -62,6 +62,7 @@ const Routes = (r) => {
       <PublicRoute exact path="/verify" component={Verify} />
       <PublicRoute exact path="/login" component={Login} />
       <Route exact path="/thanks" component={Thanks} />
+      <Route exact path="/test" component={Test} />
 
       <Route component={NotFound} />
     </Switch>
