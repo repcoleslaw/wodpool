@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     margin: "1em",
   },
+  outline:{
+    border: "1px solid red"
+  },
   paper: {
     padding: theme.spacing(2),
     textAlign: "left",
@@ -37,9 +40,10 @@ const useStyles = makeStyles((theme) => ({
   },
   userList: {
     listStyle: "none",
+
   },
   ul:{
-    padding:"1em 0",  
+    padding:"0",  
   },
   btn:{
     margin:"2em 0"
@@ -145,58 +149,63 @@ const Profile = () => {
               </Typography>
               {auth?.profile ? (
                 <div className={classes.container}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
+                  <Grid container spacing={2} >
+                    <Grid item xs={12} md={6} >
                       <Typography component="p" variant="h5">
                         {auth.profile.firstName} {auth.profile.lastName}
                       </Typography>
                       <Typography component="p" variant="h5">
                         {auth.profile.handle}
                       </Typography>
-                    <ul className={classes.ul}>
+                      <Typography component="p" variant="caption" color="textSecondary">
+                      Your name will be here from your account details
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12} md={6} >
+                      <ul className={classes.ul}>
                     <li className={classes.userList}>
                         {auth.profile?.location ? (
-                          <Typography>
+                          <Typography component="p" variant="body">
                             <LocationOn/>: {auth.profile?.location}
                           </Typography>
                         ) : (
-                          <Typography>
+                          <Typography component="p" variant="body">
                           <LocationOn/> No location provided.
                         </Typography>
                         )}
                       </li>
                       <li className={classes.userList}>
                         {auth.profile?.details ? (
-                          <Typography>
+                          <Typography component="p" variant="body">
                             <EmojiPeopleOutlined/> {auth.profile?.details}
                           </Typography>
                         ) : (
-                          <Typography>
+                          <Typography component="p" variant="body">
                           <EmojiPeopleOutlined/> No details provided.
                         </Typography>
                         )}
                       </li>
                       <li className={classes.userList}>
                         {auth.profile?.pools ? (
-                          <Typography>
+                          <Typography component="p" variant="body">
                           <FitnessCenter/> {auth.profile?.pools}
                         </Typography>
                       ) : (
-                        <Typography>
+                        <Typography component="p" variant="body">
                         <FitnessCenter/> No pools participated in.
                       </Typography>
                         )}
                       </li>
                     </ul>
+                     
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                      {/* ALERT NOTE */}
-                      <Typography component="p" variant="body" color="error">
-                        Hey, {auth.profile.firstName}, welcome to the beta!
+                    <Button variant="outlined" color="secondary" disabled >edit</Button>
+                    <Typography component="p" variant="body" color="error">
+                        Hey, {auth.profile.firstName}, welcome to the ALPHA TEST!
                         Check back here when we've got more developed to update
                         your profile data!
                       </Typography>
-                    </Grid>
+                      
                   </Grid>
                 </div>
               ) : (

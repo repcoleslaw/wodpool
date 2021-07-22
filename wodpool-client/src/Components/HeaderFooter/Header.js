@@ -113,7 +113,12 @@ function Header() {
                     Profile
                   </Link>
                 </MenuItem>
-                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <a className={classes.menuItem} href="https://donttalkaboutwodpool.ca/contact-us">
+                    Submit a Bug
+                  </a>
+                </MenuItem>
+                <MenuItem onClick={handleLogout} className={classes.menuItem}>Logout</MenuItem>
               </Menu>
             </div>
           )}

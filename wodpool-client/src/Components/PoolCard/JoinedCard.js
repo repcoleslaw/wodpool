@@ -33,7 +33,11 @@ const useStyles = makeStyles({
     backgroundColor: "rgba(0,0,0,0.5)",
   },
   btn: {
-    float: "right",
+    margin:"1em 0em"
+  },
+  notification:{
+    textAlign:"center",
+    fontStyle:"italic"
   },
 });
 
@@ -64,7 +68,9 @@ export default function JoinedCard(props) {
               <Typography component="h1" variant="h5" color="secondary">
                 {pool.name}
               </Typography>
-        
+              <Typography component="p" variant="body" className={classes.notification}>
+              Looks like you've already joined this one.
+              </Typography>
 
               <Button
                 className={classes.btn}
@@ -75,7 +81,8 @@ export default function JoinedCard(props) {
               >
                 Submit
               </Button>
-              Looks like you've already joined this one.
+
+              
             </Card>
           </div>
         );
