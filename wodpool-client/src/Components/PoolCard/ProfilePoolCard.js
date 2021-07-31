@@ -1,16 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
-import placeholder from "../../assets/placeholder.png";
-import { findLastIndex } from "lodash";
-import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
+import { useTheme } from '@material-ui/core/styles';
+
+
 
 const useStyles = makeStyles({
   root: {
@@ -38,6 +34,7 @@ const useStyles = makeStyles({
 });
 
 export default function ProfileCard(props) {
+  const theme = useTheme();
   const classes = useStyles();
 
   const displayPools = (props) => {
@@ -59,7 +56,7 @@ export default function ProfileCard(props) {
         return (
           <div key={index}>
             <Card className={classes.card}>
-              <Typography component="h1" variant="h5" color="secondary">
+              <Typography component="h1" variant="h5" color="textPrimary">
                 {pool.name}
               </Typography>
               {`To Do: Add a submit score per event`}
@@ -70,7 +67,15 @@ export default function ProfileCard(props) {
                 color="primary"
                 href={`/pools/submit?id=${pool.id}`}
               >
-                Submit
+                SUBMIT
+              </Button>
+              <Button
+                className={classes.btn}
+                variant="contained"
+                color="primary"
+                href={`/pools/table?id=${pool.id}`}
+              >
+                TABLE
               </Button>
             </Card>
           </div>

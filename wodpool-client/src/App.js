@@ -54,7 +54,9 @@ const Routes = (r) => {
       <ProtectedRoute exact default path="/" component={Home} />
       <ProtectedRoute exact path="/pools" pool component={Pool} />
       <ProtectedRoute exact path="/profile" component={Profile} />
+      <ProtectedRoute exact path="/pools/table" component={Test} />
       <ProtectedRoute exact path="/pools/submit" component={Submit} />
+      
 
       {/* Public Routes */}
       <PublicRoute exact path="/landing" component={Landing} />
@@ -62,7 +64,7 @@ const Routes = (r) => {
       <PublicRoute exact path="/verify" component={Verify} />
       <PublicRoute exact path="/login" component={Login} />
       <Route exact path="/thanks" component={Thanks} />
-      <Route exact path="/test" component={Test} />
+      {/* <Route exact path="/test" component={Test} /> */}
 
       <Route component={NotFound} />
     </Switch>

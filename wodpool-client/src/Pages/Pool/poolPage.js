@@ -14,8 +14,6 @@ import wordmark from "../../assets/WP-Wordmark.png";
 import { Button, ThemeProvider, Typography, makeStyles} from "@material-ui/core";
 import { createMuiTheme } from '@material-ui/core/styles';
 
-// Manage Style for Page
-
 
 // Manage Style for Page
 const useStyles = makeStyles((theme) => ({

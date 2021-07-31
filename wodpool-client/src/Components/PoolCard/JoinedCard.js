@@ -65,7 +65,7 @@ export default function JoinedCard(props) {
         return (
           <div key={index}>
             <Card className={classes.card}>
-              <Typography component="h1" variant="h5" color="secondary">
+              <Typography component="h1" variant="h5" color="textPrimary">
                 {pool.name}
               </Typography>
               <Typography component="p" variant="body" className={classes.notification}>
