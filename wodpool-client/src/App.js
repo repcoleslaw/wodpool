@@ -11,10 +11,10 @@ import Pool from "./Pages/Pool/poolPage";
 import Test from "./Pages/test"
 // import Store from "./Pages/storePage";
 import Landing from "./Pages/Landing/landingPage";
-import NotFound from "./Pages/404";
+import NotFound from "./Pages/404/404";
 import Registration from "./Pages/Registration/Registration";
 import Login from "./Pages/Registration/Login";
-import Thanks from "./Pages/thanks";
+import Thanks from "./Pages/Registration/thanks";
 import Verify from "./Pages/Registration/verify";
 import Profile from "./Pages/Profile/profile";
 import Submit from "./Components/ScoreSubmit/ScoreSubmit";
