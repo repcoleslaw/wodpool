@@ -3,7 +3,7 @@ import "./App.css";
 import { Box, CircularProgress } from "@material-ui/core";
 //import packages
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import axios from "axios";
+
 
 //import pages
 import Home from "./Pages/Home/homePage";
@@ -20,7 +20,6 @@ import Profile from "./Pages/Profile/profile";
 import Submit from "./Components/ScoreSubmit/ScoreSubmit";
 
 // import components
-import Header from "./Components/HeaderFooter/Header";
 import Footer from "./Components/HeaderFooter/Footer";
 
 //import util
@@ -28,24 +27,11 @@ import AuthenticationContextProvider from "./Components/AuthenticationContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
 import useAxios from "./Components/useAxios";
-import { createMuiTheme, ThemeProvider  } from '@material-ui/core/styles';
+
 
 //set theme
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#B00909"
-    },
-    secondary: {
-      main: "#c4c4c4"
-    },
-    text:{
-      primary:"#fff",
-      secondary:"#c4c4c4",
-    }
-
-}
-});
+import { ThemeProvider } from '@material-ui/styles';
+import theme from './util/ThemeProvider';
 
 // Set Authentication of login
 const Routes = (r) => {
