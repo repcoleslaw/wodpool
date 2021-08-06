@@ -6,11 +6,14 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // light: will be calculated from pallette.primary.main
-      main: "#300300"
+      main: "#D21A1A"
       //dark: will 
     },
     secondary: {
-      main: "#c4c4c4"
+      main: "#fff"
+    },
+    error:{
+      main: "#f44336"
     },
     text:{
       primary:"#fff",
@@ -28,9 +31,14 @@ const theme = createMuiTheme({
   // TYPOGRAPHY
   typography:{
     fontFamily:"Montserrat, DINPro",
-    h1:{},
+    h1:{
+      textAlign: "center",
+      fontStyle:"uppercase"
+    },
     h2:{},
-    h3:{},
+    h3:{
+      fontStyle:"uppercase"
+    },
     h4:{},
     h5:{},
     h6:{},
@@ -44,7 +52,7 @@ const theme = createMuiTheme({
   },
   // SPACING
   spacing: 8,
-  
+
 });
 
 export default theme;

@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PoolPage() {
   const classes = useStyles();
-  const us = usePools();
+  
 
   const OtherPools = () => {
     const us = usePools();

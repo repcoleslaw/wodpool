@@ -1,8 +1,6 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react'
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
@@ -10,39 +8,12 @@ import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import placeholder from "../../assets/placeholder.png";
 import { AuthenticationContext } from "../AuthenticationContext/AuthenticationContext";
+import { useStyles } from '../../util/MakeStyles'
 
-
-const useStyles = makeStyles({
-  root: {
-    flexGrow:1,
-    display: "flex",
-  },
-  details: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  content: {
-    flex: "1 0 auto",
-  },
-
-  title:{
-    color:"#fff"
-  },
-  content:{
-    color:"#fff"
-  }
-});
-
-
-
-export default function Poolcard(props) {
+function SimplePoolCard(props) {
   const classes = useStyles();
-  const auth = React.useContext(AuthenticationContext);
-
-
-
-  const displayPools = (props) => {
-    const { pools } = props;
+  const displayPools = (props) =>{
+    const {pools} = props;
 
     if (pools.length > 0) {
       return pools.map((pool, index) => {
@@ -88,18 +59,15 @@ export default function Poolcard(props) {
         );
       });
     } else {
-      return (
-        <>
-           <p style={{ color: "white" }}> You seemed to have joined all the pools! Good Luck!</p>
-        </>
-      )
-      
-
-
-      
-   ;
+      return <p style={{ color: "black" }}> haven't found pools</p>;
     }
   };
 
-  return <>{displayPools(props)}</>;
+  return (
+    <div>
+      
+    </div>
+  )
 }
+
+export default SimplePoolCard

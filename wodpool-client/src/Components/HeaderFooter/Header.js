@@ -19,14 +19,11 @@ import wpbadge from "../../assets/WhiteBadge.png";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: "rgba(0,0,0,1)",
+    backgroundColor: "rgba(0,0,0,.8)",
     boxShadow: "0px 5px 6px rgba(0,0,0,0.5)",
   },
   menuButton: {
     marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
   },
   menuItem: {
     textDecoration: "none",
@@ -79,7 +76,6 @@ function Header() {
             <img src={wpbadge} className={classes.wordmark} alt="wodpool" />
           </Typography>
           <Link className={classes.menuBarItem} to="/">Home</Link>
-          <Link className={classes.menuBarItem} to="/pools">Pools</Link>
           <Link className={classes.menuBarItem} to="/profile">Profile</Link>
 
           {auth && (

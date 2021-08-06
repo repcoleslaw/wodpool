@@ -1,7 +1,7 @@
+
 .App {
   text-align: center;
 }
-
 
 .page-container {
   display: flex;
@@ -14,12 +14,9 @@
 }
 
 html{
-  background-color: grey;
+  background-color: #1B1A21;
+  scroll-behavior: smooth;
 }
-.app-bar{
-  background-color: rgba(0,0,0,.5);
-}
-
 
 
 .unstyled-list{
@@ -30,7 +27,7 @@ html{
 }
 
 .content-wrap{
-  background-color:#656565;
+  background-color:#1B1A21;
   color:white;
 }
 
