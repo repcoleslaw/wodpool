@@ -12,9 +12,12 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     padding:"0.5em"
   },
-  btnGroup: {
-    margin: "0em 0em"
-  },
+    btnGroup: {
+      margin: "0em 0em"
+    },
+    btnStyle1: {
+      width:"100%",
+    },
   img: {
     maxWidth: "65vw",
     padding:"8em"

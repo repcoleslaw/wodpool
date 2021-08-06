@@ -77,7 +77,7 @@ function Pool({ location: { search } }) {
     }, []);
 
       return(
-        <div className={classes.section}>
+        <div>
           <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>
@@ -107,12 +107,12 @@ function Pool({ location: { search } }) {
 
     const PoolHeader = () => {
       return(
-        < >
-            <Typography>{pool.name}</Typography>
-            <Typography variant="caption">{pool.startsOn}</Typography>
+        <Paper className={classes.paper}>
+        {pool?.name ? (<Typography>{pool.name}</Typography>) : <Typography>Competition Name</Typography>}
+        {pool?.startsOn ? (<Typography variant="caption">{pool.startsOn}</Typography>) : <Typography>Starting Date</Typography>}
             <Typography>{pool.numberOfWeeks}</Typography>
             <Button variant="outlined" color="secondary">details</Button>
-        </>
+        </Paper>
 
       )
     }
@@ -122,12 +122,12 @@ function Pool({ location: { search } }) {
         <div className={classes.root}>
           <Header/>
           <div className={classes.section}>
-          <Grid container spacing={2}>
+          <Grid container spacing={4}>
               <Grid item xs={12}>
                 <PoolHeader/>
               </Grid>
               <Grid item xs={12}>
-                <Button variant="contained" color="primary">SUBMIT</Button>
+                <Button className={classes.btnStyle1} variant="contained" color="primary">SUBMIT</Button>
               </Grid>
               <Grid item xs={12}>
                 <Leaderboard/>
