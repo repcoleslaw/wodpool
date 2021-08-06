@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 // use this page to sketch out the other shit that you get confused in.
-
+import Modal from '@material-ui/core/Modal';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,10 +10,14 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import usePools from '../usePools';
-
+import usePools from '../../Components/usePools';
+import {Button} from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import {useStyles} from '../../util/MakeStyles';
 
 //components
+import Header from '../../Components/HeaderFooter/Header';
 
 
 // style the table
@@ -36,58 +40,45 @@ const StyledTableCell = withStyles((theme) => ({
     },
   }))(TableRow);
 
-  const useStyles = makeStyles({
-    table: {
-      minWidth: 700,
-      color:"black"
-    },
-    tableRow:{
-        color:"black"
-    }
-  });
 
   // get table headers
 
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
-//   function createData(name, duration, score, prevPos) {
-//     return { name, duration, score, prevPos };
-//   }
-// create data rows.
-// 
-  const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-  ];
 
-//QUESTION: Hw to hit Get and map into the rows.so we need to get all the rows related to ID + Week.
-
-
-
-// Converting Time back from flat Seconds
-// 2 Tables?
-//First Table is TOURNAMENT WIDE, where it descends based on points
-// Second Table is CURRENT WEEK, where it descends bassed on time. 
-
-// 1 Table for the page, drop down to toggle between modes.
 
   
-function Leaderboard(...props) {
-    const id = props.location;
+function Pool({ location: { search } }) {
+    const id = new URLSearchParams(search).get("id");
     const classes = useStyles();
     const [pool, setPools] = React.useState([]);
+    const [show, setModal] = React.useState(false);
     const us = usePools();
+    // get pool data
+
+    const handleOpen = () => {
+      setModal(true);
+    };
+    const handleClose = () => {
+      setModal(false);
+    };
 
 
+    const Leaderboard = () => {
+      const us = usePools();
+      const classes = useStyles();
 
-    return (
-        <div className={classes.root}>
-            Leaderboard Component
-            <TableContainer component={Paper}>
+      React.useEffect(() => {
+        axios.get(`/pools/${id}`)
+            .then(({ data }) => {
+                setPools(data.pool)
+            })
+            .catch((err) => {
+                console.log(err);
+              });
+    }, []);
+
+      return(
+        <div className={classes.section}>
+          <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>
                         <TableRow>
@@ -110,9 +101,45 @@ function Leaderboard(...props) {
                     </TableBody>
                 </Table>
             </TableContainer>
+        </div>
+      )
+    }
 
+    const PoolHeader = () => {
+      return(
+        < >
+            <Typography>{pool.name}</Typography>
+            <Typography variant="caption">{pool.startsOn}</Typography>
+            <Typography>{pool.numberOfWeeks}</Typography>
+            <Button variant="outlined" color="secondary">details</Button>
+        </>
+
+      )
+    }
+
+  
+    return (
+        <div className={classes.root}>
+          <Header/>
+          <div className={classes.section}>
+          <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <PoolHeader/>
+              </Grid>
+              <Grid item xs={12}>
+                <Button variant="contained" color="primary">SUBMIT</Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Leaderboard/>
+              </Grid>
+            </Grid>
+          </div>
+            
+          
+            
+            
         </div>
     )
 }
 
-export default Leaderboard
+export default Pool

@@ -4,13 +4,11 @@ import Header from "../../Components/HeaderFooter/Header";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { Link } from "react-router-dom";
 import PoolCard from "../../Components/PoolCard/PoolCard";
 import JoinedCard from '../../Components/PoolCard/ProfilePoolCard';
 import usePools from "../../Components/usePools";
 
 //import assets
-import placeholder from "../../assets/placeholder.png";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
@@ -29,10 +27,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     backgroundColor: "rgba(0,0,0,0.25)",
     color: "white",
-  },
-  img: {
-    height: "40px",
-    width: "40px",
   },
   container: {
     padding: theme.spacing(2),
@@ -57,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
 
 const MyPools = () => {
   const us = usePools();
-  
   React.useEffect(() => {
     us.fetchWithHandle();
   }, []);
@@ -92,11 +85,11 @@ const OtherPools = () => {
         <PoolCard pools={us.pools} />
       ) : (
         <div>
-          <Typography component="p" variant="body">
+          <Typography component="p" variant="body1">
           Looks like you've joined everything! Good luck!
           </Typography>
 
-          <Button className={classes.btn} variant="contained" href="/pools" color="primary">
+          <Button className={classes.btn} variant="contained" href="/" color="primary">
             Go To Pools
           </Button>
         </div>
@@ -124,12 +117,9 @@ const Profile = () => {
       .then((res) => {
         const myProfile = res.data.profile;
         setProfileData(myProfile);
-        console.log(myProfile);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
-
- 
 
 
   return (
@@ -165,33 +155,33 @@ const Profile = () => {
                       <ul className={classes.ul}>
                     <li className={classes.userList}>
                         {auth.profile?.location ? (
-                          <Typography component="p" variant="body">
+                          <Typography component="p" variant="body1">
                             <LocationOn/>: {auth.profile?.location}
                           </Typography>
                         ) : (
-                          <Typography component="p" variant="body">
+                          <Typography component="p" variant="body1">
                           <LocationOn/> No location provided.
                         </Typography>
                         )}
                       </li>
                       <li className={classes.userList}>
                         {auth.profile?.details ? (
-                          <Typography component="p" variant="body">
+                          <Typography component="p" variant="body1">
                             <EmojiPeopleOutlined/> {auth.profile?.details}
                           </Typography>
                         ) : (
-                          <Typography component="p" variant="body">
+                          <Typography component="p" variant="body1">
                           <EmojiPeopleOutlined/> No details provided.
                         </Typography>
                         )}
                       </li>
                       <li className={classes.userList}>
                         {auth.profile?.pools ? (
-                          <Typography component="p" variant="body">
+                          <Typography component="p" variant="body1">
                           <FitnessCenter/> {auth.profile?.pools}
                         </Typography>
                       ) : (
-                        <Typography component="p" variant="body">
+                        <Typography component="p" variant="body1">
                         <FitnessCenter/> No pools participated in.
                       </Typography>
                         )}
@@ -200,7 +190,7 @@ const Profile = () => {
                      
                     </Grid>
                     <Button variant="outlined" color="secondary" disabled >edit</Button>
-                    <Typography component="p" variant="body" color="error">
+                    <Typography component="p" variant="body1" color="error">
                         Hey, {auth.profile.firstName}, welcome to the ALPHA TEST!
                         Check back here when we've got more developed to update
                         your profile data!

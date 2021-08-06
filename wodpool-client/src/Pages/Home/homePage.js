@@ -69,8 +69,6 @@ export default function HomePage(props) {
         </Grid>
       </Grid>
       </div>
-
-      
     </div>
     )
    ;

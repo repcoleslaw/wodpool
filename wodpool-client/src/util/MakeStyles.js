@@ -1,4 +1,3 @@
-import theme from './ThemeProvider'
 import {makeStyles} from '@material-ui/core/styles';
 
 //import assets
@@ -9,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    textAlign: "center",
     backgroundColor: "#2F2C3B",
     color: "white",
     padding:"0.5em"
@@ -40,6 +38,13 @@ const useStyles = makeStyles((theme) => ({
     textTransform:"uppercase",
     margin:"1em 0em"
   },
+  table: {
+    minWidth: 700,
+    color:"black"
+  },
+  tableRow:{
+      color:"black"
+  }
 }));
 
 export {useStyles};
