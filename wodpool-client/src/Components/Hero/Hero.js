@@ -4,7 +4,7 @@ import wordmark from "../../assets/WP-Wordmark.png";
 
 import Grid from "@material-ui/core/Grid"
 import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/Button";
+
 
 function Hero(props) {
   const classes = useStyles(props);
@@ -21,10 +21,8 @@ function Hero(props) {
           <Grid item xs={12} sm={1}>
             <Button className={classes.btnGroup} href="https://donttalkaboutwodpool.ca/" variant="outlined" color="secondary">More Info</Button>
           </Grid>
-
         </Grid>
       </Grid>
-
     </div>
   )
 }

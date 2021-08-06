@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     backgroundColor: "#2F2C3B",
     color: "white",
+    padding:"0.5em"
   },
   btnGroup: {
     margin: "0em 0em"
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     padding:"8em"
   },
   hero: {
-    height: "80vh",
+    height: "85vh",
     backgroundPosition: "center",
     backgroundImage: `url(${banner})`,
     backgroundRepeat: "no-repeat",
@@ -29,11 +30,15 @@ const useStyles = makeStyles((theme) => ({
     textAlign:"center"
   },
   section:{
-    padding:"2em 0"
+    padding:"2em"
+  },
+  subsection:{
+    padding:"2em 0em"
   },
   sectionTitle:{
     textAlign:"center",
-    textTransform:"uppercase"
+    textTransform:"uppercase",
+    margin:"1em 0em"
   },
 }));
 
