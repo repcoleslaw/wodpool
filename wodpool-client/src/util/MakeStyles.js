@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "65vw",
     padding:"8em"
   },
+  sponsorImg:{
+    width:'100%',
+    padding:'2em'
+  },
   hero: {
     height: "85vh",
     backgroundPosition: "center",
