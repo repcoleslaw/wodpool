@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: "#2F2C3B",
     color: "white",
-    padding:"0.5em"
+    padding:"1em"
   },
     btnGroup: {
       margin: "0em 0em"
@@ -51,6 +51,10 @@ const useStyles = makeStyles((theme) => ({
   },
   tableRow:{
       color:"black"
+  },
+  accordionBase:{
+    backgroundColor:"rgba(0,0,0,.3)",
+    margin:"1em 0em"
   }
 }));
 

@@ -18,6 +18,7 @@ import {useStyles} from '../../util/MakeStyles';
 
 //components
 import Header from '../../Components/HeaderFooter/Header';
+import PoolDesc from '../../Components/PoolCard/PoolDesc';
 
 
 // style the table
@@ -105,26 +106,14 @@ function Pool({ location: { search } }) {
       )
     }
 
-    const PoolHeader = () => {
-      return(
-        <Paper className={classes.paper}>
-        {pool?.name ? (<Typography>{pool.name}</Typography>) : <Typography>Competition Name</Typography>}
-        {pool?.startsOn ? (<Typography variant="caption">{pool.startsOn}</Typography>) : <Typography>Starting Date</Typography>}
-            <Typography>{pool.numberOfWeeks}</Typography>
-            <Button variant="outlined" color="secondary">details</Button>
-        </Paper>
-
-      )
-    }
-
-  
+ 
     return (
         <div className={classes.root}>
           <Header/>
           <div className={classes.section}>
           <Grid container spacing={4}>
               <Grid item xs={12}>
-                <PoolHeader/>
+                <PoolDesc pool={pool}/>
               </Grid>
               <Grid item xs={12}>
                 <Button className={classes.btnStyle1} variant="contained" color="primary">SUBMIT</Button>
