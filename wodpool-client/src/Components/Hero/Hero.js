@@ -15,10 +15,10 @@ function Hero(props) {
         <img className={classes.img} src={wordmark} alt="wodpool" />
         </Grid>
         <Grid container justify="center">
-          <Grid item xs={12} sm={1}>
+          <Grid item xs={12} sm={2}>
             <Button className={classes.btnGroup}variant="contained" color="primary" href="#pools">View Pools</Button>
           </Grid>
-          <Grid item xs={12} sm={1}>
+          <Grid item xs={12} sm={2}>
             <Button className={classes.btnGroup} href="https://donttalkaboutwodpool.ca/" variant="outlined" color="secondary">More Info</Button>
           </Grid>
         </Grid>
