@@ -3,6 +3,9 @@ import Grid from '@material-ui/core/Grid';
 import { useStyles } from '../../util/MakeStyles'
 import Typography from '@material-ui/core/Typography';
 
+//import logos
+import DarylLogo from '../../assets/Sponsors/2019BadgeReverse.png'
+
 
 function Sponsors(props) {
   const classes = useStyles(props);
@@ -12,7 +15,11 @@ function Sponsors(props) {
       <Typography variant="subtitle1">
         Sponsors
       </Typography>
-      <Grid container>
+      {/* place logos in here */}
+      <Grid container justify="center">
+        <Grid item xs={6} sm={4} md={2}>
+          <img className={classes.sponsorImg} src={DarylLogo}/>
+        </Grid>
       </Grid>
       <hr/>
     </div>
