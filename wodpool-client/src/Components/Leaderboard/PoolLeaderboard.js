@@ -76,24 +76,22 @@ const StyledTableCell = withStyles((theme) => ({
 // 1 Table for the page, drop down to toggle between modes.
 
   
-function Leaderboard(...props) {
-    const id = props.location;
+function PoolLeaderboard(props) {
+    const id = props.id
+    const pool = props.pool
     const classes = useStyles();
-    const [pool, setPools] = React.useState([]);
-    const us = usePools();
-
 
 
     return (
         <div className={classes.root}>
             Leaderboard Component
+            {id}
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>
                         <TableRow>
                             <StyledTableCell>Rank</StyledTableCell>
-                            <StyledTableCell align="right">Handle </StyledTableCell>
-                            <StyledTableCell align="right">Duration (mm:ss)</StyledTableCell>
+                            <StyledTableCell align="left">Handle </StyledTableCell>
                             <StyledTableCell align="right">Score </StyledTableCell>
                             <StyledTableCell align="right">Previous Position</StyledTableCell>
                         </TableRow>
@@ -115,4 +113,4 @@ function Leaderboard(...props) {
     )
 }
 
-export default Leaderboard
+export default PoolLeaderboard
