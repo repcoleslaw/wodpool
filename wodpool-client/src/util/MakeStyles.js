@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
     btnGroup: {
       margin: "0em 0em"
     },
+    btnGroup1: {
+      margin:"1em 0",
+      padding:"1em 0"
+    },
     btnStyle1: {
       width:"100%",
     },

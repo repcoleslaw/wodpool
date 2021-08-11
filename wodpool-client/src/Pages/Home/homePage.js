@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button"
 //components
 import Hero from '../../Components/Hero/Hero';
 import Sponsors from "../../Components/Sponsors/Sponsors";
+import HomeAddResources from "../../Components/AdditionalResources/homeAddResources";
 
 //
 import wordmark from "../../assets/WP-Wordmark.png";
@@ -45,43 +46,13 @@ export default function HomePage(props) {
     );
   };
 
-  const AddResources = () => {
-    return(
-      <div className={classes.section}>
-      <Typography variant="h3" className={classes.sectionTitle}>
-        Additional Resources
-      </Typography>
-      <div className={classes.subsection}>
-      <Grid container justify="center" spacing={8}>
-        <Grid item xs={12} sm={4}>
-          <Paper className={classes.paper}>
-            <Typography variant="subtitle1">
-              Training Resources // Coming Soon
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Paper className={classes.paper}>
-          <Typography variant="subtitle1">
-             Gym Finder // Coming Soon
-            </Typography>
-          </Paper>
-        </Grid>
-      </Grid>
-      </div>
-    </div>
-    )
-   ;
-  };
-  
-
 
   return (
     <div className={classes.root}>
       <Header />
       <Hero/>
       <AvailPools/>
-      <AddResources/>
+      <HomeAddResources/>
       <Sponsors/>
     </div>
   );
