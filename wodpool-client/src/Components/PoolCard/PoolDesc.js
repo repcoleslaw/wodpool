@@ -3,7 +3,6 @@ import React from 'react'
 //import mui
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
