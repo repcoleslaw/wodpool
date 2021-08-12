@@ -73,7 +73,7 @@ export default function ProfileCard(props) {
                 className={classes.btn}
                 variant="contained"
                 color="primary"
-                href={`/pools/pool?id=${pool.id}`}
+                href={`/pools/${pool.id}`}
               >
                 POOL PAGE
               </Button>

@@ -11,7 +11,7 @@ export default () => {
     ["competitors.handle", joinWith, auth.profile.handle].join("");
 
   const fetch = (queryParams) =>
-    axios.get(`/pools?${queryParams}`).then(({ data }) => {
+    axios.get(['/pools', queryParams].filter(Boolean).join('?')).then(({ data }) => {
       setPools(data?.pools);
     });
 

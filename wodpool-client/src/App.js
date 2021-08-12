@@ -41,8 +41,8 @@ const Routes = (r) => {
       <ProtectedRoute exact default path="/" component={Home} />
       <ProtectedRoute exact path="/pools" pool component={Pool} />
       <ProtectedRoute exact path="/profile" component={Profile} />
-      <ProtectedRoute exact path="/pools/pool" component={Poolpage} />
-      <ProtectedRoute exact path="/pools/submit" component={Submit} />
+      <ProtectedRoute exact path="/pools/:id" component={Poolpage} />
+      <ProtectedRoute exact path="/pools/:id/submit" component={Submit} />
       
 
       {/* Public Routes */}

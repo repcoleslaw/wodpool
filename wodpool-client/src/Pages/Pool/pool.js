@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 //MUI
 import Paper from '@material-ui/core/Paper';
@@ -22,10 +23,12 @@ import {useStyles} from '../../util/MakeStyles';
 
 
   
-function Pool({ location: { search } }) {
-    const id = new URLSearchParams(search).get("id");
+function Pool(props) {
+    console.log(props)
+    const id = props.match.params.id
     const classes = useStyles();
     const [pool, setPools] = React.useState([]);
+
     // toggle states
     const [selected, setSelected] = React.useState('primary');
 
@@ -43,7 +46,7 @@ function Pool({ location: { search } }) {
           .catch((err) => {
               console.log(err);
             });
-
+      
   }, []);
 
  
@@ -58,7 +61,7 @@ function Pool({ location: { search } }) {
                 <PoolDesc pool={pool}/>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Button className={classes.btnStyle1} variant="contained" color="primary">SUBMIT</Button>
+                <Button component={Link} className={classes.btnStyle1} variant="contained" color="primary" to={`${id}/submit`}>SUBMIT</Button>
               </Grid>
               <Grid item xs={12} md={6}>
                 <Button className={classes.btnStyle1} variant="outlined" color="secondary" href="/profile">Back to Profile</Button>

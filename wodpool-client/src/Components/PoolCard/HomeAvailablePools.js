@@ -1,23 +1,33 @@
-import React from 'react'
+import React from "react";
+import axios from "axios";
 //MUI
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+
 //Styles
 import { useStyles } from "../../util/MakeStyles";
+//Components
+import usePools from "../usePools";
+import PoolCard from "./PoolCard";
 
-function HomeAvailablePools() {
+export default function HomeAvailablePools(props) {
   const classes = useStyles();
+  const us = usePools();
+ 
+
+  React.useEffect(us.fetch, [])
 
   return (
-    <div id="pools"className={classes.section}>
-        <Typography className={classes.sectionTitle}variant="h3">
+    <div id="pools" className={classes.section}>
+      <Typography className={classes.sectionTitle} variant="h3">
         Available Pools
-        </Typography>
-        <Paper className={classes.paper}>
-          This is the available pool carousel place
-       </Paper>
-       </div>
-  )
+      </Typography> 
+        <PoolCard pools={us.pools} />
+    </div>
+  );
 }
-
-export default HomeAvailablePools

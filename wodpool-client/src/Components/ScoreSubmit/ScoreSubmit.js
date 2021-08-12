@@ -171,7 +171,7 @@ function ScoreSubmit({ location: { search } }) {
                 label="I confirm that I have proof of my attempt if requested to provide it."
                 onChange={(e) => {
                     handleProof(!hasProof);
-                }}
+                }} 
                 />
             </Grid>
             <Grid item xs={12} className={classes.gridGuide}>
