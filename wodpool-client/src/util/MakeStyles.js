@@ -4,6 +4,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import banner from "../assets/WP-HeroBanner-v1.jpg"
 
 const useStyles = makeStyles((theme) => ({
+  ///GENERAL
   root: {
     flexGrow: 1,
   },
@@ -49,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform:"uppercase",
     margin:"1em 0em"
   },
+  // LEADERBOARD
   table: {
     minWidth: 700,
     color:"black"
@@ -58,7 +60,24 @@ const useStyles = makeStyles((theme) => ({
   },
   accordionBase:{
     backgroundColor:"rgba(0,0,0,.3)",
-    margin:"1em 0em"
+  },
+  // CARD MEDIA
+  homePoolsRoot:{
+    display:"flex",
+  },
+  cardBase:{
+    width:345,
+    height:400,
+    backgroundColor:"rgba(0,0,0,.5)",
+  },
+  cardMedia:{
+    height:140,
+  },
+  cardActionArea:{
+    height:350,
+  },
+  cardAction:{
+    bottom:0,
   }
 }));
 

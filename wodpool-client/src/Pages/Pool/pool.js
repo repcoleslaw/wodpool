@@ -8,8 +8,6 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-// import ToggleButton from '@material-ui/lab/ToggleButton';
-// import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
 //components
 import Header from '../../Components/HeaderFooter/Header';
@@ -29,14 +27,6 @@ function Pool(props) {
     const classes = useStyles();
     const [pool, setPools] = React.useState([]);
 
-    // toggle states
-    const [selected, setSelected] = React.useState('primary');
-
-    const handleSelected = (e, newSelection) => {
-      setSelected(newSelection)
-    }
-
-
 
     React.useEffect(() => {
       axios.get(`/pools/${id}`)
@@ -45,11 +35,9 @@ function Pool(props) {
           })
           .catch((err) => {
               console.log(err);
-            });
-      
+            });  
   }, []);
-
- 
+  
 
    
     return (
@@ -64,7 +52,7 @@ function Pool(props) {
                 <Button component={Link} className={classes.btnStyle1} variant="contained" color="primary" to={`${id}/submit`}>SUBMIT</Button>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Button className={classes.btnStyle1} variant="outlined" color="secondary" href="/profile">Back to Profile</Button>
+                <Button className={classes.btnStyle1} variant="outlined" color="secondary" href="/profile">To Profile Page</Button>
               </Grid>
               <Grid item xs={12}>
                 {/* Event and Pool Leaderboards */}
@@ -83,10 +71,6 @@ function Pool(props) {
               </Grid>
             </Grid>
           </div>
-            
-          
-            
-            
         </div>
     )
 }

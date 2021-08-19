@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //import pages
 import Home from "./Pages/Home/homePage";
-import Pool from "./Pages/Pool/poolPage";
+// import Pool from "./Pages/Pool/OLD_poolPage";
 import Poolpage from "./Pages/Pool/pool";
 
 // import Store from "./Pages/storePage";
@@ -39,7 +39,6 @@ const Routes = (r) => {
   return r.init ? (
     <Switch>
       <ProtectedRoute exact default path="/" component={Home} />
-      <ProtectedRoute exact path="/pools" pool component={Pool} />
       <ProtectedRoute exact path="/profile" component={Profile} />
       <ProtectedRoute exact path="/pools/:id" component={Poolpage} />
       <ProtectedRoute exact path="/pools/:id/submit" component={Submit} />
