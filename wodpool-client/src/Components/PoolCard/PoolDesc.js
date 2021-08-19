@@ -9,11 +9,12 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 //styles
 import { useStyles } from "../../util/MakeStyles";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+//Components
+import EventAccordion from '../EventAccordion/EventAccordion';
 
 
 
 function PoolDesc(props) {
-
   const classes = useStyles()
   const pool = props.pool
 
@@ -23,7 +24,7 @@ function PoolDesc(props) {
         {pool?.name ? 
           (<Typography variant="h3">{pool.name}</Typography>) : <Typography>Competition Name</Typography>}
         {pool?.startsOn ? (<Typography variant="caption">{pool.startsOn}</Typography>) : <Typography>Starting Date</Typography>}
-        {/* Accordion Start */}
+        {/* Detail Collapse Start */}
         <Accordion className={classes.accordionBase}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -36,9 +37,12 @@ function PoolDesc(props) {
 
             {pool?.description ? (
               <Typography variant="body1">{pool.description}</Typography>) : <Typography>pool description</Typography>}
-
         </AccordionDetails>
         </Accordion>
+
+        {/* Events Collapse Start */}
+        <Typography>Events</Typography>
+        <EventAccordion pool={pool}/>
       </Paper>
     </>
   )
