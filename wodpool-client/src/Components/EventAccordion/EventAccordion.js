@@ -11,44 +11,46 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 //Components
 import ExercisesCard from './ExercisesCard';
 
+
 function EventAccordion(props) {
-  
+  // establish states
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState('panel1');
+  const events = (props.pool.events)
 
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
 
+  
   const displayEvents = (props) => {
-
-    const events = props.pool.events
+    //check if I have events
     console.log(events)
-    // if (events.length > 0) {
-    //   return events.map((event, index) =>{
-    //       return(
-    //         <div key={index}>
-    //           This is Week {index + 1}
-    //           <div>
-    //             this is equipment indicator {event.equipment}
-    //           </div>
-    //           this is where we will pass the EXERCISES down
-    //           <ExercisesCard exercises={events.exercises}/>
-    //         </div>
-    //       )
-    //     })
-    // } else {
-    //   return(
-    //     <div>This broke</div>
-    //   )
-    // }
-    // 
-    return(
-      <div>
-        troubleshooting event Accordion
-        
-      </div>
-    )
+    if (events && Array.isArray(events)) {
+      if (events.length > 0){
+        return events.map((event, index) =>{
+          return(
+            <Accordion key={index} className={classes.accordionBase}>
+              <AccordionSummary
+              expandIcon={<ExpandMoreIcon/>}
+              >
+                <Typography variant="h5">
+                 Week {index + 1}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <ExercisesCard event={event}/>
+              </AccordionDetails>
+            </Accordion>
+          )
+        })
+      } else {
+        return(
+          <p>failed map</p>
+        )
+      }
+    } else {
+      return(
+        <p>I have no event data</p>
+      )
+    }
   };
 
   return (
