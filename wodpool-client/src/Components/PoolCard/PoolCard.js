@@ -30,15 +30,15 @@ export default function Poolcard(props) {
     
       return pools.map((pool, index) => {
         // joining pool function
-        const join = () => {
-          return axios.post(`/registration?pool=${pool.id}`).then(() => {
-            alert("SUCCESS");
-          })
-          .catch((err) => {
-            alert("You've already registered")
-            console.log(err)
-          });
-        };
+        // const join = () => {
+        //   return axios.post(`/registration?pool=${pool.id}`).then(() => {
+        //     alert("SUCCESS");
+        //   })
+        //   .catch((err) => {
+        //     alert("You've already registered")
+        //     console.log(err)
+        //   });
+        // };
         
         return (
           <Grid item key={index}> 

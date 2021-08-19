@@ -66,7 +66,8 @@ const useStyles = makeStyles((theme) => ({
     display:"flex",
   },
   cardBase:{
-    width:345,
+    maxWidth:345,
+    width:"100%",
     height:400,
     backgroundColor:"rgba(0,0,0,.5)",
   },
