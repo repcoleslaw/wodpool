@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 
 //import logos
 import DarylLogo from '../../assets/Sponsors/2019BadgeReverse.png'
+import StrongLogo from '../../assets/Sponsors/StrongGym.png'
+import ThreeMerge from '../../assets/Sponsors/3mergeLogo.png'
 
 
 function Sponsors(props) {
@@ -16,9 +18,15 @@ function Sponsors(props) {
         Sponsors
       </Typography>
       {/* place logos in here */}
-      <Grid container justify="center">
+      <Grid container justify="center" spacing={8}>
         <Grid item xs={6} sm={4} md={2}>
-          <img className={classes.sponsorImg} src={DarylLogo}/>
+          <img className={classes.sponsorImg} src={DarylLogo} alt="Daryls Bars"/>
+        </Grid>
+        <Grid item xs={6} sm={4} md={2}>
+          <img className={classes.sponsorImg} src={StrongLogo} alt="99Strong Street"/>
+        </Grid>
+        <Grid item xs={6} sm={4} md={2}>
+          <img className={classes.sponsorImg} src={ThreeMerge} alt="3Merge"/>
         </Grid>
       </Grid>
       <hr/>

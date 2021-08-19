@@ -22,7 +22,6 @@ import {useStyles} from '../../util/MakeStyles';
 
   
 function Pool(props) {
-    console.log(props)
     const id = props.match.params.id
     const classes = useStyles();
     const [pool, setPools] = React.useState([]);
@@ -38,8 +37,6 @@ function Pool(props) {
             });  
   }, []);
   
-
-   
     return (
         <div className={classes.root}>
           <Header/>
