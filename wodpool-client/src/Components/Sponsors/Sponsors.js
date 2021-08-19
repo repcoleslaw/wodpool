@@ -25,9 +25,6 @@ function Sponsors(props) {
         <Grid item xs={6} sm={4} md={2}>
           <img className={classes.sponsorImg} src={StrongLogo} alt="99Strong Street"/>
         </Grid>
-        <Grid item xs={6} sm={4} md={2}>
-          <img className={classes.sponsorImg} src={ThreeMerge} alt="3Merge"/>
-        </Grid>
       </Grid>
       <hr/>
     </div>
