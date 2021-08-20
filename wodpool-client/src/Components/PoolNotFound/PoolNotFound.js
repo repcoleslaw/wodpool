@@ -15,11 +15,11 @@ function PoolNotFound() {
   return (
     <div className={classes.root}>
       <Header/>
-      <div className={classes.section}>
-        <Grid container spacing={4}>
+      <div className={classes.standalone}>
+        <Grid container justify="center"spacing={4}>
           <Grid item xs={12}>
-            <Typography variant="h2">Oops!</Typography>
-            <Typography variant="body1">There is no pool with that ID</Typography>
+            <Typography style={{marginBottom:"1em"}} variant="h2">Oops!</Typography>
+            <Typography variant="body1">There is no pool with that ID. Let's get you back to the App.</Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Button className={classes.btnStyle1} component={Link} variant="contained" color="primary" to="/">Back to Home</Button>

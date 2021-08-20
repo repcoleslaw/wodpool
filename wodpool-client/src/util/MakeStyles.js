@@ -42,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
   section:{
     padding:"2em"
   },
+  standalone:{
+    padding:"2em",
+    textAlign:"center"
+  },
   subsection:{
     padding:"2em 0em"
   },
