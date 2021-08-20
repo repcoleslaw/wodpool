@@ -84,6 +84,9 @@ const useStyles = makeStyles((theme) => ({
   cardAction:{
     bottom:0,
   },
+  cardNarrow:{
+    backgroundColor:"rgba(0,0,0,.5)",
+  },
   //ICONS
   infoIcon:{
     height:"0.65em",

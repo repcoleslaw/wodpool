@@ -1,42 +1,16 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
+//MUI
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import axios from "axios";
-import { useTheme } from '@material-ui/core/styles';
-
-
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 800,
-    display: "flex",
-  },
-  details: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  content: {
-    flex: "1 0 auto",
-  },
-  media: {
-    width: "35%",
-  },
-  card: {
-    margin: "2em",
-    padding: "1em",
-    backgroundColor: "rgba(0,0,0,0.5)",
-  },
-  btn: {
-    float: "right",
-  },
-});
+// ASSETS
+import { useStyles } from "../../util/MakeStyles";
+//COMPONENTS
 
 export default function ProfileCard(props) {
-  const theme = useTheme();
-  const classes = useStyles();
 
+  const classes = useStyles();
   const displayPools = (props) => {
     const { pools } = props;
 
@@ -55,7 +29,7 @@ export default function ProfileCard(props) {
 
         return (
           <div key={index}>
-            <Card className={classes.card}>
+            <Card className={classes.cardNarrow}>
               <Typography component="h1" variant="h5" color="textPrimary">
                 {pool.name}
               </Typography>

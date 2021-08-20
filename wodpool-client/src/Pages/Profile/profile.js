@@ -14,6 +14,7 @@ import JoinedCard from '../../Components/PoolCard/ProfilePoolCard';
 import usePools from "../../Components/usePools";
 import ProfileInfo from '../../Components/ProfileInfo/ProfileInfo';
 import AlertCard from '../../Components/AlertCard/AlertCard';
+import MyPools from '../../Components/MyPools/MyPools';
 
 //import assets
 import { makeStyles } from "@material-ui/core/styles";
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const MyPools = () => {
+const MyOldPools = () => {
   const us = usePools();
   React.useEffect(() => {
     us.fetchWithHandle();
@@ -105,10 +106,13 @@ const OtherPools = () => {
 
 const Profile = () => {
   const classes = useStyles();
+  const us = usePools();
   const [profile, setProfile] = React.useState("");
+  const [myPools, setMyPools] = React.useState("");
   //loading
   const [isLoading, setIsLoading] = React.useState(true);
-  //validate user
+  //do i need to validate a registered user?  how am i doing that now?
+  // do i need to continue to that?
   const [isNotRegistered, setIsNotRegistered] = React.useState(true);
 
   const auth = React.useContext(AuthenticationContext);
@@ -116,6 +120,11 @@ const Profile = () => {
   React.useEffect(() => {
     getMyProfile();
   }, []);
+
+  React.useEffect(()=>{
+    us.fetchWithHandle()
+  }, []);
+
 
   const getMyProfile = () => {
     axios
@@ -137,83 +146,17 @@ const Profile = () => {
       <>
       <Header />
       <div className={classes.root}>
-        {/* Put Profile Banner */}
-        <Grid container spacing={4} justify='center' >
+        <Grid container spacing={4} justify='center'>
+         <AlertCard/>
           <Grid item xs={12} md={8}>
-            <AlertCard/>
             <Paper className={classes.paper}>
             <ProfileInfo profile={profile}/>
-              {auth?.profile ? (
-                <div className={classes.container}>
-                  <Grid container spacing={2} >
-                    <Grid item xs={12} md={6} >
-                      <Typography component="p" variant="h5">
-                        {auth.profile.firstName} {auth.profile.lastName}
-                      </Typography>
-                      <Typography component="p" variant="h5">
-                        {auth.profile.handle}
-                      </Typography>
-                      <Typography component="p" variant="caption" color="textSecondary">
-                      Your name will be here from your account details
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={12} md={6} >
-                      <ul className={classes.ul}>
-                    <li className={classes.userList}>
-                        {auth.profile?.location ? (
-                          <Typography component="p" variant="body1">
-                            <LocationOn/>: {auth.profile?.location}
-                          </Typography>
-                        ) : (
-                          <Typography component="p" variant="body1">
-                          <LocationOn/> No location provided.
-                        </Typography>
-                        )}
-                      </li>
-                      <li className={classes.userList}>
-                        {auth.profile?.details ? (
-                          <Typography component="p" variant="body1">
-                            <EmojiPeopleOutlined/> {auth.profile?.details}
-                          </Typography>
-                        ) : (
-                          <Typography component="p" variant="body1">
-                          <EmojiPeopleOutlined/> No details provided.
-                        </Typography>
-                        )}
-                      </li>
-                      <li className={classes.userList}>
-                        {auth.profile?.pools ? (
-                          <Typography component="p" variant="body1">
-                          <FitnessCenter/> {auth.profile?.pools}
-                        </Typography>
-                      ) : (
-                        <Typography component="p" variant="body1">
-                        <FitnessCenter/> No pools participated in.
-                      </Typography>
-                        )}
-                      </li>
-                    </ul>
-                     
-                    </Grid>
-                  </Grid>
-                </div>
-              ) : (
-                "Not logged in"
-              )}
             </Paper>
           </Grid>
-
-          {/* Put Pools that I am registered for Here */}
           <Grid item xs={12} md={8}>
             <Paper className={classes.paper}>
-            <Typography component="h2" variant="h5">
-              Your Pools 
-              </Typography>
-              <Typography component="p" variant="caption" color="textSecondary">
-              <Info className={classes.info}/>
-             This is where you can see what pools you have registered for and upload your results!
-              </Typography>
-              <MyPools />
+              <MyPools pools={us.pools}/>
+              <MyOldPools />
             </Paper>
           </Grid>
           {/* Available Pools */}
