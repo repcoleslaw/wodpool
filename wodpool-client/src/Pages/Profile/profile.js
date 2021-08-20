@@ -1,17 +1,22 @@
 import React from "react";
+import axios from "axios";
 import { AuthenticationContext } from "../../Components/AuthenticationContext";
-import Header from "../../Components/HeaderFooter/Header";
-import { makeStyles } from "@material-ui/core/styles";
+
+//MUI
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import { Typography } from "@material-ui/core";
+//COMPONENTS
+import Header from "../../Components/HeaderFooter/Header";
 import PoolCard from "../../Components/PoolCard/PoolCard";
 import JoinedCard from '../../Components/PoolCard/ProfilePoolCard';
 import usePools from "../../Components/usePools";
+import ProfileInfo from '../../Components/ProfileInfo/ProfileInfo';
+import AlertCard from '../../Components/AlertCard/AlertCard';
 
 //import assets
-import axios from "axios";
-import Button from "@material-ui/core/Button";
-import { Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import {LocationOn, EmojiPeopleOutlined, FitnessCenter, Info} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   btn:{
     margin:"2em 0"
   },
-  info:{
+  infoIcon:{
     height:"0.65em",
     width:"auto",
     margin:"0.75em 0.5em 0 0"
@@ -100,10 +105,11 @@ const OtherPools = () => {
 
 const Profile = () => {
   const classes = useStyles();
-  const [profileData, setProfileData] = React.useState("");
-  // set all pool data
-  const [pools, getPools] = React.useState("");
-  // set my pool data
+  const [profile, setProfile] = React.useState("");
+  //loading
+  const [isLoading, setIsLoading] = React.useState(true);
+  //validate user
+  const [isNotRegistered, setIsNotRegistered] = React.useState(true);
 
   const auth = React.useContext(AuthenticationContext);
 
@@ -116,27 +122,27 @@ const Profile = () => {
       .get("/profile")
       .then((res) => {
         const myProfile = res.data.profile;
-        setProfileData(myProfile);
+        setProfile(myProfile);
+        setIsLoading(false);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-
-  return (
-    <>
+  if (isLoading) {
+    return(
+      <div>Loading...</div>
+    )
+  } else {
+    return(
+      <>
       <Header />
       <div className={classes.root}>
         {/* Put Profile Banner */}
         <Grid container spacing={4} justify='center' >
           <Grid item xs={12} md={8}>
+            <AlertCard/>
             <Paper className={classes.paper}>
-              <Typography component="h2" variant="h5">
-              Welcome, {auth.profile.firstName} 
-              </Typography>
-              <Typography component="p" variant="caption" color="textSecondary">
-              <Info className={classes.info}/>
-              Profile Section - Where you will be able to edit all your details!
-              </Typography>
+            <ProfileInfo profile={profile}/>
               {auth?.profile ? (
                 <div className={classes.container}>
                   <Grid container spacing={2} >
@@ -189,13 +195,6 @@ const Profile = () => {
                     </ul>
                      
                     </Grid>
-                    <Button variant="outlined" color="secondary" disabled >edit</Button>
-                    <Typography component="p" variant="body1" color="error">
-                        Hey, {auth.profile.firstName}, welcome to the ALPHA TEST!
-                        Check back here when we've got more developed to update
-                        your profile data!
-                      </Typography>
-                      
                   </Grid>
                 </div>
               ) : (
@@ -224,7 +223,9 @@ const Profile = () => {
         </Grid>
       </div>
     </>
-  );
+    )
+  }
+
 };
 
 export default Profile;

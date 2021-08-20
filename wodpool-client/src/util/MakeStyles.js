@@ -83,7 +83,13 @@ const useStyles = makeStyles((theme) => ({
   },
   cardAction:{
     bottom:0,
-  }
+  },
+  //ICONS
+  infoIcon:{
+    height:"0.65em",
+    width:"auto",
+    margin:"0.75em 0.5em 0 0"
+  },
 }));
 
 export {useStyles};

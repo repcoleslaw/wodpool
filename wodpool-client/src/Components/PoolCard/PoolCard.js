@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import {Link} from 'react-router-dom';
 //MUI
 import Card from "@material-ui/core/Card";
@@ -43,7 +42,7 @@ export default function Poolcard(props) {
         return (
           <Grid item key={index}> 
           <Card className={classes.cardBase}>
-            <CardActionArea className={classes.cardActionArea}>
+            <CardActionArea component={Link} to={`pools/${pool.id}`} className={classes.cardActionArea}>
               <CardMedia className={classes.cardMedia}>
 
               </CardMedia>

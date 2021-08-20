@@ -1,22 +1,35 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
-
+//Components
+import Header from '../../Components/HeaderFooter/Header'
+//MUI
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import { Typography } from '@material-ui/core'
+//Styles
+import {useStyles} from '../../util/MakeStyles';
 
 
 function NotFound() {
+  const classes = useStyles();
   return (
-    <div>
-      <Container>
+    <div className={classes.root}>
+      <Header/>
+      <div className={classes.standalone}>
+      <Grid container justify="center" spacing={4}>
+      <Grid item xs={12}>
+            <Typography style={{marginBottom:"1em"}} variant="h2">404</Typography>
+            <Typography variant="body1">This page doesn't seem to exist. Let's get you back to the App.</Typography>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Button className={classes.btnStyle1} component={Link} variant="contained" color="primary" to="/">Back to Home</Button>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Button className={classes.btnStyle1} component={Link} variant="outlined" color="secondary" to="/profile">Back to Profile</Button>
+          </Grid> 
+      </Grid>
+      </div>
 
-        <h1>404 - Page not found</h1>
-        <Link to='/'>
-        <Button>
-          Go Home
-        </Button>
-        </Link>
-      </Container>
     </div>
   )
 }
