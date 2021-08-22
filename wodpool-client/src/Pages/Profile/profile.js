@@ -5,12 +5,9 @@ import { AuthenticationContext } from "../../Components/AuthenticationContext";
 //MUI
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import { Typography } from "@material-ui/core";
+
 //COMPONENTS
 import Header from "../../Components/HeaderFooter/Header";
-import PoolCard from "../../Components/PoolCard/PoolCard";
-import JoinedCard from '../../Components/PoolCard/ProfilePoolCard';
 import usePools from "../../Components/usePools";
 import ProfileInfo from '../../Components/ProfileInfo/ProfileInfo';
 import AlertCard from '../../Components/AlertCard/AlertCard';
@@ -19,21 +16,20 @@ import OtherPools from '../../Components/PromotedProfile/OtherPools';
 
 //import assets
 import {useStyles} from '../../util/MakeStyles'
-import {LocationOn, EmojiPeopleOutlined, FitnessCenter, Info} from "@material-ui/icons";
+
 
 
 const Profile = () => {
   const classes = useStyles();
-  const us = usePools();
   const [profile, setProfile] = React.useState("");
 
   //loading
   const [isLoading, setIsLoading] = React.useState(true);
   //do i need to validate a registered user?  how am i doing that now?
   // do i need to continue to that?
-  const [isNotRegistered, setIsNotRegistered] = React.useState(true);
+  // const [isNotRegistered, setIsNotRegistered] = React.useState(true);
 
-  const auth = React.useContext(AuthenticationContext);
+  // const auth = React.useContext(AuthenticationContext);
 
   React.useEffect(() => {
     getMyProfile();
