@@ -30,8 +30,9 @@ function Pool(props) {
     // error handling states
     const [isNotFound, setIsNotFound] = React.useState(false);
     //handle leaderboard visibility
-    const [isActive, setIsActive] = React.useState(true);
-    
+    const [btn1, setBtn1] = React.useState("primary");
+    const [btn2, setBtn2] = React.useState("secondary")
+    const [boardActive, setBoardActive] = React.useState(true);
 
     React.useEffect(() => {
       axios.get(`/pools/${id}`)
@@ -46,6 +47,20 @@ function Pool(props) {
               setIsNotFound(true);
             });  
   }, []);
+
+  const handleToggle = () => {
+    setBoardActive(!boardActive);
+    if (btn1 == "primary") {
+      setBtn1("secondary")
+    } else {
+      setBtn1("primary")
+    };
+    if (btn2 == "primary") {
+      setBtn2("secondary")
+    } else {
+      setBtn2("primary")
+    };
+  }
 
   if (isLoading) {
     return(
@@ -80,12 +95,15 @@ function Pool(props) {
                 </Typography>
               {/* Toggle Button Group */}
                <ButtonGroup className={classes.btnGroup1}>
-                <Button variant="contained" color="primary">Pool Board</Button>
-                  <Button variant="contained" color="secondary">Event Board</Button>
+                <Button variant="contained" color={btn1} onClick={handleToggle}>Pool Board</Button>
+                  <Button variant="contained" color={btn2} onClick={handleToggle}>Event Board</Button>
                </ButtonGroup>  
-              
-                <PoolLeaderboard pool={pool} id={id}/>
+
+               {(boardActive) ? (
+                 <PoolLeaderboard pool={pool} id={id}/>
+               ) : (
                 <EventLeaderboard pool={pool} id={id}/>
+               )}
               </Paper>
             </Grid>
           </Grid>
