@@ -34,6 +34,9 @@ function Pool(props) {
     const [btn2, setBtn2] = React.useState("secondary")
     const [boardActive, setBoardActive] = React.useState(true);
 
+    //are you registered?
+    
+
     React.useEffect(() => {
       axios.get(`/pools/${id}`)
           .then(({ data }) => {
