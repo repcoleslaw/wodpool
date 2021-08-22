@@ -12,8 +12,16 @@ function ProfileWallet() {
 const classes = profileStyle();
     return (
         <div>
-            This is the points wallet.
-            <Typography variant="subtitle1" color="error"> This feature is coming soon </Typography>
+            <Grid container className={classes.content}>
+                <Grid item xs={12}>
+                    This is the points wallet.
+                </Grid>
+                <Grid item xs={12}>
+                    <Typography variant="subtitle1" color="error"> This feature is coming soon </Typography>
+                </Grid>
+            </Grid>
+         
+            
         </div>
     )
 }

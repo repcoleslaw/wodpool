@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    backgroundColor: "#2F2C3B",
+    backgroundColor: "rgba(0,0,0,0.3)",
     color: "white",
     padding:"1em"
   },
