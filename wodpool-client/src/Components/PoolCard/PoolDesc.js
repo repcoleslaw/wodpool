@@ -22,8 +22,7 @@ function PoolDesc(props) {
     <>
       <Paper className={classes.paper}>
         {pool?.name ? 
-          (<Typography variant="h3">{pool.name}</Typography>) : <Typography>Competition Name</Typography>}
-        {pool?.startsOn ? (<Typography variant="caption">{pool.startsOn}</Typography>) : <Typography>Starting Date</Typography>}
+          (<Typography style={{paddingBottom:"0.5em"}}variant="h3">{pool.name}</Typography>) : <Typography>Competition Name</Typography>}
         {/* Detail Collapse Start */}
         <Accordion className={classes.accordionBase}>
         <AccordionSummary
@@ -31,7 +30,7 @@ function PoolDesc(props) {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes.heading}>Details</Typography>
+          <Typography variant="h5">Details</Typography>
         </AccordionSummary>
         <AccordionDetails>
 
@@ -41,8 +40,11 @@ function PoolDesc(props) {
         </Accordion>
 
         {/* Events Collapse Start */}
-        <Typography>Events</Typography>
+        <div className={classes.subsection}>
+        <Typography variant="h5" style={{paddingBottom:"0.5em"}}>Events</Typography>
         <EventAccordion pool={pool}/>
+        </div>
+        
       </Paper>
     </>
   )

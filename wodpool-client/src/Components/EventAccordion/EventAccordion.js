@@ -4,9 +4,10 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 // ASSETS
-import {useStyles} from '../../util/MakeStyles';
+import { eventStyles } from './EventStyles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 //Components
 import ExercisesCard from './ExercisesCard';
@@ -14,15 +15,15 @@ import ExercisesCard from './ExercisesCard';
 
 function EventAccordion(props) {
   // establish states
-  const classes = useStyles();
+  const classes = eventStyles();
   const [expanded, setExpanded] = React.useState('panel1');
   const events = (props.pool.events)
+
 
 
   
   const displayEvents = (props) => {
     //check if I have events
-    console.log(events)
     if (events && Array.isArray(events)) {
       if (events.length > 0){
         return events.map((event, index) =>{
@@ -36,7 +37,11 @@ function EventAccordion(props) {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <ExercisesCard event={event}/>
+                <Grid container>
+                  <Grid item xs={12}>
+                    <ExercisesCard event={event}/>
+                  </Grid>
+                </Grid>
               </AccordionDetails>
             </Accordion>
           )

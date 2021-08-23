@@ -18,6 +18,7 @@ import EventLeaderboard from '../../Components/Leaderboard/EventLeaderboard';
 //Styles
 import {useStyles} from '../../util/MakeStyles';
 import PoolNotFound from '../../Components/PoolNotFound/PoolNotFound';
+import { truncate } from 'lodash';
 
 
 
@@ -51,18 +52,27 @@ function Pool(props) {
             });  
   }, []);
 
-  const handleToggle = () => {
-    setBoardActive(!boardActive);
-    if (btn1 == "primary") {
-      setBtn1("secondary")
+  const handleTogglePool = () => {
+    setBoardActive(true);
+    if (btn1 == "secondary") {
+      setBtn1("primary")
     } else {
       setBtn1("primary")
     };
     if (btn2 == "primary") {
       setBtn2("secondary")
+    }
+  }
+  const handleToggleEvent = () => {
+    setBoardActive(false);
+    if (btn2 == "secondary") {
+      setBtn2("primary")
     } else {
       setBtn2("primary")
     };
+    if (btn1 == "primary") {
+      setBtn1("secondary")
+    }
   }
 
   if (isLoading) {
@@ -98,8 +108,8 @@ function Pool(props) {
                 </Typography>
               {/* Toggle Button Group */}
                <ButtonGroup className={classes.btnGroup1}>
-                <Button variant="contained" color={btn1} onClick={handleToggle}>Pool Board</Button>
-                  <Button variant="contained" color={btn2} onClick={handleToggle}>Event Board</Button>
+                <Button variant="contained" color={btn1} onClick={handleTogglePool}>Pool Board</Button>
+                  <Button variant="contained" color={btn2} onClick={handleToggleEvent}>Event Board</Button>
                </ButtonGroup>  
 
                {(boardActive) ? (

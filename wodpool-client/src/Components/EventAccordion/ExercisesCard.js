@@ -3,16 +3,16 @@ import React from 'react'
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Grid from '@material-ui/core/Grid';
 //ASSETS
-import {useStyles} from '../../util/MakeStyles'
+import {eventStyles} from './EventStyles';
 
 
 function ExercisesCard(props) {
-  const classes = useStyles()
+  const classes = eventStyles()
 
   const displayExercises = (props) =>{
     const exercises = props.event.exercises
-    console.log(exercises)
 
     if (exercises && Array.isArray(exercises)) {
       if (exercises.length > 0) {
@@ -21,8 +21,13 @@ function ExercisesCard(props) {
             <Accordion className={classes.accordionBase} key={index}>
               <AccordionSummary>{exercise.name}</AccordionSummary>
               <AccordionDetails>
-                <p>{exercise.duration}</p>
-                <p>{exercise.description}</p>
+                <Grid container>
+                  <Grid item xs={12}>
+                    <p>{exercise.duration}</p>
+                   <p>{exercise.description}</p>
+                  </Grid>
+                </Grid>
+
               </AccordionDetails>
               
             </Accordion>
