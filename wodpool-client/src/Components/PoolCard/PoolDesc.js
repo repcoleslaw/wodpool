@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Grid from '@material-ui/core/Grid'
 //styles
 import { useStyles } from "../../util/MakeStyles";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -19,7 +20,7 @@ function PoolDesc(props) {
   const pool = props.pool
 
   return (
-    <>
+    <Grid item xs={12}>
       <Paper className={classes.paper}>
         {pool?.name ? 
           (<Typography style={{paddingBottom:"0.5em"}}variant="h3">{pool.name}</Typography>) : <Typography>Competition Name</Typography>}
@@ -46,7 +47,7 @@ function PoolDesc(props) {
         </div>
         
       </Paper>
-    </>
+    </Grid>
   )
 }
 

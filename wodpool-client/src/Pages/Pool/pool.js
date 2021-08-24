@@ -14,11 +14,13 @@ import Header from '../../Components/HeaderFooter/Header';
 import PoolDesc from '../../Components/PoolCard/PoolDesc';
 import PoolLeaderboard from '../../Components/Leaderboard/PoolLeaderboard';
 import EventLeaderboard from '../../Components/Leaderboard/EventLeaderboard';
-
+import ToScoreSubmit from '../../Components/ScoreSubmit/ToScoreSubmit';
 //Styles
 import {useStyles} from '../../util/MakeStyles';
 import PoolNotFound from '../../Components/PoolNotFound/PoolNotFound';
 import { truncate } from 'lodash';
+import LeaderboardContainer from '../../Components/Leaderboard/LeaderboardContainer';
+
 
 
 
@@ -30,12 +32,9 @@ function Pool(props) {
     const [pool, setPool] = React.useState([]);
     // error handling states
     const [isNotFound, setIsNotFound] = React.useState(false);
-    //handle leaderboard visibility
-    const [btn1, setBtn1] = React.useState("primary");
-    const [btn2, setBtn2] = React.useState("secondary")
-    const [boardActive, setBoardActive] = React.useState(true);
 
     //are you registered?
+
     
 
     React.useEffect(() => {
@@ -52,28 +51,7 @@ function Pool(props) {
             });  
   }, []);
 
-  const handleTogglePool = () => {
-    setBoardActive(true);
-    if (btn1 == "secondary") {
-      setBtn1("primary")
-    } else {
-      setBtn1("primary")
-    };
-    if (btn2 == "primary") {
-      setBtn2("secondary")
-    }
-  }
-  const handleToggleEvent = () => {
-    setBoardActive(false);
-    if (btn2 == "secondary") {
-      setBtn2("primary")
-    } else {
-      setBtn2("primary")
-    };
-    if (btn1 == "primary") {
-      setBtn1("secondary")
-    }
-  }
+
 
   if (isLoading) {
     return(
@@ -92,34 +70,10 @@ function Pool(props) {
         <Header/>
         <div className={classes.section}>
         <Grid container spacing={4} justify="center">
-            <Grid item xs={12}>
-              <PoolDesc pool={pool}/>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Button component={Link} className={classes.btnStyle1} variant="contained" color="primary" to={`${id}/submit`}>SUBMIT</Button>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Button className={classes.btnStyle1} variant="outlined" color="secondary" href="/profile">To Profile Page</Button>
-            </Grid>
-            <Grid item xs={12}>
-              {/* Event and Pool Leaderboards */}
-              <Paper className={classes.paper}>
-                <Typography variant="h3"> Leaderboard            
-                </Typography>
-              {/* Toggle Button Group */}
-               <ButtonGroup className={classes.btnGroup1}>
-                <Button variant="contained" color={btn1} onClick={handleTogglePool}>Pool Board</Button>
-                  <Button variant="contained" color={btn2} onClick={handleToggleEvent}>Event Board</Button>
-               </ButtonGroup>  
-
-               {(boardActive) ? (
-                 <PoolLeaderboard pool={pool} id={id}/>
-               ) : (
-                <EventLeaderboard pool={pool} id={id}/>
-               )}
-              </Paper>
-            </Grid>
-          </Grid>
+            <PoolDesc pool={pool}/>
+            <ToScoreSubmit id={id}/>
+            <LeaderboardContainer pool={pool} id={id}/>
+        </Grid>
         </div>
       </div>
     )
