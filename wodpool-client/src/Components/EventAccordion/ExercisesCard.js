@@ -13,17 +13,17 @@ function ExercisesCard(props) {
 
   const displayExercises = (props) =>{
     const exercises = props.event.exercises
+    console.log(exercises)
 
     if (exercises && Array.isArray(exercises)) {
       if (exercises.length > 0) {
         return exercises.map((exercise, index) => {
           return(
             <Accordion className={classes.accordionBase} key={index}>
-              <AccordionSummary>{exercise.name}</AccordionSummary>
+              <AccordionSummary> {exercise.name} - reps: {exercise.reps}</AccordionSummary>
               <AccordionDetails>
                 <Grid container>
                   <Grid item xs={12}>
-                    <p>{exercise.duration}</p>
                    <p>{exercise.description}</p>
                   </Grid>
                 </Grid>

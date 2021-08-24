@@ -73,7 +73,7 @@
   {
     "role": "Competitor",
     "coll": "pools",
-    "fields": "{id,name,description,numberOfWeeks,startsOn,events.*.equipment,events.*.duration,events.*.exercises*.{name,description},competitors*}",
+    "fields": "{id,name,description,numberOfWeeks,startsOn,events.*.equipment,events.*.duration,events.*.exercises*.{name,description,reps},competitors*}",
     "op": "Read",
     "ownership": "Any"
   },

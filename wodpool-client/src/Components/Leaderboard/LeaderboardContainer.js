@@ -62,7 +62,7 @@ function LeaderboardContainer(props) {
         {boardActive ? (
           <PoolLeaderboard pool={pool} id={id} />
         ) : (
-          <EventLeaderboard pool={pool} id={id} />
+          <TestReactTable pool={pool} id={id} />
         )}
       </Paper>
     </Grid>

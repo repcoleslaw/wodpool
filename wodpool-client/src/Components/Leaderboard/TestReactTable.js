@@ -2,23 +2,28 @@ import React from 'react'
 import {useTable} from 'react-table'
 
 function TestReactTable(props) {
-  const data = React.useMemo(()=> [props.pool.competitor], [])
+
+  const data = props.pool.competitors
+
+  console.log(data)
 
   const columns = React.useMemo(
     () => [
       {
-        Header:"Handle",
-        accesor:"handle",// accessor is the 'key' in the data
-        Cell: props => (
-          <>
-          </>
-        )
+        Header: 'Week',
+        accessor: 'weeks.week', // accessor is the "key" in the data
       },
       {
-        Header:"Points",
-        accesor:"pointsToDate",// accessor is the 'key' in the data
+        Header: 'Handle',
+        accessor: 'handle', // accessor is the "key" in the data
       },
-    ], [])
+      {
+        Header: 'Points',
+        accessor: 'pointsToDate',
+      },
+    ],
+    []
+  )
 
     const {
       getTableProps,
@@ -26,6 +31,7 @@ function TestReactTable(props) {
       headerGroups,
       rows,
       prepareRow,
+
     } = useTable({ columns, data })
   
     console.log(rows)

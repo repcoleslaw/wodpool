@@ -12,9 +12,6 @@ import {useStyles} from '../../util/MakeStyles';
 import PoolNotFound from '../../Components/PoolNotFound/PoolNotFound';
 
 
-
-
-
   
 function Pool(props) {
     const id = props.match.params.id
@@ -23,7 +20,7 @@ function Pool(props) {
     const [pool, setPool] = React.useState([]);
     // error handling states
     const [isNotFound, setIsNotFound] = React.useState(false);
-
+  console.log(pool)
     //are you registered?
     React.useEffect(() => {
       axios.get(`/pools/${id}`)
