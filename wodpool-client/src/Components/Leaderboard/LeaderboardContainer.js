@@ -10,6 +10,7 @@ import {useStyles} from '../../util/MakeStyles'
 //Components
 import EventLeaderboard from './EventLeaderboard';
 import PoolLeaderboard from './PoolLeaderboard';
+import TestReactTable from './TestReactTable';
 
 
 
@@ -25,23 +26,23 @@ function LeaderboardContainer(props) {
 
   const handleTogglePool = () => {
     setBoardActive(true);
-    if (btn1 == "secondary") {
+    if (btn1 === "secondary") {
       setBtn1("primary")
     } else {
       setBtn1("primary")
     };
-    if (btn2 == "primary") {
+    if (btn2 === "primary") {
       setBtn2("secondary")
     }
   }
   const handleToggleEvent = () => {
     setBoardActive(false);
-    if (btn2 == "secondary") {
+    if (btn2 === "secondary") {
       setBtn2("primary")
     } else {
       setBtn2("primary")
     };
-    if (btn1 == "primary") {
+    if (btn1 === "primary") {
       setBtn1("secondary")
     }
   }

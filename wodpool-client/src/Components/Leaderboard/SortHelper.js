@@ -6,6 +6,11 @@ export default () => {
 
   const sortedItems = React.useMemo(() => {
     let sortableItems = [...items];
+
+    sortableItems.sort((a,b) =>{
+      return b.pointsToDate - a.pointsToDate
+    })
+
     if (sortConfig !== null) {
       sortableItems.sort((a, b) => {
         if (a[sortConfig.key] < b[sortConfig.key]) {
