@@ -8,10 +8,10 @@ import Container from '@material-ui/core/Container';
 //Assets
 import {useStyles} from '../../util/MakeStyles';
 import { profileStyle } from './ProfileStyles';
-import {LocationOn, EmojiPeopleOutlined, FitnessCenter, Info} from "@material-ui/icons";
 //Components
 import ProfileDetails from './ProfileDetails';
 import ProfileWallet from './ProfileWallet';
+
 
 
 function ProfileInfo(props) {
@@ -19,30 +19,29 @@ function ProfileInfo(props) {
     const classes = profileStyle();
     const profile = props.profile;
 
-    return (
-        <>
-            <Typography variant="h4">
-                Welcome, {profile.handle}
-            </Typography>
-            <Typography variant="caption" color="textSecondary">
-                <Info className={global.infoIcon}/>
-                You can always edit your profile details here!
-            </Typography>
-            <Grid container>
-                <Grid item xs={12} sm={8} className={classes.container}>
-                    <Paper className={classes.paper}>
-                     <ProfileDetails profile={profile}/>
-                    </Paper>
+        return (
+            <>
+                <Typography variant="h4">
+                    Welcome, {profile.handle}
+                </Typography>
+                <Grid container>
+                    <Grid item xs={12} md={8} className={classes.container}>
+                        <Paper className={classes.paper}>
+                         <ProfileDetails profile={profile}/>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={4} className={classes.container}>
+                        <Paper className={classes.paper}>
+                          <ProfileWallet profile={profile}/>
+                        </Paper>
+                    </Grid>
+    
                 </Grid>
-                <Grid item xs={12} sm={4}  className={classes.container}>
-                    <Paper className={classes.paper}>
-                      <ProfileWallet profile={profile}/>
-                    </Paper>
-                </Grid>
+            </>
+        )
+    }
 
-            </Grid>
-        </>
-    )
-}
+   
+
 
 export default ProfileInfo

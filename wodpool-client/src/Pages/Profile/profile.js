@@ -13,6 +13,7 @@ import ProfileInfo from '../../Components/ProfileInfo/ProfileInfo';
 import AlertCard from '../../Components/AlertCard/AlertCard';
 import MyPools from '../../Components/MyPools/MyPools';
 import OtherPools from '../../Components/PromotedProfile/OtherPools';
+import ProfileEdit from '../../Components/ProfileInfo/ProfileEdit';
 
 //import assets
 import {useStyles} from '../../util/MakeStyles'
@@ -57,11 +58,11 @@ const Profile = () => {
       <Header />
       <div className={classes.root}>
       <AlertCard/>
-        <Grid container spacing={4} justify='center'>
-         
+      <div className={classes.section}>
+      <Grid container spacing={4} justify='center'>
           <Grid item xs={12} md={8}>
             <Paper className={classes.paper}>
-            <ProfileInfo profile={profile}/>
+            <ProfileInfo profile={profile} />
             </Paper>
           </Grid>
           <Grid item xs={12} md={8}>
@@ -73,6 +74,8 @@ const Profile = () => {
             <OtherPools/>
           </Grid>
         </Grid>
+      </div>
+        
       </div>
     </>
     )
