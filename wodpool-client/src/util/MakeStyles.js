@@ -93,6 +93,12 @@ const useStyles = makeStyles((theme) => ({
     width:"auto",
     margin:"0.75em 0.5em 0 0"
   },
+  premiumPool:{
+    background:"#92CB49",
+    padding:"0.75em",
+    fontWeight:"bold",
+    margin:"1em 0em",
+  }
 }));
 
 export {useStyles};

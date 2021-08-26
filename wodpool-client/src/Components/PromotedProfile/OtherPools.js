@@ -2,6 +2,7 @@ import React from 'react'
 //MUI
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid'
 //ASSETS
 import {useStyles} from '../../util/MakeStyles';
 
@@ -27,11 +28,14 @@ function OtherPools(props) {
                 There may be some upcoming pools we think you'd like to register for!
             </Typography>
             {us.hasPools() ? (
-                <PoolCard pools={us.pools} />
+               <Grid container spacing={4}>
+                  <PoolCard pools={us.pools} />  
+               </Grid>
+
             ) : (
-                <div>
-                    Looks like you've joined everything
-                </div>
+                <Typography variant="subtitle1">
+                    Looks like you've joined everything. Good luck, have fun!
+                </Typography>
             )}
         </Paper>
     )
