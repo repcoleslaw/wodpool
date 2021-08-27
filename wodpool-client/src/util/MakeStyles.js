@@ -98,7 +98,15 @@ const useStyles = makeStyles((theme) => ({
     padding:"0.75em",
     fontWeight:"bold",
     margin:"1em 0em",
-  }
+    width:"100%"
+  },
+  freePool:{
+    background:"#D21A1A",
+    padding:"0.75em",
+    fontWeight:"bold",
+    margin:"1em 0em",
+    width:"100%"
+  },
 }));
 
 export {useStyles};

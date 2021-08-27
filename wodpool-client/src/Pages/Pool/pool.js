@@ -7,6 +7,7 @@ import Header from '../../Components/HeaderFooter/Header';
 import PoolDesc from '../../Components/PoolCard/PoolDesc';
 import ToScoreSubmit from '../../Components/ScoreSubmit/ToScoreSubmit';
 import LeaderboardContainer from '../../Components/Leaderboard/LeaderboardContainer';
+import ShareRow from '../../Components/ShareCard/ShareRow';
 //Styles
 import {useStyles} from '../../util/MakeStyles';
 import PoolNotFound from '../../Components/PoolNotFound/PoolNotFound';
@@ -49,6 +50,7 @@ function Pool(props) {
             <PoolDesc pool={pool} />
             <ToScoreSubmit id={id} />
             <LeaderboardContainer pool={pool} id={id} />
+            <ShareRow pool={pool} id={id}/>
           </Grid>
         </div>
       </div>
