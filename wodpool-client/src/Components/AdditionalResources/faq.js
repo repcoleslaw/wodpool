@@ -65,7 +65,7 @@ function Faq() {
       <h1 id="winning">Winning</h1>
       <hr/>
       <Typography variant="body1">
-      You've won, what now?
+      You've won, CONGRATULATIONS! Hoard your points for now as we release great ways to redeem your winnings. You will also be eligble for exclusive champs swag. We will be in touch.
       </Typography>
       </Paper>
     
