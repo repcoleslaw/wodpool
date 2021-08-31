@@ -19,6 +19,7 @@ import Thanks from "./Pages/Registration/thanks";
 import Verify from "./Pages/Registration/verify";
 import Profile from "./Pages/Profile/profile";
 import Submit from "./Components/ScoreSubmit/ScoreSubmit";
+import Faq from './Pages/Info/infoPage';
 
 // import components
 import Footer from "./Components/HeaderFooter/Footer";
@@ -40,6 +41,7 @@ const Routes = (r) => {
     <Switch>
       <ProtectedRoute exact default path="/" component={Home} />
       <ProtectedRoute exact path="/profile" component={Profile} />
+      <ProtectedRoute exact path="/faq" component={Faq} />
       <ProtectedRoute exact path="/pools/:id" component={Poolpage} />
       <ProtectedRoute exact path="/pools/:id/submit" component={Submit} />
       

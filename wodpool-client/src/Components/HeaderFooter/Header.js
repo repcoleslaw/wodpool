@@ -77,6 +77,7 @@ function Header() {
           </Typography>
           <Link className={classes.menuBarItem} to="/">Home</Link>
           <Link className={classes.menuBarItem} to="/profile">Profile</Link>
+          <Link className={classes.menuBarItem} to="/faq">Info</Link>
 
           {auth && (
             <div>
