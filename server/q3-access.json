@@ -59,21 +59,21 @@
   {
     "role": "Public",
     "coll": "pools",
-    "fields": "{id,name,description,numberOfWeeks,startsOn}",
+    "fields": "{id,name,description,numberOfWeeks,startsOn,currentWeek}",
     "op": "Read",
     "ownership": "Any"
   },
   {
     "role": "Competitor",
     "coll": "profile",
-    "fields": "{firstName,lastName,handle,bio,email,role}",
+    "fields": "{id,firstName,lastName,handle,bio,email,role}",
     "op": "Read",
     "ownership": "Any"
   },
   {
     "role": "Competitor",
     "coll": "pools",
-    "fields": "{id,name,description,numberOfWeeks,startsOn,price,events.*.equipment,events.*.duration,events.*.exercises*.{name,description,reps, duration},competitors*}",
+    "fields": "{id,name,description,photo,numberOfWeeks,startsOn,price,events.*.equipment,events.*.duration,events.*.exercises*.{name,description,reps, duration},competitors*,currentWeek}",
     "op": "Read",
     "ownership": "Any"
   },

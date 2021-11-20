@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Competitor = require('./competitor');
 const Event = require('./events');
 const countCompetitors = require('../middleware/countCompetitors');
+const currentWeek = require('./currentWeek');
 
 const Schema = new mongoose.Schema(
   {
@@ -38,4 +39,6 @@ const Schema = new mongoose.Schema(
 );
 
 Schema.pre('save', countCompetitors);
+Schema.virtual('currentWeek').get(currentWeek);
+
 module.exports = Schema;
