@@ -49,13 +49,6 @@ const PoolScore = ({ refresh, week }) => {
           />
           <Builders.Field
             required
-            name="points"
-            type="number"
-            xl={6}
-            lg={6}
-          />
-          <Builders.Field
-            required
             name="minutes"
             type="number"
             xl={6}

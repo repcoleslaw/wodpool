@@ -1,4 +1,3 @@
-const Q3 = require('q3-api');
 const moment = require('moment');
 const { forEach } = require('lodash');
 
@@ -62,29 +61,18 @@ class LeaderBoard {
   }
 }
 
-module.exports = async () => {
-  const pools = await Q3.model('pools').find({
-    active: true,
-    startsOn: { $lte: new Date() },
+module.exports = function () {
+  const lb = new LeaderBoard(this.competitors);
+  lb.week = getCurrentWeek(this.startsOn);
+  lb.award();
+
+  forEach(this.competitors, (competitor) => {
+    competitor.weeks.forEach((week) => {
+      const match = lb.getWeekById(week._id);
+      if (match) {
+        // eslint-disable-next-line
+        week.points = match.points;
+      }
+    });
   });
-
-  await Promise.all(
-    pools.map(async (pool) => {
-      const lb = new LeaderBoard(pool.competitors);
-      lb.week = getCurrentWeek(pool.startsOn);
-
-      lb.award();
-
-      pool.competitors.forEach((competitor) => {
-        competitor.weeks.forEach((week) => {
-          const match = lb.getWeekById(week._id);
-          if (match) {
-            week.points = match.points;
-          }
-        });
-      });
-
-      return pool.save();
-    }),
-  );
 };

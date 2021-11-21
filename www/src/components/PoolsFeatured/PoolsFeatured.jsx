@@ -13,13 +13,11 @@ import {
 import { useTranslation } from 'react-i18next';
 import PoolsCard from '../PoolsCard';
 import useStyle from '../Sponsors/styles';
-import useDate from '../useDate';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 const PoolsFeatured = () => {
   const cls = useStyle();
   const { t } = useTranslation('titles');
-  const endsOn = useDate();
 
   const r = useRest({
     url: `/pools`,
@@ -27,7 +25,7 @@ const PoolsFeatured = () => {
     key: 'pool',
     runOnInit: true,
     location: {
-      search: `?sort=startsOn&featured=true&limit=6&endsOn>=${endsOn}`,
+      search: `?sort=startsOn&featured=true&limit=6&isCurrent=true`,
     },
   });
 

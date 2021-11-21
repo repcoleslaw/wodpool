@@ -28,7 +28,12 @@ const HeaderAccount = () => {
   return userId ? (
     <Grid container spacing={1}>
       <Grid item>
-        <Button variant="outlined" color="secondary">
+        <Button
+          variant="outlined"
+          color="secondary"
+          component={Link}
+          to="/app/profile"
+        >
           {t('profile')}
         </Button>
       </Grid>

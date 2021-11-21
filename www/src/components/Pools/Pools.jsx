@@ -8,78 +8,98 @@ import {
   Grid,
   Typography,
   Button,
+  Divider,
+  CircularProgress,
 } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import PoolsCard from '../PoolsCard';
-import useStyle from '../Sponsors/styles';
-import useDate from '../useDate';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import Pagination from '../Pagination';
+import Page from '../Page';
+import PoolsCard from '../PoolsCard';
+import useStyle from '../Sponsors/styles';
+import useQuery from '../useQuery';
+import withQuery from '../withQuery';
 
 const Pools = () => {
+  const { t } = useTranslation('labels');
   const cls = useStyle();
-  const { t } = useTranslation('titles');
-  const endsOn = useDate();
+  const q = useQuery();
 
   const r = useRest({
-    url: '/pools',
+    url: `/pools`,
     pluralized: 'pools',
     key: 'pool',
     runOnInit: true,
-    location: {
-      search: `?sort=startsOn&limit=250&endsOn>=${endsOn}`,
-    },
+    location: q,
   });
 
-  // IF
-
-  return (
-    <Box my={4}>
-      <Container>
-        <Typography
-          align="center"
-          variant="h2"
-          className={cls.title}
-        >
-          <span> {t('pools')}</span>
-        </Typography>
-        <Box mb={1}>
-          <Grid item xs={12}>
-            <Grid container justifyContent="space-between">
-              <Grid item>
-                <FormControlLabel
-                  control={<Switch name="checkedA" />}
-                  label="Show only mine"
-                />
-                <FormControlLabel
-                  control={<Switch name="checkedA" />}
-                  label="Hide past"
-                />
-              </Grid>
-              <Grid item>
-                <Button>
+  return r.fetching ? (
+    <Box align="center" p={6}>
+      <CircularProgress />
+    </Box>
+  ) : (
+    <Page title="pools">
+      <Box mb={1}>
+        <Grid item xs={12}>
+          <Grid container justifyContent="space-between">
+            <Grid item>
+              <FormControlLabel
+                label={t('isMine')}
+                control={
+                  <Switch
+                    name="isMine"
+                    checked={q.isMine}
+                    onChange={q.reverseFilter}
+                  />
+                }
+              />
+              <FormControlLabel
+                label={t('isCurrent')}
+                control={
+                  <Switch
+                    name="isCurrent"
+                    checked={q.isCurrent}
+                    onChange={q.reverseFilter}
+                  />
+                }
+              />
+            </Grid>
+            <Grid item>
+              <Button onClick={q.reverseSort}>
+                {String(q.sort).includes('-') ? (
                   <ExpandLessIcon />
-                  Start date
-                </Button>
-              </Grid>
+                ) : (
+                  <ExpandMoreIcon />
+                )}
+                {t('sortStartDate')}
+              </Button>
             </Grid>
           </Grid>
-        </Box>
-        <Grid container spacing={1}>
-          {map(r?.pools, (pool, idx) => (
-            <Fade in timeout={(idx + 1) * 85}>
-              <Grid item xs={12} md={6} lg={4} xl={4}>
-                <PoolsCard key={pool.id} {...pool} />
-              </Grid>
-            </Fade>
-          ))}
         </Grid>
-        PAGE...
-      </Container>
-    </Box>
+      </Box>
+      <Box my={2}>
+        <Divider />
+      </Box>
+      <Grid container spacing={1}>
+        {map(r?.pools, (pool, idx) => (
+          <Fade in timeout={(idx + 1) * 85}>
+            <Grid item xs={12} md={6} lg={4} xl={4}>
+              <PoolsCard key={pool.id} {...pool} />
+            </Grid>
+          </Fade>
+        ))}
+      </Grid>
+      <Pagination {...r} />
+    </Page>
   );
 };
 
-export default Pools;
+export default withQuery(
+  Pools,
+  `?sort=startsOn&isCurrent=true&isMine=false`,
+);
