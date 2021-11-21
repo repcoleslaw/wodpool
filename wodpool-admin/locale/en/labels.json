@@ -23,9 +23,11 @@
   "general": "General",
   "week": "Week #",
   "exercises.reps": "Reps",
-  "exercises.duration": "Duration",
   "trash": "Trash",
   "logs": "Logs",
   "previous": "Previous",
-  "bio": "Bio"
+  "bio": "Bio",
+  "featured": "Featured",
+  "type": "Type",
+  "endsOn": "Ends on"
 }

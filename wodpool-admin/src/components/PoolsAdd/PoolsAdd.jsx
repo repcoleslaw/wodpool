@@ -17,6 +17,22 @@ const PoolsAdd = (props) => (
       xl={12}
       lg={12}
     />
+    <Builders.Field
+      name="startsOn"
+      required
+      type="date"
+      xl={6}
+      lg={6}
+    />
+    <Builders.Field
+      required
+      name="type"
+      type="select"
+      options={['Minutes', 'Cycles']}
+      required
+      xl={6}
+      lg={6}
+    />
     <Builders.Field name="price" type="number" xl={6} />
     <Builders.Field
       name="maximumCompetitors"
@@ -33,17 +49,10 @@ const PoolsAdd = (props) => (
       required
     />
     <Builders.Field
-      name="startsOn"
-      required
-      type="date"
-      xl={12}
-      lg={12}
-    />
-    <Builders.Field
       name="featured"
       required
       type="checkbox"
-      variant="swtch"
+      variant="switch"
       xl={12}
       lg={12}
     />

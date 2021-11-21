@@ -50,14 +50,8 @@ const PoolsExercises = (props) => (
         <Builders.Field
           name="reps"
           type="number"
-          xl={6}
-          lg={6}
-        />
-        <Builders.Field
-          name="duration"
-          type="number"
-          xl={6}
-          lg={6}
+          xl={12}
+          lg={12}
         />
         <Builders.Field
           name="description"

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Redirect } from '@reach/router';
+import { Redirect } from 'gatsby-theme-q3/src/components';
 
-export default () => (
-  <Redirect from="/" to="/app" noThrow />
-);
+export default () => <Redirect to="/app" />;

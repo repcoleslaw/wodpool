@@ -9,9 +9,6 @@ module.exports = new mongoose.Schema({
     type: String,
     required: true,
   },
-  duration: {
-    type: Number,
-  },
   reps: {
     type: Number,
   },

@@ -17,12 +17,25 @@ export default new AbstractCollectionBuilder({
     Competitors,
   })
   .genList({
-    defaultColumns: ['maximumCompetitors', 'price'],
+    defaultColumns: [
+      'maximumCompetitors',
+      'featured',
+      'startsOn',
+      'endsOn',
+    ],
     resolvers: (rest) => ({
       ...rest,
-      price: {
-        base: rest.price,
-        toPrice: true,
+      startsOn: {
+        base: rest.startsOn,
+        toDate: true,
+      },
+      endsOn: {
+        base: rest.endsOn,
+        toDate: true,
+      },
+      featured: {
+        base: rest.featured,
+        toCheck: true,
       },
     }),
   })
@@ -33,6 +46,5 @@ export default new AbstractCollectionBuilder({
   })
   .genListSettings({
     defaultSortPreference: 'name',
-    select: 'name,description,maximumCompetitors,price',
   })
   .build();

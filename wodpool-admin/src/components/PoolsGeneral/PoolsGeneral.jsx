@@ -20,6 +20,7 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       'startsOn',
       'endsOn',
       'featured',
+      'type',
     ]}
   >
     <Builders.Field
@@ -27,17 +28,17 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       name="name"
       type="text"
       required
-      xl={12}
-      lg={12}
+      xl={6}
+      lg={6}
     />
     <Builders.Field
       required
-      name="description"
-      type="text"
-      multiline
-      rows={8}
-      xl={12}
-      lg={12}
+      name="type"
+      type="select"
+      options={['Minutes', 'Cycles']}
+      required
+      xl={6}
+      lg={6}
     />
     <Builders.Field
       name="price"
@@ -64,6 +65,15 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       xl={6}
       lg={6}
       disabled
+    />
+    <Builders.Field
+      required
+      name="description"
+      type="text"
+      multiline
+      rows={8}
+      xl={12}
+      lg={12}
     />
     <Builders.Field
       name="featured"

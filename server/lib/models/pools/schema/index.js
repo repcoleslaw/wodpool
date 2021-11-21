@@ -40,6 +40,11 @@ const Schema = new mongoose.Schema(
     endsOn: {
       type: Date,
     },
+    type: {
+      type: String,
+      enum: ['Cycles', 'Minutes'],
+      default: 'Minutes',
+    },
   },
   {
     restify: '*',
