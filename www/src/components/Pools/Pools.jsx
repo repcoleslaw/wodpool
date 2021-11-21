@@ -46,7 +46,27 @@ const Pools = () => {
     <Page title="pools">
       <Box mb={1}>
         <Grid item xs={12}>
-          <Grid container justifyContent="space-between">
+          <Grid
+            container
+            justifyContent="space-between"
+            spacing={2}
+          >
+            <Grid item xs={12} md={2}>
+              <Button
+                fullWidth
+                variant="outlined"
+                onClick={q.reverseSort}
+                startIcon={
+                  String(q.sort).includes('-') ? (
+                    <ExpandLessIcon />
+                  ) : (
+                    <ExpandMoreIcon />
+                  )
+                }
+              >
+                {t('sortStartDate')}
+              </Button>
+            </Grid>
             <Grid item>
               <FormControlLabel
                 label={t('isMine')}
@@ -68,16 +88,6 @@ const Pools = () => {
                   />
                 }
               />
-            </Grid>
-            <Grid item>
-              <Button onClick={q.reverseSort}>
-                {String(q.sort).includes('-') ? (
-                  <ExpandLessIcon />
-                ) : (
-                  <ExpandMoreIcon />
-                )}
-                {t('sortStartDate')}
-              </Button>
             </Grid>
           </Grid>
         </Grid>

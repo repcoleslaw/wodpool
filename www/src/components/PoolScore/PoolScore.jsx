@@ -19,18 +19,13 @@ const PoolScore = ({ refresh, week }) => {
       variant="drawer"
       renderContent={(close) => (
         <Builders.Form
-          onSubmit={({
-            minutes,
-            seconds,
-            hasProofOfPoints,
-            points,
-            url,
-          }) =>
+          onSubmit={({ minutes, seconds, url }) =>
             axios
               .post(`/score`, {
                 duration: minutes * 60 + seconds,
-                hasProofOfPoints,
-                points,
+                // given that there's a URL
+                // this is always truthy?
+                hasProofOfPoints: true,
                 url,
                 id,
               })
@@ -58,13 +53,6 @@ const PoolScore = ({ refresh, week }) => {
             required
             name="seconds"
             type="number"
-            xl={6}
-            lg={6}
-          />
-          <Builders.Field
-            required
-            name="hasProofOfPoints"
-            type="checkbox"
             xl={6}
             lg={6}
           />

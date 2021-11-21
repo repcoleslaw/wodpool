@@ -72,6 +72,7 @@ const Signup = (props) => {
               type="checkbox"
             />
             <Builders.Field
+              required
               name="termsAccepted"
               type="checkbox"
             />

@@ -1,1 +1,11 @@
-{}
+{
+  "featuredPools": "Featured",
+  "sponsors": "Sponsors",
+  "wodpool": "Wodpool",
+  "pools": "Pools",
+  "schedule": "Schedule",
+  "leaderboard": "Leaderboard",
+  "submitScore": "Score",
+  "profile": "Profile",
+  "signup": "Signup"
+}

@@ -31,6 +31,12 @@ export default makeStyles((theme) => ({
     height: 95,
     width: 225,
 
+    [theme.breakpoints.down('md')]: {
+      display: 'block',
+      margin: `${theme.spacing(1)} auto`,
+      width: '85%',
+    },
+
     '& img': {
       objectFit: 'contain !important',
     },

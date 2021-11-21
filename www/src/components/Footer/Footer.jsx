@@ -18,6 +18,7 @@ import useStyle from './styles';
 const Footer = () => {
   const cls = useStyle();
   const { t } = useTranslation('labels');
+
   return (
     <Box bgcolor="primary.main" mt={2} py={2}>
       <Container>
@@ -28,7 +29,12 @@ const Footer = () => {
           className={cls.logo}
           alt="Wodpool logo"
         />
-        <Grid justifyContent="center" container spacing={4}>
+        <Grid
+          justifyContent="center"
+          container
+          spacing={4}
+          wrap="nowrap"
+        >
           <Grid item>
             <List
               subheader={

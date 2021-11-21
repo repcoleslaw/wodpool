@@ -9,7 +9,7 @@ const Hero = () => (
     display="flex"
     justifyContent="center"
     position="relative"
-    height={550}
+    height="55vh"
     width="100%"
   >
     <HeroPhoto src="./hero.jpg" />

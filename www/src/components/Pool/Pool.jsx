@@ -25,6 +25,7 @@ import useStyle from './styles';
 import usePoolRegistration from '../usePoolRegistration';
 import { AuthContext } from 'q3-ui-permissions';
 import useSponsorStyles from '../Sponsors/styles';
+import { useTranslation } from 'react-i18next';
 
 const Pool = () => {
   const userId =
@@ -33,6 +34,7 @@ const Pool = () => {
   const { id } = useParams();
   const cls = useStyle();
   const cls2 = useSponsorStyles();
+  const { t } = useTranslation('labels');
 
   const r = useRest({
     url: `/pools/${id}`,
@@ -52,7 +54,7 @@ const Pool = () => {
           color="secondary"
           variant="contained"
         >
-          Join
+          {t('join')}
         </Button>
       );
 
@@ -74,7 +76,7 @@ const Pool = () => {
                   component={Link}
                   to=".."
                 >
-                  All pools
+                  {t('back')}
                 </Button>
               </Box>
               <Typography variant="h1">
@@ -90,13 +92,12 @@ const Pool = () => {
           </Container>
         </Box>
       </Box>
-
       <PoolLeaderboard {...r?.pool} />
       <Container>
         <Paper>
           <Box p={2}>
             <Typography variant="h2" className={cls2.title}>
-              <span>Schedule</span>
+              <span>{t('titles:schedule')}</span>
             </Typography>
             <PoolSchedule {...r?.pool} />
           </Box>

@@ -18,15 +18,16 @@ import useSponsorStyle from '../components/Sponsors/styles';
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    '& h2': {
-      color: theme.palette.secondary.main,
-      fontSize: theme.typography.overline.fontSize,
-      textTransform: 'uppercase',
-      marginTop: theme.spacing(2),
-    },
     '& [role="tabpanel"]': {
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(2),
+
+      '& h2': {
+        color: theme.palette.secondary.main,
+        fontSize: theme.typography.overline.fontSize,
+        textTransform: 'uppercase',
+        marginTop: theme.spacing(2),
+      },
     },
   },
 }));
@@ -214,7 +215,9 @@ const About = () => {
             </Typography>
           </TabPanel>
         </TabContext>
-        <Sponsors />
+        <Box mt={3}>
+          <Sponsors />
+        </Box>
       </Container>
     </Box>
   );

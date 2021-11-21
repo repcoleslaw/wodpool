@@ -21,7 +21,12 @@ const Sponsors = () => {
       >
         <span>{t('sponsors')}</span>
       </Typography>
-      <Box display="flex" mb={4} justifyContent="center">
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        mb={4}
+        justifyContent="center"
+      >
         <Image
           fluid={{ src: '/daryls.png' }}
           className={cls.img}
