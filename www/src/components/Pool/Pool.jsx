@@ -24,12 +24,15 @@ import PoolScore from '../PoolScore';
 import useStyle from './styles';
 import usePoolRegistration from '../usePoolRegistration';
 import { AuthContext } from 'q3-ui-permissions';
+import useSponsorStyles from '../Sponsors/styles';
 
 const Pool = () => {
   const userId =
     React.useContext(AuthContext)?.state?.profile?.id;
+
   const { id } = useParams();
   const cls = useStyle();
+  const cls2 = useSponsorStyles();
 
   const r = useRest({
     url: `/pools/${id}`,
@@ -49,7 +52,7 @@ const Pool = () => {
           color="secondary"
           variant="contained"
         >
-          Join Pool
+          Join
         </Button>
       );
 
@@ -92,7 +95,9 @@ const Pool = () => {
       <Container>
         <Paper>
           <Box p={2}>
-            <Typography variant="h2">Schedule</Typography>
+            <Typography variant="h2" className={cls2.title}>
+              <span>Schedule</span>
+            </Typography>
             <PoolSchedule {...r?.pool} />
           </Box>
         </Paper>

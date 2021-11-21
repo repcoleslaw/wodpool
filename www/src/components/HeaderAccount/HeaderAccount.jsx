@@ -55,7 +55,12 @@ const HeaderAccount = () => {
         </Button>
       </Grid>
       <Grid item>
-        <Button variant="contained" color="secondary">
+        <Button
+          variant="contained"
+          color="secondary"
+          component={Link}
+          to="/signup"
+        >
           {t('signup')}
         </Button>
       </Grid>

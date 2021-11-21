@@ -16,14 +16,23 @@ import {
   TabList,
   TabPanel,
 } from '@material-ui/lab';
-import { filter, reduce, size, get, map } from 'lodash';
+import {
+  filter,
+  reduce,
+  size,
+  get,
+  map,
+  some,
+} from 'lodash';
 import { useTranslation } from 'react-i18next';
 import PoolLeaderboardTotal from '../PoolLeaderboardTotal';
 import PoolLeaderboardWeekly from '../PoolLeaderboardWeekly';
+import useStyle from '../Sponsors/styles';
 
 const PoolLeaderboard = ({ competitors }) => {
   const { t } = useTranslation();
   const [value, setValue] = React.useState(0);
+  const cls = useStyle();
 
   const convertArrayIndexToWeekNumber = (_, idx) => idx + 1;
   const handleChange = (_, newValue) => setValue(newValue);
@@ -32,17 +41,24 @@ const PoolLeaderboard = ({ competitors }) => {
     reduce(
       competitors,
       (acc, curr) =>
-        Math.max(size(curr?.weeks, 'points'), acc),
+        Math.max(...map(curr?.weeks, 'week').concat(acc)),
       0,
     );
 
   const getCompetitorsOfWeek = (week) =>
-    filter(
-      map(competitors, (competitor) => ({
+    map(
+      filter(competitors, (competitor) =>
+        some(
+          get(competitor, `weeks`, []),
+          ({ week: recordedWeek }) => recordedWeek === week,
+        ),
+      ),
+      (competitor) => ({
         ...competitor,
-        week: get(competitor, `weeks.${week - 1}`, null),
-      })),
-      'week',
+        week: competitor.weeks.find(
+          (item) => item.week === week,
+        ),
+      }),
     );
 
   const numberOfWeeks = Array.from({
@@ -56,10 +72,17 @@ const PoolLeaderboard = ({ competitors }) => {
           <Paper>
             <Box p={2}>
               <TabContext value={value}>
-                <Typography variant="h2">
-                  {t('titles:leaderboard')}
+                <Typography
+                  variant="h2"
+                  className={cls.title}
+                >
+                  <span>{t('titles:leaderboard')}</span>
                 </Typography>
-                <TabList onChange={handleChange}>
+                <TabList
+                  variant="scrollable"
+                  scrollButtons="auto"
+                  onChange={handleChange}
+                >
                   <Tab
                     value={0}
                     label={t('labels:total')}

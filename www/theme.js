@@ -4,11 +4,13 @@ module.exports = {
       light: '#09090b',
       main: '#09090b',
       dark: '#000',
+      contrastText: '#FFF',
     },
     secondary: {
       main: '#B00909',
       dark: '#910808',
       light: '#f12b2b',
+      contrastText: '#FFF',
     },
     background: {
       default: '#1B1A21',
@@ -38,6 +40,33 @@ module.exports = {
       },
       body: {
         backgroundColor: `#09090b !important`,
+      },
+    },
+    MuiOutlinedInput: {
+      root: {
+        '&$focused $notchedOutline': {
+          color: '#FFF',
+          borderColor: '#FFF',
+        },
+      },
+      notchedOutline: {
+        '&$focused': {
+          borderColor: '#FFF',
+        },
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        '&$focused': {
+          color: '#FFF',
+        },
+      },
+    },
+    MuiFormHelperText: {
+      root: {
+        '&$focused': {
+          color: '#FFF',
+        },
       },
     },
   },

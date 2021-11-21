@@ -16,7 +16,11 @@ const PoolLeaderboardWeekly = ({ data, week }) => {
   return (
     <PoolLeaderboardTable
       data={map(
-        orderBy(data, ['week.points'], ['desc']),
+        orderBy(
+          data,
+          ['week.points', 'createdAt'],
+          ['desc', 'asc'],
+        ),
         (row, idx) => ({
           ...row,
           points: get(row, 'week.points'),

@@ -37,10 +37,23 @@ const Header = () => {
           <Grid item>
             <Grid component="nav" container spacing={1}>
               <Grid item>
-                <Button>{t('about')}</Button>
+                <Button component={Link} to="/app/pools">
+                  {t('pool')}
+                </Button>
               </Grid>
               <Grid item>
-                <Button>{t('contact')}</Button>
+                <Button component={Link} to="/about">
+                  {t('about')}
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  component="a"
+                  href="https://donttalkaboutwodpool.ca/contact-us"
+                  target="_blank"
+                >
+                  {t('contact')}
+                </Button>
               </Grid>
               <Grid item>
                 <Box ml={2}>

@@ -10,6 +10,7 @@ const UsersGeneral = connect(({ data, ...rest }) => (
     marshalSelectively
     marshal={{
       startsOn: [helpers.castToUTC],
+      featured: [helpers.castToBoolean],
     }}
     keep={[
       'name',
@@ -17,6 +18,8 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       'price',
       'maximumCompetitors',
       'startsOn',
+      'endsOn',
+      'featured',
     ]}
   >
     <Builders.Field
@@ -36,12 +39,40 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       xl={12}
       lg={12}
     />
-    <Builders.Field name="price" type="number" />
+    <Builders.Field
+      name="price"
+      xl={6}
+      lg={6}
+      type="number"
+    />
     <Builders.Field
       name="maximumCompetitors"
       type="number"
+      xl={6}
+      lg={6}
     />
-    <Builders.Field name="startsOn" type="date" required />
+    <Builders.Field
+      name="startsOn"
+      xl={6}
+      lg={6}
+      type="date"
+      required
+    />
+    <Builders.Field
+      name="endsOn"
+      type="date"
+      xl={6}
+      lg={6}
+      disabled
+    />
+    <Builders.Field
+      name="featured"
+      required
+      type="checkbox"
+      variant="switch"
+      xl={12}
+      lg={12}
+    />
   </Builders.Form>
 ));
 

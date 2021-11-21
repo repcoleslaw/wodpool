@@ -88,7 +88,9 @@ const PoolScore = ({ refresh, week }) => {
             color="secondary"
             variant="contained"
           >
-            {t('labels:submitScore', { week })}
+            {t('labels:submitScore', {
+              week: week + 1,
+            })}
           </Button>
         )
       }

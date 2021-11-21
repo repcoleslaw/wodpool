@@ -1,9 +1,17 @@
 import React from 'react';
-import { Header, Hero, Pools } from '../components';
+import {
+  Header,
+  Hero,
+  PoolsFeatured,
+  Sponsors,
+} from '../components';
 
-export default () => (
+const Index = () => (
   <>
     <Hero />
-    <Pools />
+    <PoolsFeatured />
+    <Sponsors />
   </>
 );
+
+export default Index;

@@ -16,7 +16,11 @@ const PoolLeaderboardTotal = ({ data }) => {
   return (
     <PoolLeaderboardTable
       data={map(
-        orderBy(data, ['pointsToDate'], ['desc']),
+        orderBy(
+          data,
+          ['pointsToDate', 'createdAt'],
+          ['desc', 'asc'],
+        ),
         (row) => ({
           ...row,
           points: row.pointsToDate,

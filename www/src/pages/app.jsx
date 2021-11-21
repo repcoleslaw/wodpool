@@ -6,12 +6,14 @@ import {
 } from 'gatsby-theme-q3/src/components';
 import { Pool, Pools } from '../components';
 
-export default () => (
+const App = () => (
   <AdminPrivateGateway>
     <Router basepath="/app">
       <Pools path="pools" />
       <Pool path="pools/:id" />
-      <Redirect default to="/" />
+      <Redirect default to="/app/pools" />
     </Router>
   </AdminPrivateGateway>
 );
+
+export default App;

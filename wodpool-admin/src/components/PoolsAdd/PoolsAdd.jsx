@@ -7,6 +7,7 @@ const PoolsAdd = (props) => (
     marshalSelectively
     marshal={{
       startsOn: [helpers.castToUTC],
+      featured: [helpers.castToBoolean],
     }}
   >
     <Builders.Field
@@ -35,6 +36,14 @@ const PoolsAdd = (props) => (
       name="startsOn"
       required
       type="date"
+      xl={12}
+      lg={12}
+    />
+    <Builders.Field
+      name="featured"
+      required
+      type="checkbox"
+      variant="swtch"
       xl={12}
       lg={12}
     />

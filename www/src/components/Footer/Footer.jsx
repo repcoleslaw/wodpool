@@ -8,50 +8,97 @@ import {
   ListSubheader,
   Divider,
   Typography,
+  Link,
 } from '@material-ui/core';
 import Image from 'gatsby-image';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
+import useStyle from './styles';
 
 const Footer = () => {
+  const cls = useStyle();
+  const { t } = useTranslation('labels');
   return (
-    <Box bgcolor="primary.main" mt={2} py={4}>
+    <Box bgcolor="primary.main" mt={2} py={2}>
       <Container>
         <Image
           fluid={{
             src: '/logo.png',
           }}
-          imgStyle={{
-            objectFit: 'contain',
-          }}
-          style={{
-            height: 135,
-            width: 95,
-          }}
+          className={cls.logo}
+          alt="Wodpool logo"
         />
-        <Grid container spacing={4}>
+        <Grid justifyContent="center" container spacing={4}>
           <Grid item>
             <List
-              subheader={<ListSubheader>S</ListSubheader>}
+              subheader={
+                <ListSubheader>{t('social')}</ListSubheader>
+              }
             >
-              <ListItem>Instagram</ListItem>
-              <ListItem>Twitter</ListItem>
-              <ListItem>Facebook</ListItem>
+              <ListItem>
+                <Link
+                  color="inherit"
+                  target="_blank"
+                  href="https://www.instagram.com/donttalkaboutwodpool/"
+                >
+                  Instagram
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  color="inherit"
+                  target="_blank"
+                  href="https://twitter.com/wodpool"
+                >
+                  Twitter
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  color="inherit"
+                  target="_blank"
+                  href="https://www.facebook.com/donttalkaboutwodpool"
+                >
+                  Facebook
+                </Link>
+              </ListItem>
             </List>
           </Grid>
           <Grid item>
             <List
-              subheader={<ListSubheader>S</ListSubheader>}
+              subheader={
+                <ListSubheader>{t('legal')}</ListSubheader>
+              }
             >
-              <ListItem>Instagram</ListItem>
-              <ListItem>Twitter</ListItem>
-              <ListItem>Facebook</ListItem>
+              <ListItem>
+                <Link
+                  color="inherit"
+                  target="_blank"
+                  href="https://donttalkaboutwodpool.ca/terms-and-conditions"
+                >
+                  {t('terms')}
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  color="inherit"
+                  target="_blank"
+                  href="https://donttalkaboutwodpool.ca/privacy-policy"
+                >
+                  {t('privacy')}
+                </Link>
+              </ListItem>
             </List>
           </Grid>
         </Grid>
-        <Divider />
-        <Box my={2}>
-          <Typography component="small">
-            © {moment().format('YYYY')} Wodpool
+        <Box mt={2} mb={3}>
+          <Divider />
+        </Box>
+        <Box mb={1}>
+          <Typography align="center">
+            <small>
+              © {moment().format('YYYY')} Wodpool
+            </small>
           </Typography>
         </Box>
       </Container>

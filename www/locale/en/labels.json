@@ -1,1 +1,3 @@
-{}
+{
+  "submitScore": "Submit for week #{{week}}"
+}

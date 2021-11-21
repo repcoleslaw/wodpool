@@ -71,7 +71,7 @@ module.exports = async () => {
   await Promise.all(
     pools.map(async (pool) => {
       const lb = new LeaderBoard(pool.competitors);
-      lb.week = getCurrentWeek(pool.startsOn) - 1;
+      lb.week = getCurrentWeek(pool.startsOn);
 
       lb.award();
 
@@ -87,6 +87,4 @@ module.exports = async () => {
       return pool.save();
     }),
   );
-
-  // pools with weeks that ended with in
 };

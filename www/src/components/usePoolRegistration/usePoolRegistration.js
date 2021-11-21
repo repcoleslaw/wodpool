@@ -26,11 +26,6 @@ export default (job = {}) => {
         .post(`/registration?pool=${job?.id}`)
         .then(() => {
           setHasJoined(true);
-          alert('SUCCESS');
-        })
-        .catch((err) => {
-          alert("You've already registered");
-          console.log(err);
         }),
   };
 };
