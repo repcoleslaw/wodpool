@@ -1,7 +1,22 @@
 import React from 'react';
 import { Builders } from 'q3-ui-forms';
-import { SubDetail } from 'q3-admin/lib/containers';
+import Alert from '@material-ui/lab/Alert';
+import { Grid } from '@material-ui/core';
+import {
+  SubDetail,
+  connect,
+} from 'q3-admin/lib/containers';
 import { forEach, size } from 'lodash';
+
+const DisplayType = connect(({ data: { type } }) => (
+  <Grid item xs={12}>
+    <Alert severity="info">
+      Note that this pool has been set to duration type of "
+      <strong>{type}</strong>". You can change this under
+      its general settings.
+    </Alert>
+  </Grid>
+));
 
 const PoolsExercises = (props) => (
   <SubDetail
@@ -9,6 +24,7 @@ const PoolsExercises = (props) => (
     root="events"
     cardProps={{
       title: 'week',
+      describe: 'equipment',
       attributes: ['duration', 'url', 'sizeOfExercises'],
       editable: {},
     }}
@@ -16,12 +32,13 @@ const PoolsExercises = (props) => (
       get: ({ events = [] }) =>
         forEach(events, (xs, i) => {
           xs.sizeOfExercises = size(xs.exercises);
-          xs.week = `#${String(i + 1)}`;
+          xs.week = `Week #${String(i + 1)}`;
         }),
     }}
     {...props}
   >
     <Builders.Form>
+      <DisplayType />
       <Builders.Field
         required
         name="duration"

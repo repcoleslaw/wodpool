@@ -43,7 +43,7 @@ const Pool = () => {
   });
 
   const { currentWeek, hasJoined, join } =
-    usePoolRegistration(r?.pool);
+    usePoolRegistration(r.pool, r.poll);
 
   const renderButton = () => {
     if (!userId) return null;

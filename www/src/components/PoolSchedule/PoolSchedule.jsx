@@ -57,8 +57,12 @@ const PoolSchedule = ({ type = 'Minutes', events }) => {
         <TableBody>
           {map(week?.exercises, (excercise) => (
             <TableRow key={excercise.id}>
-              <TableCell>{excercise.name}</TableCell>
-              <TableCell>{excercise.duration}</TableCell>
+              <TableCell>
+                <strong>{excercise.name}</strong>
+                <br />
+                {excercise.description}
+              </TableCell>
+              <TableCell>{excercise.reps}</TableCell>
             </TableRow>
           ))}
         </TableBody>
