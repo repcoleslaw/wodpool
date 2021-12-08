@@ -20,11 +20,9 @@ jobs:
         working-directory: server
         run: |
           yarn install
-          yarn lint
           yarn test
       - name: Admin UI
         working-directory: wodpool-admin
         run: |
           yarn install
-          yarn lint
           yarn test
