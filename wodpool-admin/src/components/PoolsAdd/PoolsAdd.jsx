@@ -7,20 +7,39 @@ const PoolsAdd = (props) => (
     marshalSelectively
     marshal={{
       startsOn: [helpers.castToUTC],
+      featured: [helpers.castToBoolean],
+    }}
+    initialValues={{
+      featured: true,
+      type: 'Minutes',
     }}
   >
     <Builders.Field
       name="name"
       type="text"
       required
-      xl={12}
-      lg={12}
+      xl={6}
+      lg={6}
     />
-    <Builders.Field name="price" type="number" xl={6} />
+    <Builders.Field
+      required
+      name="type"
+      type="select"
+      options={['Minutes', 'Cycles']}
+      xl={6}
+      lg={6}
+    />
     <Builders.Field
       name="maximumCompetitors"
       type="number"
       xl={6}
+    />
+    <Builders.Field
+      name="startsOn"
+      required
+      type="date"
+      xl={6}
+      lg={6}
     />
     <Builders.Field
       name="description"
@@ -32,9 +51,10 @@ const PoolsAdd = (props) => (
       required
     />
     <Builders.Field
-      name="startsOn"
+      name="featured"
       required
-      type="date"
+      type="checkbox"
+      variant="switch"
       xl={12}
       lg={12}
     />

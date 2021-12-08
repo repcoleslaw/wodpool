@@ -1,9 +1,11 @@
 import React from 'react';
-import AdminPublicGateway from 'gatsby-theme-q3/src/components/AdminPublicGateway';
 import Reverify from 'gatsby-theme-q3/src/pages/reverify';
+import { PublicTemplate } from 'gatsby-theme-q3/src/components';
 
-export default (props) => (
-  <AdminPublicGateway>
+const CustomReverify = (props) => (
+  <PublicTemplate>
     <Reverify {...props} />
-  </AdminPublicGateway>
+  </PublicTemplate>
 );
+
+export default CustomReverify;

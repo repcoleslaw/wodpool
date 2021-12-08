@@ -1,16 +1,10 @@
 {
-  "name": "wp",
+  "name": "wodpool",
   "engines": {
-    "node": "12.9.x",
+    "node": "14.15.x",
     "yarn": "^1.17.3"
   },
   "scripts": {
-    "postinstall": "cd server; yarn install"
-  },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "lodash": "^4.17.21",
-    "react-hook-form": "^7.1.0",
-    "react-i18next": "^11.8.13"
+    "postinstall": "cd server; yarn install --ignore-engines"
   }
 }

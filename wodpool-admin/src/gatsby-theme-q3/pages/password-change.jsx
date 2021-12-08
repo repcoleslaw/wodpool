@@ -1,9 +1,11 @@
 import React from 'react';
-import AdminPublicGateway from 'gatsby-theme-q3/src/components/AdminPublicGateway';
 import PasswordChange from 'gatsby-theme-q3/src/pages/password-change';
+import { PublicTemplate } from 'gatsby-theme-q3/src/components';
 
-export default (props) => (
-  <AdminPublicGateway>
+const CustomPasswordChange = (props) => (
+  <PublicTemplate>
     <PasswordChange {...props} />
-  </AdminPublicGateway>
+  </PublicTemplate>
 );
+
+export default CustomPasswordChange;

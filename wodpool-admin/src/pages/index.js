@@ -1,6 +1,7 @@
 import React from 'react';
-import { Redirect } from '@reach/router';
+import { Redirect } from 'gatsby-theme-q3/src/components';
 
-export default () => (
-  <Redirect from="/" to="/app" noThrow />
-);
+// eslint-disable-next-line
+const Home = () => <Redirect to="/app" />;
+
+export default Home;

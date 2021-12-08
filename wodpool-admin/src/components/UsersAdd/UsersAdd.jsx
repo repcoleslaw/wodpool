@@ -4,7 +4,7 @@ import { Builders, helpers } from 'q3-ui-forms';
 export const ADMINISTRATOR = 'Administrator';
 export const COMPETITOR = 'Competitor';
 
-export const assignDiscriminator = (v, { role }) =>
+export const assignDiscriminator = (_, { role }) =>
   role === COMPETITOR ? 'competitors' : undefined;
 
 export const isCompetitor = [`role=${COMPETITOR}`];

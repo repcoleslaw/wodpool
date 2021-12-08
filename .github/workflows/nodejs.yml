@@ -15,10 +15,14 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: "14.x"
       - name: Server API
         working-directory: server
         run: |
           yarn install
-          yarn lint
+          yarn test
+      - name: Admin UI
+        working-directory: wodpool-admin
+        run: |
+          yarn install
           yarn test

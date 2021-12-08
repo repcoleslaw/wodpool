@@ -2,8 +2,52 @@
   {
     "role": "Administrator",
     "coll": "profile",
-    "fields": "{_id,id,firstName,lastName,email,lang,role,tours}",
+    "fields": [
+      "{_id,id,firstName,lastName,email,lang,role,tours,photo}"
+    ],
     "op": "Read"
+  },
+  {
+    "role": "Administrator",
+    "coll": "profile",
+    "fields": [
+      "{firstName,lastName,email,lang,role,tours*,sort*,uploads*,featuredUpload}"
+    ],
+    "op": "Create"
+  },
+  {
+    "role": "Administrator",
+    "op": "Read",
+    "fields": ["*"],
+    "coll": "emails",
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "op": "Update",
+    "fields": ["mjml"],
+    "coll": "emails",
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "coll": "queues",
+    "fields": "*",
+    "op": "Read"
+  },
+  {
+    "role": "Administrator",
+    "op": "Update",
+    "fields": ["status"],
+    "coll": "queues",
+    "ownership": "Any"
+  },
+  {
+    "role": "Administrator",
+    "op": "Delete",
+    "fields": ["*"],
+    "coll": "queues",
+    "ownership": "Any"
   },
   {
     "role": "Administrator",
@@ -23,7 +67,7 @@
   {
     "role": "Administrator",
     "coll": "q3-api-users",
-    "fields": "*",
+    "fields": ["*"],
     "op": "Update",
     "ownership": "Any"
   },
@@ -59,21 +103,27 @@
   {
     "role": "Public",
     "coll": "pools",
-    "fields": "{id,name,description,numberOfWeeks,startsOn}",
+    "fields": "{id,name,description,photo,endsOn,numberOfWeeks,startsOn,currentWeek}",
     "op": "Read",
     "ownership": "Any"
   },
   {
     "role": "Competitor",
     "coll": "profile",
-    "fields": "{firstName,lastName,handle,bio,email,role}",
+    "fields": "{id,firstName,lastName,handle,bio,email,role}",
     "op": "Read",
     "ownership": "Any"
   },
   {
     "role": "Competitor",
+    "coll": "profile",
+    "fields": ["{firstName,lastName,email}"],
+    "op": "Create"
+  },
+  {
+    "role": "Competitor",
     "coll": "pools",
-    "fields": "{id,name,description,numberOfWeeks,startsOn,price,events.*.equipment,events.*.duration,events.*.exercises*.{name,description,reps, duration},competitors*}",
+    "fields": "{id,name,description,photo,numberOfWeeks,startsOn,type,events.*.equipment,events.*.duration,events.*.exercises*.{name,description,reps, duration},competitors*,currentWeek,endsOn}",
     "op": "Read",
     "ownership": "Any"
   },

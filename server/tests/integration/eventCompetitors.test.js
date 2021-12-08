@@ -11,6 +11,7 @@ let req;
 
 const registerForPool = async (
   id,
+  // eslint-disable-next-line
   userDetails = {},
   statusCode,
 ) =>
@@ -42,7 +43,7 @@ describe('Event competitor registration', () => {
 
   it('should register for an event', async () => {
     const { _id: id } = await genPool();
-    await registerForPool(id, {}, 204);
+    await registerForPool(id, {}, 200);
     expect(
       get(
         await Q3.model('pools').findById(id),
@@ -62,7 +63,7 @@ describe('Event competitor registration', () => {
         email: 'first@test.com',
         handle: 'allow',
       },
-      204,
+      200,
     );
 
     await registerForPool(
@@ -71,7 +72,7 @@ describe('Event competitor registration', () => {
         email: 'second@test.com',
         handle: 'disallow',
       },
-      204,
+      200,
     );
   });
 });

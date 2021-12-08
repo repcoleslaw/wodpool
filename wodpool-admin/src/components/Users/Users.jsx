@@ -34,6 +34,6 @@ export default new AbstractCollectionBuilder({
   .genListSettings({
     defaultSortPreference: 'firstName',
     select:
-      'handle,email,firstName,lastName,name,role,createdAt',
+      'handle,email,firstName,lastName,name,role,createdAt,featuredUpload,photo',
   })
   .build();
