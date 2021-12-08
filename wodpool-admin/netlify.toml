@@ -1,7 +1,9 @@
 [context.production.environment]
   GATSBY_APP_BASE_URL = "https://wodpool-sandbox.herokuapp.com/"
   URL = "https://wodpooladmin.netlify.app/"
+  NODE_VERSION = 14
 
 [context.branch-deploy.environment]
   GATSBY_APP_BASE_URL = "https://wodpool-sandbox.herokuapp.com/"
   URL = "https://development--wodpooladmin.netlify.app/"
+  NODE_VERSION = 14
