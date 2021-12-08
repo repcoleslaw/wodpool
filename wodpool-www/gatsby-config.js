@@ -3,7 +3,7 @@ module.exports = require('gatsby-theme-q3/helpers').setup({
   favicon: '/favicon.png',
   logo: '/favicon.png',
   siteUrl: 'https://wodpool.com/',
-  title: 'WodPool',
+  title: 'Get excited about your exercise',
   netlify: true,
   initialType: 'dark',
   enableToggle: false,
