@@ -1,15 +1,13 @@
 const countCompetitors = require('../countCompetitors');
 
-const execMiddlewareFn = (
-  maximumCompetitors,
-  length,
-) => () =>
-  countCompetitors.call({
-    maximumCompetitors,
-    competitors: Array.from({
-      length,
-    }),
-  });
+const execMiddlewareFn =
+  (maximumCompetitors, length) => () =>
+    countCompetitors.call({
+      maximumCompetitors,
+      competitors: Array.from({
+        length,
+      }),
+    });
 
 describe('countCompetitors', () => {
   it('should throw a validation error', () =>

@@ -19,7 +19,7 @@
   "scripts": {
     "postinstall": "yarn-deduplicate",
     "test": "jest --runInBand --silent --detectOpenHandles --forceExit",
-    "lint": "eslint  --ext .js lib/**",
+    "lint": "eslint --ext .js lib/**",
     "start:web": "node --optimize_for_size lib/index.js",
     "start:worker": "node lib/worker.js",
     "develop:web": "nodemon lib/index.js",

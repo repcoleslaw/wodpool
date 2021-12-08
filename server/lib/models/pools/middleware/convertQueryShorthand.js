@@ -1,6 +1,6 @@
 const session = require('q3-core-session');
 
-module.exports = function () {
+module.exports = function convertQueryShorthand() {
   const q = this.getQuery();
   const { sort = {} } = this.getOptions();
 

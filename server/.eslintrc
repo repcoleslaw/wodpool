@@ -1,3 +1,4 @@
 {
+  "ignorePatterns": ["**/lang/**"],
   "extends": ["node-3merge"]
 }

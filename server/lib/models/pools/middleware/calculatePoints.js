@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign  */
 const moment = require('moment');
 const { forEach } = require('lodash');
 
@@ -47,11 +48,11 @@ class LeaderBoard {
         } else if (i === 2) {
           item.points = 15;
         } else if (withinPercentOf(30)) {
-          items.points = 5;
+          item.points = 5;
         } else if (withinPercentOf(50)) {
-          items.points = 3;
+          item.points = 3;
         } else {
-          items.points = 1;
+          item.points = 1;
         }
       });
   }
@@ -61,7 +62,7 @@ class LeaderBoard {
   }
 }
 
-module.exports = function () {
+module.exports = function calculatePoints() {
   const lb = new LeaderBoard(this.competitors);
   lb.week = getCurrentWeek(this.startsOn);
   lb.award();
