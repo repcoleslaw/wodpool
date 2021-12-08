@@ -47,7 +47,8 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint": "eslint --ext .js,.jsx src"
   },
   "resolutions": {
     "react": "^17.0.1",

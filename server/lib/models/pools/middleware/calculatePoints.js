@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign  */
 const moment = require('moment');
-const { forEach } = require('lodash');
+const { forEach, orderBy } = require('lodash');
 
 const getCurrentWeek = (xs) =>
   Math.floor(moment.duration(moment().diff(xs)).asWeeks()) +
@@ -19,13 +19,12 @@ class LeaderBoard {
           if (
             week.week === weekNumber &&
             (!week.points || !week.duration)
-          ) {
+          )
             acc.push({
               handle: curr.handle,
               duration: week.duration,
               id: week._id,
             });
-          }
         });
 
         return acc;
@@ -35,26 +34,30 @@ class LeaderBoard {
   }
 
   award() {
-    const withinPercentOf = (num) =>
-      (num + 1) / this.__$ledger.length > 30;
+    const sorted = orderBy(
+      this.__$ledger,
+      ['duration', 'createdAt'],
+      ['ACS', 'DESC'],
+    );
 
-    this.__$ledger
-      .sort((a, b) => a.duration - b.duration)
-      .forEach((item, i) => {
-        if (i === 0) {
-          item.points = 50;
-        } else if (i === 1) {
-          item.points = 25;
-        } else if (i === 2) {
-          item.points = 15;
-        } else if (withinPercentOf(30)) {
-          item.points = 5;
-        } else if (withinPercentOf(50)) {
-          item.points = 3;
-        } else {
-          item.points = 1;
-        }
-      });
+    sorted.forEach((item, i) => {
+      const withinPercentOf = (percentValue) =>
+        i <= sorted.length * (percentValue / 100);
+
+      if (i === 0) {
+        item.points = 50;
+      } else if (i === 1) {
+        item.points = 25;
+      } else if (i === 2) {
+        item.points = 15;
+      } else if (withinPercentOf(30)) {
+        item.points = 5;
+      } else if (withinPercentOf(50)) {
+        item.points = 3;
+      } else {
+        item.points = 1;
+      }
+    });
   }
 
   getWeekById(id) {

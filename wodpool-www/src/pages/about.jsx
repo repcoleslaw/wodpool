@@ -1,9 +1,7 @@
 import React from 'react';
 import {
   Box,
-  Button,
   Container,
-  Paper,
   Typography,
   Tab,
 } from '@material-ui/core';
