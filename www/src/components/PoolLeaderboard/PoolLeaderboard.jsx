@@ -24,7 +24,7 @@ import {
   map,
   some,
 } from 'lodash';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 import PoolLeaderboardTotal from '../PoolLeaderboardTotal';
 import PoolLeaderboardWeekly from '../PoolLeaderboardWeekly';
 import useStyle from '../Sponsors/styles';

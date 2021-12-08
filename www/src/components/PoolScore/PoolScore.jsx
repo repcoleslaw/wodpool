@@ -6,7 +6,7 @@ import Dialog from 'q3-ui-dialog';
 import { isFunction } from 'lodash';
 import { Builders } from 'q3-ui-forms';
 import axios from 'axios';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 
 const PoolScore = ({ refresh, week }) => {
   const { id } = useParams();

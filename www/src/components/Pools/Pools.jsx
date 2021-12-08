@@ -11,7 +11,7 @@ import {
   Divider,
   CircularProgress,
 } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';

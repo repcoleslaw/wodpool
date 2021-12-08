@@ -14,7 +14,7 @@ import {
   AuthContext,
   destroySession,
 } from 'q3-ui-permissions';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 
 const HeaderAccount = () => {
   const userId =

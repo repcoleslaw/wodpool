@@ -9,7 +9,7 @@ import {
   Typography,
   Button,
 } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import usePage from '../usePage';

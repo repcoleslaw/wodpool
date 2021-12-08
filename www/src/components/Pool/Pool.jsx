@@ -25,7 +25,7 @@ import useStyle from './styles';
 import usePoolRegistration from '../usePoolRegistration';
 import { AuthContext } from 'q3-ui-permissions';
 import useSponsorStyles from '../Sponsors/styles';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 
 const Pool = () => {
   const userId =

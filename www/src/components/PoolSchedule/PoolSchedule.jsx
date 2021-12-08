@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { map, orderBy } from 'lodash';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 
 const PoolSchedule = ({ type = 'Minutes', events }) => {
   const { t } = useTranslation('labels');

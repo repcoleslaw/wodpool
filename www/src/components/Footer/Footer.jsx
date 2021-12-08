@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import Image from 'gatsby-image';
 import moment from 'moment';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 import useStyle from './styles';
 
 const Footer = () => {

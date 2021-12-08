@@ -16,7 +16,7 @@ import {
 import Dialog from 'q3-ui-dialog';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 import MenuIcon from '@material-ui/icons/Menu';
 import HeaderAccount from '../HeaderAccount';
 

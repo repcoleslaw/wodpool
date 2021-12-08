@@ -7,7 +7,7 @@ import {
   TableRow,
 } from '@material-ui/core';
 import { map, orderBy, get } from 'lodash';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 import PoolLeaderboardTable from '../PoolLeaderboardTable';
 
 const PoolLeaderboardWeekly = ({ data, week }) => {

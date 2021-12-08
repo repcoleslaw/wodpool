@@ -4,7 +4,7 @@ import { Builders } from 'q3-ui-forms';
 import { Box, Typography } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import axios from 'axios';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'q3-ui-locale';
 
 const Signup = (props) => {
   const [done, setDone] = React.useState(false);
