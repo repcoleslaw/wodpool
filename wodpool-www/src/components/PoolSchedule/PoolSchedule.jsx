@@ -8,11 +8,10 @@ import {
   TableHead,
   TableRow,
 } from '@material-ui/core';
-import { map, orderBy } from 'lodash';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { map } from 'lodash';
 import { useTranslation } from 'q3-ui-locale';
 
-const PoolSchedule = ({ type = 'Minutes', events }) => {
+const PoolSchedule = ({ type, events }) => {
   const { t } = useTranslation('labels');
 
   return map(events, (week, idx) => (

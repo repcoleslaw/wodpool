@@ -8,7 +8,7 @@ const checkUserType = ({ user }, res, next) =>
     : next();
 
 const Controller = async (
-  { query: { pool }, user },
+  { query: { pool }, user, t },
   res,
 ) => {
   const doc = await Q3.model('pools').findStrictly(pool);
@@ -17,7 +17,10 @@ const Controller = async (
   });
 
   await doc.save();
-  res.acknowledge();
+
+  res.ok({
+    message: t('messages:S001'),
+  });
 };
 
 Controller.authorization = [checkUserType];

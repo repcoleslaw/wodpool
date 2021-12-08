@@ -116,8 +116,14 @@
   },
   {
     "role": "Competitor",
+    "coll": "profile",
+    "fields": ["{firstName,lastName,email}"],
+    "op": "Create"
+  },
+  {
+    "role": "Competitor",
     "coll": "pools",
-    "fields": "{id,name,description,photo,numberOfWeeks,startsOn,price,events.*.equipment,events.*.duration,events.*.exercises*.{name,description,reps, duration},competitors*,currentWeek,endsOn}",
+    "fields": "{id,name,description,photo,numberOfWeeks,startsOn,type,events.*.equipment,events.*.duration,events.*.exercises*.{name,description,reps, duration},competitors*,currentWeek,endsOn}",
     "op": "Read",
     "ownership": "Any"
   },

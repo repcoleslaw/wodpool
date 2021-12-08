@@ -1,4 +1,6 @@
 {
   "submitScore": "For information on point allocation and validation, please visit our About page.",
-  "signupDone": "You've successfully registered for the site. An email is on its way to verify your account. You'll be asked to set a password before logging in for your first time."
+  "signupDone": "You've successfully registered for the site. An email is on its way to verify your account. You'll be asked to set a password before logging in for your first time.",
+  "site": "\"Work Out of the Day\" meets Deadpool-style leaderboards",
+  "poolClosed": "Cannot join or submit scores"
 }

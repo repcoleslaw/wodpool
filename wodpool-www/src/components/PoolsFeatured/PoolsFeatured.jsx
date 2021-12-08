@@ -9,27 +9,33 @@ import {
   Grid,
   Button,
   Typography,
+  CircularProgress,
 } from '@material-ui/core';
 import { useTranslation } from 'q3-ui-locale';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import PoolsCard from '../PoolsCard';
 import useStyle from '../Sponsors/styles';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 const PoolsFeatured = () => {
   const cls = useStyle();
   const { t } = useTranslation('titles');
 
   const r = useRest({
-    url: `/pools`,
+    url: '/pools',
     pluralized: 'pools',
     key: 'pool',
     runOnInit: true,
     location: {
-      search: `?sort=startsOn&featured=true&limit=6&isCurrent=true`,
+      search:
+        '?sort=-startsOn&featured=true&limit=6&isCurrent=true',
     },
   });
 
-  return (
+  return r?.fetching ? (
+    <Box minHeight={250}>
+      <CircularProgress />
+    </Box>
+  ) : (
     <Box my={4}>
       <Container>
         <Typography

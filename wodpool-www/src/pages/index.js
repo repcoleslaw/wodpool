@@ -1,6 +1,6 @@
 import React from 'react';
+import { Box } from '@material-ui/core';
 import {
-  Header,
   Hero,
   PoolsFeatured,
   Sponsors,
@@ -8,9 +8,12 @@ import {
 
 const Index = () => (
   <>
-    <Hero />
-    <PoolsFeatured />
-    <Sponsors />
+    <Hero>
+      <PoolsFeatured />
+    </Hero>
+    <Box pt={4}>
+      <Sponsors />
+    </Box>
   </>
 );
 

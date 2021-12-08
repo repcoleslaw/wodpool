@@ -1,31 +1,23 @@
 import React from 'react';
 import useRest from 'q3-ui-rest';
-import { map } from 'lodash';
 import { Link, useParams } from '@reach/router';
 import {
   Box,
   Button,
   Container,
-  Fade,
-  IconButton,
-  Grid,
   Paper,
   Typography,
 } from '@material-ui/core';
-import Image from 'gatsby-image';
-import Alert from '@material-ui/lab/Alert';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import Dialog from 'q3-ui-dialog';
+import { AuthContext } from 'q3-ui-permissions';
+import { useTranslation } from 'q3-ui-locale';
 import HeroPhoto from '../HeroPhoto';
 import PoolLeaderboard from '../PoolLeaderboard';
 import PoolSchedule from '../PoolSchedule';
-import PoolsCard from '../PoolsCard';
 import PoolScore from '../PoolScore';
 import useStyle from './styles';
 import usePoolRegistration from '../usePoolRegistration';
-import { AuthContext } from 'q3-ui-permissions';
 import useSponsorStyles from '../Sponsors/styles';
-import { useTranslation } from 'q3-ui-locale';
 
 const Pool = () => {
   const userId =
@@ -42,7 +34,7 @@ const Pool = () => {
     runOnInit: true,
   });
 
-  const { currentWeek, hasJoined, join } =
+  const { currentWeek, hasJoined, join, type } =
     usePoolRegistration(r.pool, r.poll);
 
   const renderButton = () => {
@@ -59,9 +51,16 @@ const Pool = () => {
       );
 
     return (
-      <PoolScore refresh={r?.poll} week={currentWeek} />
+      <PoolScore
+        type={type}
+        refresh={r?.poll}
+        week={currentWeek}
+      />
     );
   };
+
+  if (r.fetching)
+    return <div style={{ height: '100vh' }} />;
 
   return (
     <Box className={cls.root}>

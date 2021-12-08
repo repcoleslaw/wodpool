@@ -1,5 +1,6 @@
 {
   "001": "This pool is already at max capacity",
   "002": "You do not belong to this pool. Please register before submitting a score.",
-  "003": "You have already submitted a score for the current week"
+  "003": "You have already submitted a score for the current week",
+  "S001": "Successfully joined the pool. Good luck!"
 }

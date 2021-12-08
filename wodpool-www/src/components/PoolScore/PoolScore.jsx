@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from '@reach/router';
 import { Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -8,9 +9,10 @@ import { Builders } from 'q3-ui-forms';
 import axios from 'axios';
 import { useTranslation } from 'q3-ui-locale';
 
-const PoolScore = ({ refresh, week }) => {
+const PoolScore = ({ refresh, week, type }) => {
   const { id } = useParams();
   const { t } = useTranslation();
+  const isMinute = type === 'Minutes';
 
   return (
     <Dialog
@@ -19,17 +21,17 @@ const PoolScore = ({ refresh, week }) => {
       variant="drawer"
       renderContent={(close) => (
         <Builders.Form
-          onSubmit={({ minutes, seconds, url }) =>
+          onSubmit={({ cycles, minutes, seconds, url }) =>
             axios
-              .post(`/score`, {
-                duration: minutes * 60 + seconds,
-                // given that there's a URL
-                // this is always truthy?
+              .post('/score', {
+                duration: isMinute
+                  ? minutes * 60 + seconds
+                  : cycles,
                 hasProofOfPoints: true,
                 url,
                 id,
               })
-              .then((res) => {
+              .then(() => {
                 if (isFunction(refresh)) refresh();
                 close();
               })
@@ -42,20 +44,32 @@ const PoolScore = ({ refresh, week }) => {
             xl={12}
             lg={12}
           />
-          <Builders.Field
-            required
-            name="minutes"
-            type="number"
-            xl={6}
-            lg={6}
-          />
-          <Builders.Field
-            required
-            name="seconds"
-            type="number"
-            xl={6}
-            lg={6}
-          />
+          {isMinute ? (
+            <>
+              <Builders.Field
+                required
+                name="minutes"
+                type="number"
+                xl={6}
+                lg={6}
+              />
+              <Builders.Field
+                required
+                name="seconds"
+                type="number"
+                xl={6}
+                lg={6}
+              />
+            </>
+          ) : (
+            <Builders.Field
+              required
+              name="cycles"
+              type="number"
+              xl={12}
+              lg={12}
+            />
+          )}
         </Builders.Form>
       )}
       renderTrigger={(onClick) =>
@@ -77,6 +91,17 @@ const PoolScore = ({ refresh, week }) => {
       }
     />
   );
+};
+
+PoolScore.defaultProps = {
+  type: 'Minutes',
+  week: -1,
+};
+
+PoolScore.propTypes = {
+  refresh: PropTypes.func.isRequired,
+  type: PropTypes.string,
+  week: PropTypes.number,
 };
 
 export default PoolScore;

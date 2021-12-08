@@ -4,7 +4,7 @@ module.exports = require('gatsby-theme-q3/helpers').setup({
   logo: '/favicon.png',
   siteUrl: 'https://wodpool.com/',
   title: 'WodPool',
-  // netlify: true,
+  netlify: true,
   initialType: 'dark',
   enableToggle: false,
 });

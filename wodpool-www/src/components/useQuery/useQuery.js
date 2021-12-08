@@ -1,5 +1,4 @@
-import React from 'react';
-import { map, pick, isEqual } from 'lodash';
+import { pick } from 'lodash';
 import { useQueryParams } from 'q3-ui-queryparams';
 import { useNavigate, useLocation } from '@reach/router';
 
@@ -25,7 +24,7 @@ const useQuery = () => {
         ...decoded,
         sort: String(decoded.sort).startsWith('-')
           ? 'startsOn'
-          : `-startsOn`,
+          : '-startsOn',
       }),
     );
 
