@@ -23,6 +23,8 @@ export default new AbstractCollectionBuilder({
       'startsOn',
       'endsOn',
     ],
+    disableColumnReorder: true,
+    disableMultiselect: true,
     resolvers: (rest) => ({
       ...rest,
       startsOn: {

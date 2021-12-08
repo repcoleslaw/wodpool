@@ -12,6 +12,10 @@
       "tests"
     ]
   },
+  "resolutions": {
+    "axios": "^0.21.1",
+    "mongoose": "^6.1.0"
+  },
   "scripts": {
     "postinstall": "yarn-deduplicate",
     "test": "jest --runInBand --silent --detectOpenHandles --forceExit",

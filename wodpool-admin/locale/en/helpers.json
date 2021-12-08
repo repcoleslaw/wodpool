@@ -2,7 +2,7 @@
   "handle": "Used to casually identify users in the app.",
   "maximumCompetitors": "Defaults to limitless.",
   "price": "Set to zero for a free pool. Currently, there is no method of payment in the app.",
-  "featured": "Will promote this pool on the homepage. However, a maximum of three will be visible.",
+  "featured": "Will promote this pool on the homepage. However, a maximum of three will be visible, sorted by the sort date in ASC order.",
   "type": "This determines if the events are time or circuit-based.",
   "endsOn": "Calculated by the start date plus number of weekly events."
 }

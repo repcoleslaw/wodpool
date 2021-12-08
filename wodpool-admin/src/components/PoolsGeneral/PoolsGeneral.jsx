@@ -1,7 +1,6 @@
 import React from 'react';
 import { Builders, helpers } from 'q3-ui-forms';
 import { connect } from 'q3-admin/lib/containers';
-import { isCompetitor } from '../UsersAdd/UsersAdd';
 
 const UsersGeneral = connect(({ data, ...rest }) => (
   <Builders.Form
@@ -15,7 +14,6 @@ const UsersGeneral = connect(({ data, ...rest }) => (
     keep={[
       'name',
       'description',
-      'price',
       'maximumCompetitors',
       'startsOn',
       'endsOn',
@@ -27,7 +25,6 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       required
       name="name"
       type="text"
-      required
       xl={6}
       lg={6}
     />
@@ -36,15 +33,8 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       name="type"
       type="select"
       options={['Minutes', 'Cycles']}
-      required
       xl={6}
       lg={6}
-    />
-    <Builders.Field
-      name="price"
-      xl={6}
-      lg={6}
-      type="number"
     />
     <Builders.Field
       name="maximumCompetitors"
@@ -54,16 +44,16 @@ const UsersGeneral = connect(({ data, ...rest }) => (
     />
     <Builders.Field
       name="startsOn"
-      xl={6}
-      lg={6}
+      xl={3}
+      lg={3}
       type="date"
       required
     />
     <Builders.Field
       name="endsOn"
       type="date"
-      xl={6}
-      lg={6}
+      xl={3}
+      lg={3}
       disabled
     />
     <Builders.Field

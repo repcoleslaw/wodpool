@@ -4,4 +4,5 @@ module.exports = require('gatsby-theme-q3/helpers').setup({
   logo: '/favicon.png',
   siteUrl: 'https://donttalkaboutwodpool.ca/',
   title: 'Portal',
+  netlify: true,
 });

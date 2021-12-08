@@ -8,11 +8,19 @@ import {
 } from 'q3-admin/lib/containers';
 import { forEach, size } from 'lodash';
 
+export const getDynamicWeeklyValues = ({ events = [] }) =>
+  forEach(events, (xs, i) =>
+    Object.assign(xs, {
+      sizeOfExercises: size(xs.exercises),
+      week: `Week #${String(i + 1)}`,
+    }),
+  );
+
 const DisplayType = connect(({ data: { type } }) => (
   <Grid item xs={12}>
     <Alert severity="info">
-      Note that this pool has been set to duration type of "
-      <strong>{type}</strong>". You can change this under
+      Note that this pool has been set to a duration type of
+      <strong> {type}</strong>. You can change this under
       its general settings.
     </Alert>
   </Grid>
@@ -29,11 +37,7 @@ const PoolsExercises = (props) => (
       editable: {},
     }}
     decorators={{
-      get: ({ events = [] }) =>
-        forEach(events, (xs, i) => {
-          xs.sizeOfExercises = size(xs.exercises);
-          xs.week = `Week #${String(i + 1)}`;
-        }),
+      get: getDynamicWeeklyValues,
     }}
     {...props}
   >
