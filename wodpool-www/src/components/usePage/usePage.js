@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from '@reach/router';
+// eslint-disable-next-line
 import { useQueryParams } from 'q3-ui-queryparams';
 
 export default () => {

@@ -21,6 +21,8 @@ const Hero = ({ children }) => {
       <Box
         textAlign="center"
         position="relative"
+        maxWidth="100%"
+        px={1}
         mt={8}
         mb={4}
       >
@@ -37,7 +39,10 @@ const Hero = ({ children }) => {
         <Typography
           variant="h3"
           component="h1"
-          style={{ width: 525 }}
+          style={{
+            maxWidth: '100%',
+            width: 525,
+          }}
         >
           {t('site')}
         </Typography>

@@ -4,7 +4,7 @@ import { Builders } from 'q3-ui-forms';
 import { Container } from '@material-ui/core';
 import Page from '../Page';
 
-export default () => (
+const Profile = () => (
   <Page title="profile">
     <Container
       maxWidth="sm"
@@ -24,3 +24,5 @@ export default () => (
     </Container>
   </Page>
 );
+
+export default Profile;

@@ -1,6 +1,6 @@
 import React from 'react';
 import AdminPublicGateway from 'gatsby-theme-q3/src/components/AdminPublicGateway';
-import { Paper, Box, Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyle = makeStyles((theme) => ({

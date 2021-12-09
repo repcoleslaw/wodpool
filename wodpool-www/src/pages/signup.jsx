@@ -29,7 +29,7 @@ const Signup = (props) => {
             submitLabel="letsGo"
             onSubmit={(values) =>
               axios
-                .post(`/q3-api-users`, {
+                .post('/q3-api-users', {
                   __t: 'competitors',
                   role: 'Competitor',
                   ...values,
