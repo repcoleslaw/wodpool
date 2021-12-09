@@ -7885,9 +7885,9 @@ gatsby-theme-q3-mui@^2.3.0:
     q3-ui-locale "^2.2.2"
 
 gatsby-theme-q3@^2.1.1:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-q3/-/gatsby-theme-q3-2.3.0.tgz#115482c79d14f40cf58534de82dc0e9cc73191ec"
-  integrity sha512-tCL3VJAw0u2CS4WrpFrYEOqpJmsPlgE3k1A6uZHT88LsnkUQUH01/Jn6cM4BGZSIVm61llB3/jZmGdctKWbj4Q==
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-q3/-/gatsby-theme-q3-2.3.1.tgz#1957807d10b1d2c71c58472558cab29de61ecdd4"
+  integrity sha512-wyT76gx+0/FuHr+rCL2fcGVqA/V4EWg65uCc6CGuWQ4DGwVr9Kwp+HCdCVIIKErnPeVO0RqmvSMMgUFRDAsqOQ==
   dependencies:
     "@babel/plugin-proposal-export-default-from" "^7.16.0"
     "@contentful/gatsby-transformer-contentful-richtext" "^13.1.0"
