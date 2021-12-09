@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { TableCell, TableRow } from '@material-ui/core';
 import { AuthContext } from 'q3-ui-permissions';
 
-const PoolLeaderboardRow = ({ rank, handle, points }) => {
+const PoolLeaderboardTableRow = ({
+  handle,
+  points,
+  rank,
+}) => {
   const className =
     React.useContext(AuthContext)?.state?.profile
       ?.handle === handle
@@ -18,4 +23,10 @@ const PoolLeaderboardRow = ({ rank, handle, points }) => {
   ) : null;
 };
 
-export default PoolLeaderboardRow;
+PoolLeaderboardTableRow.propTypes = {
+  handle: PropTypes.string.isRequired,
+  points: PropTypes.number.isRequired,
+  rank: PropTypes.number.isRequired,
+};
+
+export default PoolLeaderboardTableRow;

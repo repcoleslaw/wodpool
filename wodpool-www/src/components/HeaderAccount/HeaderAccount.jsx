@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  AppBar,
-  Box,
-  Button,
-  ButtonGroup,
-  Grid,
-  Paper,
-  Toolbar,
-} from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import { Link } from 'gatsby';
-import Image from 'gatsby-image';
 import {
   AuthContext,
   destroySession,

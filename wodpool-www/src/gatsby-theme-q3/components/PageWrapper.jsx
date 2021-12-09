@@ -6,9 +6,13 @@ import { Header, Footer } from '../../components';
 // eslint-disable-next-line
 const CustomPageWrapper = ({ children, ...props }) => (
   <PageWrapper {...props}>
-    <Header />
-    <Box minHeight="45vh">{children}</Box>
-    <Footer />
+    <main>
+      <Header />
+      <Box component="article" minHeight="45vh">
+        {children}
+      </Box>
+      <Footer />
+    </main>
   </PageWrapper>
 );
 

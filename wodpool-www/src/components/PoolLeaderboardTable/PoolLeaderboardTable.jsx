@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Table,
   TableBody,
@@ -6,7 +7,7 @@ import {
   TableHead,
   TableRow,
 } from '@material-ui/core';
-import { map, orderBy, size } from 'lodash';
+import { map } from 'lodash';
 import { useTranslation } from 'q3-ui-locale';
 import PoolLeaderboardTableRow from '../PoolLeaderboardTableRow';
 import useStyle from './styles';
@@ -41,6 +42,18 @@ const PoolLeaderboardTable = ({ data }) => {
       </TableBody>
     </Table>
   );
+};
+
+PoolLeaderboardTable.defaultProps = {
+  data: [],
+};
+
+PoolLeaderboardTable.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  ),
 };
 
 export default PoolLeaderboardTable;
