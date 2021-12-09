@@ -1,10 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Avatar,
-  Box,
-  Button,
   Card,
-  CardActions,
   CardActionArea,
   CardContent,
   CardHeader,
@@ -58,6 +56,15 @@ const PoolsCard = ({
 
 PoolsCard.defaultProps = {
   photo: '/favicon.png',
+};
+
+PoolsCard.propTypes = {
+  description: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  photo: PropTypes.string,
+  startsOn: PropTypes.string.isRequired,
+  endsOn: PropTypes.string.isRequired,
 };
 
 export default PoolsCard;

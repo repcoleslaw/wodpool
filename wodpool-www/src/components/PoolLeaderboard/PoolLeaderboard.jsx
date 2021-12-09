@@ -1,13 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Paper,
   Container,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
   Typography,
   Tab,
 } from '@material-ui/core';
@@ -16,14 +12,7 @@ import {
   TabList,
   TabPanel,
 } from '@material-ui/lab';
-import {
-  filter,
-  reduce,
-  size,
-  get,
-  map,
-  some,
-} from 'lodash';
+import { filter, reduce, get, map, some } from 'lodash';
 import { useTranslation } from 'q3-ui-locale';
 import PoolLeaderboardTotal from '../PoolLeaderboardTotal';
 import PoolLeaderboardWeekly from '../PoolLeaderboardWeekly';
@@ -49,7 +38,7 @@ const PoolLeaderboard = ({ competitors }) => {
     map(
       filter(competitors, (competitor) =>
         some(
-          get(competitor, `weeks`, []),
+          get(competitor, 'weeks', []),
           ({ week: recordedWeek }) => recordedWeek === week,
         ),
       ),
@@ -114,6 +103,20 @@ const PoolLeaderboard = ({ competitors }) => {
       </Container>
     )
   );
+};
+
+PoolLeaderboard.defaultProps = {
+  competitors: [],
+};
+
+PoolLeaderboard.propTypes = {
+  competitors: PropTypes.arrayOf(
+    PropTypes.shape({
+      handle: PropTypes.string,
+      // eslint-disable-next-line
+      weeks: PropTypes.array,
+    }),
+  ),
 };
 
 export default PoolLeaderboard;

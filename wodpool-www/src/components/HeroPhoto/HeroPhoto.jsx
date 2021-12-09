@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Image from 'gatsby-image';
 import { Box } from '@material-ui/core';
 
@@ -29,5 +30,9 @@ const HeroPhoto = ({ src }) => (
     />
   </>
 );
+
+HeroPhoto.propTypes = {
+  src: PropTypes.string.isRequired,
+};
 
 export default HeroPhoto;

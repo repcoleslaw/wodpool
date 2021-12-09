@@ -20,7 +20,12 @@ const Footer = () => {
   const { t } = useTranslation('labels');
 
   return (
-    <Box bgcolor="primary.main" mt={2} py={2}>
+    <Box
+      component="footer"
+      bgcolor="primary.main"
+      mt={2}
+      py={2}
+    >
       <Container>
         <Image
           fluid={{

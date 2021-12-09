@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Typography,
@@ -68,6 +69,22 @@ const PoolSchedule = ({ type, events }) => {
       </Table>
     </Box>
   ));
+};
+
+PoolSchedule.defaultProps = {
+  events: [],
+  type: 'Minutes',
+};
+
+PoolSchedule.propTypes = {
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      duration: PropTypes.number,
+      equipment: PropTypes.string,
+      excercises: PropTypes.arrayOf(PropTypes.object),
+    }),
+  ),
+  type: PropTypes.string,
 };
 
 export default PoolSchedule;

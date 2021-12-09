@@ -4,6 +4,7 @@ import {
   Container,
   Typography,
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { useTranslation } from 'q3-ui-locale';
 import useStyle from '../Sponsors/styles';
 
@@ -19,12 +20,17 @@ const Page = ({ title, children }) => {
           variant="h2"
           className={cls.title}
         >
-          <span> {t(title)}</span>
+          <span>{t(title)}</span>
         </Typography>
         {children}
       </Container>
     </Box>
   );
+};
+
+Page.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Page;

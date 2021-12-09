@@ -26,3 +26,8 @@ jobs:
         run: |
           yarn install
           yarn test
+      - name: WWW UI
+        working-directory: wodpool-www
+        run: |
+          yarn install
+          yarn test

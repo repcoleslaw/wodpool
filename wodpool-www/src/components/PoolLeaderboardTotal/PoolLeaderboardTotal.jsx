@@ -1,33 +1,34 @@
 import React from 'react';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { map, orderBy } from 'lodash';
-import { useTranslation } from 'q3-ui-locale';
 import PoolLeaderboardTable from '../PoolLeaderboardTable';
 
-const PoolLeaderboardTotal = ({ data }) => {
-  const { t } = useTranslation('labels');
+const PoolLeaderboardTotal = ({ data }) => (
+  <PoolLeaderboardTable
+    data={map(
+      orderBy(
+        data,
+        ['pointsToDate', 'createdAt'],
+        ['desc', 'asc'],
+      ),
+      (row) => ({
+        ...row,
+        points: row.pointsToDate,
+      }),
+    )}
+  />
+);
 
-  return (
-    <PoolLeaderboardTable
-      data={map(
-        orderBy(
-          data,
-          ['pointsToDate', 'createdAt'],
-          ['desc', 'asc'],
-        ),
-        (row) => ({
-          ...row,
-          points: row.pointsToDate,
-        }),
-      )}
-    />
-  );
+PoolLeaderboardTotal.defaultProps = {
+  data: [],
+};
+
+PoolLeaderboardTotal.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      pointsToDate: PropTypes.number,
+    }),
+  ),
 };
 
 export default PoolLeaderboardTotal;

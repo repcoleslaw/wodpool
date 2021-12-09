@@ -10,6 +10,17 @@ const Signup = (props) => {
   const [done, setDone] = React.useState(false);
   const { t } = useTranslation();
 
+  const handleSubmit = (values) =>
+    axios
+      .post('/q3-api-users', {
+        __t: 'competitors',
+        role: 'Competitor',
+        ...values,
+      })
+      .then(() => {
+        setDone(true);
+      });
+
   return (
     <AdminPublicGateway {...props}>
       {done ? (
@@ -27,17 +38,7 @@ const Signup = (props) => {
           </Typography>
           <Builders.Form
             submitLabel="letsGo"
-            onSubmit={(values) =>
-              axios
-                .post(`/q3-api-users`, {
-                  __t: 'competitors',
-                  role: 'Competitor',
-                  ...values,
-                })
-                .then(() => {
-                  setDone(true);
-                })
-            }
+            onSubmit={handleSubmit}
           >
             <Builders.Field
               name="firstName"

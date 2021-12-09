@@ -1,20 +1,12 @@
 import React from 'react';
-import useRest from 'q3-ui-rest';
-import { map } from 'lodash';
-import {
-  Box,
-  Container,
-  Fade,
-  Grid,
-  Typography,
-  Button,
-} from '@material-ui/core';
+import PropTypes from 'prop-types';
+import { Container, Grid, Button } from '@material-ui/core';
 import { useTranslation } from 'q3-ui-locale';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import usePage from '../usePage';
 
-const Pools = ({ hasPrevPage, hasNextPage }) => {
+const Pagination = ({ hasPrevPage, hasNextPage }) => {
   const { t } = useTranslation('labels');
   const page = usePage();
 
@@ -50,4 +42,14 @@ const Pools = ({ hasPrevPage, hasNextPage }) => {
   );
 };
 
-export default Pools;
+Pagination.defaultProps = {
+  hasPrevPage: false,
+  hasNextPage: false,
+};
+
+Pagination.propTypes = {
+  hasPrevPage: PropTypes.bool,
+  hasNextPage: PropTypes.bool,
+};
+
+export default Pagination;

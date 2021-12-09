@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import {
   Box,
@@ -41,7 +42,7 @@ const About = () => {
 
   return (
     <Box my={4} className={cls.root}>
-      <Container component="main">
+      <Container>
         <Box mb={2}>
           <Typography variant="h1" className={cls2.title}>
             <span>About</span>
