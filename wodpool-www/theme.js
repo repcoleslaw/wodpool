@@ -16,6 +16,7 @@ module.exports = {
       default: '#1B1A21',
       paper: 'rgb(13, 13, 16)',
     },
+    type: 'dark',
   },
   overrides: {
     MuiCssBaseline: {
@@ -32,14 +33,14 @@ module.exports = {
     },
     MuiTableCell: {
       root: {
-        border: `2px solid #1B1A21 !important`,
+        border: '2px solid #1B1A21 !important',
         padding: 16,
       },
       head: {
-        backgroundColor: `#000 !important`,
+        backgroundColor: '#000 !important',
       },
       body: {
-        backgroundColor: `#09090b !important`,
+        backgroundColor: '#09090b !important',
       },
     },
     MuiOutlinedInput: {

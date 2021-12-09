@@ -31,11 +31,7 @@ const PoolsFeatured = () => {
     },
   });
 
-  return r?.fetching ? (
-    <Box minHeight={250}>
-      <CircularProgress />
-    </Box>
-  ) : (
+  return (
     <Box my={4}>
       <Container>
         <Typography
@@ -45,15 +41,25 @@ const PoolsFeatured = () => {
         >
           <span> {t('featuredPools')}</span>
         </Typography>
-        <Grid container justifyContent="center" spacing={1}>
-          {map(r?.pools, (pool, idx) => (
-            <Fade in timeout={(idx + 1) * 85}>
-              <Grid item xs={12} md={6} lg={4} xl={4}>
-                <PoolsCard key={pool.id} {...pool} />
-              </Grid>
-            </Fade>
-          ))}
-        </Grid>
+        {r?.fetching ? (
+          <Box p={2} textAlign="center">
+            <CircularProgress color="secondary" />
+          </Box>
+        ) : (
+          <Grid
+            container
+            justifyContent="center"
+            spacing={1}
+          >
+            {map(r?.pools, (pool, idx) => (
+              <Fade in timeout={(idx + 1) * 85}>
+                <Grid item xs={12} md={6} lg={4} xl={4}>
+                  <PoolsCard key={pool.id} {...pool} />
+                </Grid>
+              </Fade>
+            ))}
+          </Grid>
+        )}
         <Box mt={2} textAlign="center">
           <Button
             component={Link}

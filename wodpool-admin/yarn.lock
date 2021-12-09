@@ -7857,10 +7857,19 @@ gatsby-telemetry@^3.3.0:
     lodash "^4.17.21"
     node-fetch "^2.6.6"
 
-gatsby-theme-q3@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-q3/-/gatsby-theme-q3-2.1.1.tgz#15e8ecbacd4276188c9047ba559fbd7042c4c9a8"
-  integrity sha512-Wj2q1xhjq9QEJtbDnxonbfl5l+0i3sFIdLL3Q6C0YAnFAOKGsQUrXDjvT2hhFWid9CceuwDI1V0/P40ct6nSpw==
+gatsby-theme-q3-mui@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-q3-mui/-/gatsby-theme-q3-mui-2.3.0.tgz#c0434bc1812a1b7a4248fae9ea4a140e4f124bd9"
+  integrity sha512-4G4/Ec/msddm04V4BElVyYRHfBJabhARIMWVH2a5xZ1lCwqldxBLogoF6pkOIzBoqyp7CVencn+QhitOdzFkOQ==
+  dependencies:
+    prop-types "^15.7.2"
+    q3-ui "^2.2.2"
+    q3-ui-locale "^2.2.2"
+
+gatsby-theme-q3@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-q3/-/gatsby-theme-q3-2.3.0.tgz#115482c79d14f40cf58534de82dc0e9cc73191ec"
+  integrity sha512-tCL3VJAw0u2CS4WrpFrYEOqpJmsPlgE3k1A6uZHT88LsnkUQUH01/Jn6cM4BGZSIVm61llB3/jZmGdctKWbj4Q==
   dependencies:
     "@babel/plugin-proposal-export-default-from" "^7.16.0"
     "@contentful/gatsby-transformer-contentful-richtext" "^13.1.0"
@@ -7877,10 +7886,12 @@ gatsby-theme-q3@^2.1.1:
     gatsby-plugin-sharp "^4.2.0"
     gatsby-plugin-sitemap "^5.2.0"
     gatsby-source-contentful "^7.0.0"
+    gatsby-theme-q3-mui "^2.3.0"
     gatsby-transformer-sharp "^4.2.0"
     lodash "^4.17.20"
     process "^0.11.10"
     prop-types "^15.7.2"
+    q3-ui-locale "^2.2.2"
     query-string "^7.0.1"
     react-share "^4.3.1"
     slugify "^1.6.3"
@@ -12547,10 +12558,10 @@ pupa@^2.1.1:
   dependencies:
     escape-goat "^2.0.0"
 
-q3-admin@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-admin/-/q3-admin-2.2.1.tgz#38e25b0e6c13456dd7da10a8fcf0c039c139ba65"
-  integrity sha512-HOj52I18xf7A8MyeUFlOs3d/NW/OIF/U39ot0466Ew+I9nssVf3TJKdYd/wpAeSt3rFm/paBKKWGIm3/VG57+Q==
+q3-admin@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-admin/-/q3-admin-2.2.2.tgz#dc4db00c04ea350b2a3e7870cbb81c682f7ddefb"
+  integrity sha512-qiRViAylOh9yxGkB3J7N7ox8Zzem6V7af5BKUx1xflF8C4PUrJmjaNtsPtVW2aP2dV3AM0d0xX0HSLwqgaDV2A==
   dependencies:
     axios "^0.24.0"
     classnames "^2.2.6"
@@ -12562,39 +12573,39 @@ q3-admin@^2.2.1:
     moment "2.29.1"
     notistack "1.0.10"
     prop-types "^15.7.2"
-    q3-ui "^2.2.0"
-    q3-ui-audit "^2.2.1"
-    q3-ui-charts "^2.2.0"
-    q3-ui-confirm "^2.2.1"
-    q3-ui-datatables "^2.2.0"
-    q3-ui-dialog "^2.2.0"
-    q3-ui-filemanager "^2.2.0"
+    q3-ui "^2.2.2"
+    q3-ui-audit "^2.2.2"
+    q3-ui-charts "^2.2.2"
+    q3-ui-confirm "^2.2.2"
+    q3-ui-datatables "^2.2.2"
+    q3-ui-dialog "^2.2.2"
+    q3-ui-filemanager "^2.2.2"
     q3-ui-filters "^1.0.0"
-    q3-ui-forms "^2.2.1"
+    q3-ui-forms "^2.2.2"
     q3-ui-helpers "^2.2.0"
-    q3-ui-locale "^2.2.0"
-    q3-ui-permissions "^2.2.1"
-    q3-ui-rest "^2.2.1"
+    q3-ui-locale "^2.2.2"
+    q3-ui-permissions "^2.2.2"
+    q3-ui-rest "^2.2.2"
     react-butterfiles "^1.3.3"
     react-helmet "^6.1.0"
     useful-state "^1.2.3"
     with-location "^1.3.8"
     yup "^0.32.11"
 
-q3-blocks@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-blocks/-/q3-blocks-2.2.0.tgz#811a32a48c167560f3287e7f7d7644886e1b6b96"
-  integrity sha512-6iQ0FzLx8x4PAYdJkXFOM2uX31gLw7GcPEEluhZ8lXxU2GXklOHKbvzZtsjjwg00IuXBByqxYYjsZb237IWOgw==
+q3-blocks@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-blocks/-/q3-blocks-2.2.2.tgz#d0ac04579ea0e2913ad22ff21cecdf6b19c0cfd1"
+  integrity sha512-vZwpDGmYHeD5h8W/37AHhr6j1gE4lTOGm2tf4Q6BEtOvvs0gzJy3Cgx8OflIvdURE4p0gJvIMaACWPZSUdukSQ==
   dependencies:
     class-names "^1.0.0"
     lodash "^4.17.20"
     prop-types "^15.7.2"
-    q3-ui-locale "^2.2.0"
+    q3-ui-locale "^2.2.2"
 
-q3-components@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-components/-/q3-components-2.2.1.tgz#10cd86607ceb64e7bd527638cc42dfbebf999209"
-  integrity sha512-uaYpz10GkR7Wgnm9fxJQdcFEnGJf4rRYtvgJnQcLkzs7JHVkLEg4BgnbVFYBjuU+/ZsLhuHp22PtVQAoEvuWeg==
+q3-components@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-components/-/q3-components-2.2.2.tgz#b86bb8adf0258e9166787f6d271ac3510edc15cb"
+  integrity sha512-F0dkgScT1Jf/Lm4mLHw5AHyBRgUTh8OjaWCbKdQkTVjY0K7ZfX57GA68alQgnGmO7d3cQNkaNdCM4TrPYsolWA==
   dependencies:
     alphabetize-object-keys "^3.0.0"
     axios "^0.24.0"
@@ -12603,8 +12614,8 @@ q3-components@^2.2.1:
     lodash "^4.17.20"
     moment "2.29.1"
     prop-types "^15.7.2"
-    q3-ui-forms "^2.2.1"
-    q3-ui-locale "^2.2.0"
+    q3-ui-forms "^2.2.2"
+    q3-ui-locale "^2.2.2"
     react-diff-viewer "^3.1.1"
     useful-state "^1.2.3"
     with-location "^1.3.8"
@@ -12622,100 +12633,100 @@ q3-exports@^1.24.0:
     pdf-lib "^1.13.0"
     pdfmake "^0.1.68"
 
-q3-ui-assets@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-ui-assets/-/q3-ui-assets-2.2.0.tgz#484b303866f5c5212c1193ed4a513e8cfed279de"
-  integrity sha512-q5LgUeU2buLYSprdK/oyN3c8GwpVD9SsDzQm/uhF1YodKXR1F3DXUdjgGeGAMlsFaBUs4WgZ1anaa6CYn5qZ/g==
+q3-ui-assets@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-assets/-/q3-ui-assets-2.2.2.tgz#d6313a12e4a2e784f680e7bf98a1b1ce1c4ed527"
+  integrity sha512-1vh2YydImXfaPKtIpIlzIlck38GZBBcPfW4ZIk0yQowEZt8gshHyb/4EwP3Qpn9a4mjDVOOz2zJtsz8AB5eblQ==
   dependencies:
     lodash.get "^4.4.2"
-    q3-ui-locale "^2.2.0"
+    q3-ui-locale "^2.2.2"
 
-q3-ui-audit@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-ui-audit/-/q3-ui-audit-2.2.1.tgz#d02e2d1ecb42ccd26e34d972a7ad0695c06fb69c"
-  integrity sha512-tzoutxtPCYMJJAY0uRtibPUSCZ5G00AC8XNAU+7bOGbjTf30HI9FZy0j+z0omdb5gFSaKAbiw5hGdsYkNF3jEQ==
+q3-ui-audit@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-audit/-/q3-ui-audit-2.2.2.tgz#546233b6c79acd9c4980a7c622485cce7f8cecdc"
+  integrity sha512-W+zDytah9gxPwLirEGr1vxccXZ1diZz2NsqyWL8QyPK1yTGl/OS8f3wzX4JnVyHLIVlYN1pmPz6Qv/Mt3NTR4g==
   dependencies:
     axios "^0.24.0"
     lodash "^4.17.20"
     prop-types "^15.7.2"
-    q3-ui-assets "^2.2.0"
-    q3-ui-forms "^2.2.1"
+    q3-ui-assets "^2.2.2"
+    q3-ui-forms "^2.2.2"
     q3-ui-helpers "^2.2.0"
-    q3-ui-locale "^2.2.0"
-    q3-ui-permissions "^2.2.1"
-    q3-ui-queryparams "^2.2.0"
-    q3-ui-rest "^2.2.1"
+    q3-ui-locale "^2.2.2"
+    q3-ui-permissions "^2.2.2"
+    q3-ui-queryparams "^2.2.2"
+    q3-ui-rest "^2.2.2"
     react-diff-viewer "^3.1.1"
     useful-state "^1.2.3"
 
-q3-ui-charts@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-ui-charts/-/q3-ui-charts-2.2.0.tgz#211da3ed84287106231dce1ded3721c61475482d"
-  integrity sha512-5Q6LZoK62MHEvokR8Ufjo/UCSP/D0FVU79XN23FkjTRbWE2NB510cudR21t+tfg4mptipQ1mYBAexpLgRN+Z8w==
+q3-ui-charts@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-charts/-/q3-ui-charts-2.2.2.tgz#a4f873b07d4111baee1f23648afbc50d1d1cb62a"
+  integrity sha512-soiIPB6SdZEZE1pFYKflXtLUKbZnQBGYuowKWDMpEYG/OqA6HcvR/hX1G2nJIf1SBJ0XzPyfdqWDDojFBIePpg==
   dependencies:
     lodash "^4.17.20"
     prop-types "^15.7.2"
     q3-exports "^1.24.0"
-    q3-ui-locale "^2.2.0"
+    q3-ui-locale "^2.2.2"
     recharts "^2.1.6"
 
-q3-ui-confirm@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-ui-confirm/-/q3-ui-confirm-2.2.1.tgz#eb63d7da499d2483ce85e6c35a54c6b86506540f"
-  integrity sha512-sUiMpS7KCKT8WLQqKVOvvc5/UmXvvwiHOU/WDmriw6AfdsaE51OXM6FZrQ4bxDrnV/7Qd5SVKu4ZDR09w8LXog==
+q3-ui-confirm@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-confirm/-/q3-ui-confirm-2.2.2.tgz#e6ef89746492c40478fa2dda17b8b72d7eff7263"
+  integrity sha512-riCyP4WqJRsCpRo0Kbq6eu/duz1ilgduKKe6zY6F86Y0uL9igFKoS/KIxc/9YMJjQwgfYos66WXs9MI9gDkCbA==
   dependencies:
     prop-types "^15.7.2"
-    q3-ui "^2.2.0"
-    q3-ui-dialog "^2.2.0"
-    q3-ui-forms "^2.2.1"
+    q3-ui "^2.2.2"
+    q3-ui-dialog "^2.2.2"
+    q3-ui-forms "^2.2.2"
     q3-ui-helpers "^2.2.0"
-    q3-ui-locale "^2.2.0"
+    q3-ui-locale "^2.2.2"
     yup "^0.32.11"
 
-q3-ui-datatables@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-ui-datatables/-/q3-ui-datatables-2.2.0.tgz#1e4ba51f1c7a5b18e05bdf226b3e7a4b0f941143"
-  integrity sha512-I1gL7uxvayav7pOEDyZq3VVj31WcLgzQBIkKmMxsrhhLZA0DhDPToWM4HxtEfjaMsHrbwiG6+0Ub7dvzMcEVfA==
+q3-ui-datatables@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-datatables/-/q3-ui-datatables-2.2.2.tgz#4673097dd0874a93390ae0beeab6816e5ed65d84"
+  integrity sha512-KPAmGHYty4I6TYH+Gd1Q6tn+DBS8ZydTEByPciNmqVhRXEHXQrpiq8Fxy83xXX32dirpzCozFQ52nM1mE/w8Mw==
   dependencies:
     "@reach/router" "^1.3.4"
     lodash "^4.17.20"
     prop-types "^15.7.2"
-    q3-ui "^2.2.0"
-    q3-ui-exports "^2.2.0"
-    q3-ui-locale "^2.2.0"
+    q3-ui "^2.2.2"
+    q3-ui-exports "^2.2.2"
+    q3-ui-locale "^2.2.2"
     react-sortable-hoc "^2.0.0"
     useful-state "^1.2.3"
     with-location "^1.3.8"
 
-q3-ui-dialog@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-ui-dialog/-/q3-ui-dialog-2.2.0.tgz#04f0b62576191e76b7dc1540f40ebc80e1ae54c3"
-  integrity sha512-35dzfmG3Ob5Yql+Lc1amirfpAh+CZXzPhxL3GUusXlgVJDLfX8SEl746F/SU+czPKhIIXfGfEuMz64DS00YalQ==
+q3-ui-dialog@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-dialog/-/q3-ui-dialog-2.2.2.tgz#7606e1372214599fc0f9b9bc26062111a87c9b9e"
+  integrity sha512-CljCz0wuI7/8IkJczc9hzL9MG26yqqVXGz1RCraEcXt+le+qPxu+oJwDvo/Yc+INYZBDspEoZHBqW/rfRy/Nrw==
   dependencies:
     prop-types "^15.7.2"
-    q3-ui-locale "^2.2.0"
+    q3-ui-locale "^2.2.2"
     react-draggable "^4.4.4"
     useful-state "^1.2.3"
 
-q3-ui-emaileditor@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-ui-emaileditor/-/q3-ui-emaileditor-2.2.1.tgz#11352db5e341001e88dc3505232b7b5d8385c385"
-  integrity sha512-Tu1tdSnxBFEsjNOv6XgQyD/kz7Dk3Vrp59I/stZsHQh2M3WVtbp3fTZ2jvxu/w2nM+c2d54JBkpHTY7fY25pLA==
+q3-ui-emaileditor@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-emaileditor/-/q3-ui-emaileditor-2.2.2.tgz#647e6e2739e364bf4e2558e2b116f78247713a90"
+  integrity sha512-o6EK82fi00umP4X9P6nNDGb3SIV+QzYPU8OS4McZcyumoLKBZHPQA36x3OgdBqK5LXyqN4hJuDXCY+fm7geBLA==
   dependencies:
     axios "^0.24.0"
     codemirror "^5.64.0"
     js-beautify "^1.14.0"
     lodash "^4.17.20"
     prop-types "^15.7.2"
-    q3-ui-assets "^2.2.0"
+    q3-ui-assets "^2.2.2"
     q3-ui-helpers "^2.2.0"
-    q3-ui-locale "^2.2.0"
-    q3-ui-rest "^2.2.1"
+    q3-ui-locale "^2.2.2"
+    q3-ui-rest "^2.2.2"
 
-q3-ui-exports@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-ui-exports/-/q3-ui-exports-2.2.0.tgz#3459dd3fa5e74c5126216531b17a7c4703d79687"
-  integrity sha512-DblQgqPRTwSVFv3frxDEHXI7F8E5cev1BhzxkLc4pDBhnOnnYn3p1hykArUds44uKGeP0BBTz+0EX0GmMww7jw==
+q3-ui-exports@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-exports/-/q3-ui-exports-2.2.2.tgz#9c5fb4ad57cca2ef660f891b7efbfdb8f9e706e0"
+  integrity sha512-QZscPtlXtCGLhix4pCv1nkz9kmYgRrQFrLXjlriDTT/IForOnAwmlgp9awbzZJlTjuGUd7wMfOKbsncfSESsCA==
   dependencies:
     alphabetize-object-keys "^3.0.0"
     exceljs "^4.3.0"
@@ -12724,22 +12735,22 @@ q3-ui-exports@^2.2.0:
     lodash "^4.17.20"
     micromatch "^4.0.2"
     prop-types "^15.7.2"
-    q3-ui-locale "^2.2.0"
+    q3-ui-locale "^2.2.2"
     useful-state "^1.2.3"
 
-q3-ui-filemanager@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-ui-filemanager/-/q3-ui-filemanager-2.2.0.tgz#3836faa55d60c81dd02058f21c34779713305070"
-  integrity sha512-Djy3hIixrJcydelzLy1QdW7Hj26JCC2vfx3bmzBruhbE3b98EWcZNMvNWQ+jjU8yJS3H4FxRCqokTjgSV5EvHA==
+q3-ui-filemanager@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-filemanager/-/q3-ui-filemanager-2.2.2.tgz#b12fd69bd01e8411983404ee5ccccc06e5b42bdc"
+  integrity sha512-ibMZZdZ+e2f2pSE7VG4BDVJJhKnT3FxYcU6URLYeU/zVWtvymizM8LO8nfiiOsYxY/bwMxt+11uaRxGJc5/rrA==
   dependencies:
     alphabetize-object-keys "^3.0.0"
     classnames "^2.2.6"
     lodash "^4.17.20"
     prop-types "^15.7.2"
-    q3-ui "^2.2.0"
-    q3-ui-dialog "^2.2.0"
+    q3-ui "^2.2.2"
+    q3-ui-dialog "^2.2.2"
     q3-ui-helpers "^2.2.0"
-    q3-ui-locale "^2.2.0"
+    q3-ui-locale "^2.2.2"
     react-butterfiles "^1.3.3"
     react-dropzone "^11.4.2"
 
@@ -12760,10 +12771,10 @@ q3-ui-filters@^1.0.0:
     react-i18next "11.4.0"
     with-location "^1.3.6"
 
-q3-ui-forms@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-ui-forms/-/q3-ui-forms-2.2.1.tgz#7ac80d5929662696a1d1742a286e7ac6bc6b7405"
-  integrity sha512-i10mqtaPh2bl8utHPhOuqxMLyIV3VAAfsJNZuPG+QcYxOJfFcfa/97HbwZWCeQwaMePjUxNnxpHxPjLT5zmKyw==
+q3-ui-forms@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-forms/-/q3-ui-forms-2.2.2.tgz#a1fefd8c8b72dab28c39ba8eea3fcfde4add926f"
+  integrity sha512-n+9unKBA4AKRii3Y1iwzfTbOV2riDd1ES8XFEiYFXgxHO/UMI8hr2ChPcK+xqwq3Dooaz4Ibyc//NVFyHuG3fA==
   dependencies:
     "@date-io/moment" "1.x"
     "@material-ui/pickers" "^3.2.10"
@@ -12779,9 +12790,9 @@ q3-ui-forms@^2.2.1:
     moment-timezone "^0.5.34"
     notistack "1.0.10"
     prop-types "^15.7.2"
-    q3-ui-dialog "^2.2.0"
-    q3-ui-locale "^2.2.0"
-    q3-ui-queryparams "^2.2.0"
+    q3-ui-dialog "^2.2.2"
+    q3-ui-locale "^2.2.2"
+    q3-ui-queryparams "^2.2.2"
     q3-ui-rte "^2.2.1"
     qs "^6.9.6"
     react-dropzone "^11.4.2"
@@ -12811,10 +12822,10 @@ q3-ui-helpers@^2.2.0:
     moment "2.29.1"
     prop-types "^15.7.2"
 
-q3-ui-locale@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-ui-locale/-/q3-ui-locale-2.2.0.tgz#b905fce24a6e359ca6e2946c1a1cfb17472ff8e4"
-  integrity sha512-M2uXRJV7gND/VNwBcQzyC3nZqCaCSPcqefknnvNLe3zw7IB5FdD/byZobG7O7oUe3thS9j94k17u2v+E54l9Mg==
+q3-ui-locale@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-locale/-/q3-ui-locale-2.2.2.tgz#7cadc31cfd2540f66a46e3cf82e3bcb480b3f3cc"
+  integrity sha512-dY6wI7rpxAX+9UO4bPniLJeidQ2fdLRqCeF+RyKMdqDThMgnunWI+Sa8EzDbs/bi4zuzwnfgzsvT1P8+XWuKAA==
   dependencies:
     i18next "^21.5.4"
     moment "2.29.1"
@@ -12834,74 +12845,74 @@ q3-ui-notifications@^2.2.0:
     q3-ui-helpers "^2.2.0"
     useful-state "^1.2.3"
 
-q3-ui-permissions@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-ui-permissions/-/q3-ui-permissions-2.2.1.tgz#64a964bc2929a841e860f02b4c5b61ea0e0a0abc"
-  integrity sha512-VfwNYhlF18g2zA+AbX3WdEIWh1FjecjHeqr/pvb2NhOdtNOyBLJEa7wG/sMCzKoxv+UxJJVTAlfB7SCnoCggdw==
+q3-ui-permissions@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-permissions/-/q3-ui-permissions-2.2.2.tgz#6524852e66c90619c71ebfc0b19a2a4745961434"
+  integrity sha512-V/H0TrnkkC5bT6c9egEolmeD+Wu1/rkkwzIgm/tYmgpbyPExvcOtuNTyoL5Ay+l2dIyTRH3pPugXuhKCtGkMzg==
   dependencies:
     axios "^0.24.0"
     comparisons "^2.2.10"
     js-cookie "^3.0.1"
     lodash "^4.17.20"
     prop-types "^15.7.2"
-    q3-ui-forms "^2.2.1"
+    q3-ui-forms "^2.2.2"
 
-q3-ui-queryparams@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-ui-queryparams/-/q3-ui-queryparams-2.2.0.tgz#dd0e0160dcbd680534efb4e4fac4f6ffbc48546c"
-  integrity sha512-eghl4w7qrNMZa8s2DXLtHEgyXXc4RvzI3nl1twqFex+uqmO3v64XF+PI9qf4gEHaa80E5m+sRyRXFPmBix7QKg==
+q3-ui-queryparams@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-queryparams/-/q3-ui-queryparams-2.2.2.tgz#68e4928e36bfdf63642c9d9baabb660bf5bef9f8"
+  integrity sha512-oAjvzWchow/IXSzSAtJLLr+OfZpoadKTeGln/gp2t9s0dEiUmZjrmBpR1WQRVIyau6H7Ij94WNdYpXCLLKK2/Q==
   dependencies:
     flat "^5.0.2"
     lodash "^4.17.20"
     prop-types "^15.7.2"
     q3-ui-helpers "^2.2.0"
-    q3-ui-locale "^2.2.0"
+    q3-ui-locale "^2.2.2"
 
-q3-ui-queuelogs@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-ui-queuelogs/-/q3-ui-queuelogs-2.2.1.tgz#a3a3968da2190eba2264ec5f5f1f7e30022e9631"
-  integrity sha512-bLhfUnNTNVlOd2TlvlSBYojWx2L9rrt+vj1VUaMe1oMPR7kY5/UT7OalucptUHoTbjuFgTCr+Hd/LiomeQ31SA==
+q3-ui-queuelogs@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-queuelogs/-/q3-ui-queuelogs-2.2.2.tgz#57ecdd0722bd836e67f41211d4afec2fe87ae756"
+  integrity sha512-KnhZMrZoCh/Y86Qmh3Ns3dbxaOTxi4tvGFQJfb/HPzTAddftdtNC8Z/icIYd3pJxaz/dtTBOJ2nNEBFBfIc1Cg==
   dependencies:
     axios "^0.24.0"
     lodash "^4.17.20"
     prop-types "^15.7.2"
-    q3-ui-assets "^2.2.0"
+    q3-ui-assets "^2.2.2"
     q3-ui-helpers "^2.2.0"
-    q3-ui-locale "^2.2.0"
-    q3-ui-permissions "^2.2.1"
-    q3-ui-rest "^2.2.1"
+    q3-ui-locale "^2.2.2"
+    q3-ui-permissions "^2.2.2"
+    q3-ui-rest "^2.2.2"
 
-q3-ui-repeater@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-ui-repeater/-/q3-ui-repeater-2.2.1.tgz#1e122465b1756430399e29926f0b427eddbe9cbe"
-  integrity sha512-Tg7PaPbHO8drvQZ+ggv25FXc6Dw/T96D5QzDtfXoqWwizepGQ5kfX3alY70WZeLsI/W9OJMhMOOGyAM/mjmNLw==
+q3-ui-repeater@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-repeater/-/q3-ui-repeater-2.2.2.tgz#bbd4092cbf135f651d69ee95cfb4dfe9b67ef778"
+  integrity sha512-m+QXiGJoTMt0jh/FR+qnCFdcVJJqbhz+h2AlPZ7Jr5mR+KwVYy6lPYSVdZh68Og3yzcIBTDwQi/7wWSKlXjO7w==
   dependencies:
     "@testing-library/jest-dom" "^5.15.1"
     "@testing-library/react" "^12.1.2"
     axios "^0.24.0"
     lodash "^4.17.20"
     prop-types "^15.7.2"
-    q3-components "^2.2.1"
-    q3-ui "^2.2.0"
-    q3-ui-confirm "^2.2.1"
-    q3-ui-dialog "^2.2.0"
-    q3-ui-exports "^2.2.0"
-    q3-ui-forms "^2.2.1"
-    q3-ui-locale "^2.2.0"
-    q3-ui-permissions "^2.2.1"
+    q3-components "^2.2.2"
+    q3-ui "^2.2.2"
+    q3-ui-confirm "^2.2.2"
+    q3-ui-dialog "^2.2.2"
+    q3-ui-exports "^2.2.2"
+    q3-ui-forms "^2.2.2"
+    q3-ui-locale "^2.2.2"
+    q3-ui-permissions "^2.2.2"
     useful-state "^1.2.3"
 
-q3-ui-rest@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/q3-ui-rest/-/q3-ui-rest-2.2.1.tgz#6d36251460e6db28419d3b14730aa12f5829ec2e"
-  integrity sha512-+h/8cLdb5hkSlETnNUsf3AEeVQZyTSFh0a4DNJokzDvVU2hM0Dmy+jXydDZhxe7KB/DnZpEavWY7bxrD3RmR9w==
+q3-ui-rest@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui-rest/-/q3-ui-rest-2.2.2.tgz#ab40178220266e896412b723505781cf23312fc8"
+  integrity sha512-8Fq2N3SP6+VDJEjwgX7qSs/OCSYLHA4DvynGRCq1sPNKfVdhRagolX19VFbLaGi8i+khu1B006QjQqSNI5mnjg==
   dependencies:
     axios "^0.24.0"
     flat "^5.0.2"
     js-file-download "^0.4.12"
     lodash "^4.17.20"
     moment-timezone "^0.5.34"
-    q3-ui-forms "^2.2.1"
+    q3-ui-forms "^2.2.2"
     qs "^6.9.6"
 
 q3-ui-rte@^2.2.1:
@@ -12933,10 +12944,10 @@ q3-ui-test-utils@^2.2.0:
     enzyme-adapter-react-16 "^1.15.5"
     jest-localstorage-mock "^2.4.18"
 
-q3-ui@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/q3-ui/-/q3-ui-2.2.0.tgz#5c9ac81ca8b66f3b172aafeda71bb47959a576dc"
-  integrity sha512-WPfPqgmfAJNVTcRSUsxTVPgyYSeOgO+DQGpzhrWF+KXOSD1muoUbxov7hoWw8x5nDGs0aVG7ToPH+4+EwRyuJg==
+q3-ui@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/q3-ui/-/q3-ui-2.2.2.tgz#873da1a3d68a0789af2b8a6b38c7478f1eb62d3d"
+  integrity sha512-FoHVbIn9MgtkYNAeEsfl0KqlFV1qhb3TfazdYvplVyFJuy0Lv0nWm/Z3KasEhG5pfoKZv6CurYEJwQb1HG2lQg==
   dependencies:
     class-names "^1.0.0"
     classnames "^2.2.6"
@@ -12948,9 +12959,9 @@ q3-ui@^2.2.0:
     material-ui-dropzone "^3.5.0"
     moment "2.29.1"
     prop-types "^15.7.2"
-    q3-ui-assets "^2.2.0"
+    q3-ui-assets "^2.2.2"
     q3-ui-helpers "^2.2.0"
-    q3-ui-locale "^2.2.0"
+    q3-ui-locale "^2.2.2"
     react-credit-cards "^0.8.3"
     react-dropzone "^11.4.2"
     react-google-maps "^9.4.5"

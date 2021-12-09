@@ -37,7 +37,7 @@ const Hero = ({ children }) => {
         <Typography
           variant="h3"
           component="h1"
-          style={{ width: 310 }}
+          style={{ width: 525 }}
         >
           {t('site')}
         </Typography>
