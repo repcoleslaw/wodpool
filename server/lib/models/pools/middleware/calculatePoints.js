@@ -16,10 +16,7 @@ class LeaderBoard {
     this.__$ledger = this.__$competitors.reduce(
       (acc, curr) => {
         forEach(curr.weeks, (week) => {
-          if (
-            week.week === weekNumber &&
-            (!week.points || !week.duration)
-          )
+          if (week.week === weekNumber)
             acc.push({
               handle: curr.handle,
               duration: week.duration,

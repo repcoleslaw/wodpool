@@ -17,5 +17,6 @@ exports.genCompetitor = (args) =>
     verified: true,
     active: true,
     secret: 'SHH',
+    termsAccepted: true,
     ...args,
   });
