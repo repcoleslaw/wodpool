@@ -1,5 +1,6 @@
 import React from 'react';
 import { Builders } from 'q3-ui-forms';
+import { castToBoolean } from 'q3-ui-forms/lib/helpers';
 import { connect } from 'q3-admin/lib/containers';
 import { isCompetitor } from '../UsersAdd/UsersAdd';
 
@@ -14,7 +15,14 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       'handle',
       'email',
       'bio',
+      'termsAccepted',
+      'allowExtraEmails',
     ]}
+    marshalSelectively
+    marshal={{
+      termsAccepted: [castToBoolean],
+      allowExtraEmails: [castToBoolean],
+    }}
   >
     <Builders.Field
       required
@@ -48,6 +56,16 @@ const UsersGeneral = connect(({ data, ...rest }) => (
       rows={12}
       lg={12}
       xl={12}
+    />
+    <Builders.Field
+      name="termsAccepted"
+      type="checkbox"
+      conditional={isCompetitor}
+    />
+    <Builders.Field
+      name="allowExtraEmails"
+      type="checkbox"
+      conditional={isCompetitor}
     />
   </Builders.Form>
 ));

@@ -14,4 +14,11 @@ module.exports = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  allowExtraEmails: {
+    type: Boolean,
+  },
+  termsAccepted: {
+    type: Boolean,
+    required: true,
+  },
 });

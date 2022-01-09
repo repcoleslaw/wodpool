@@ -12,54 +12,45 @@ const HeaderAccount = () => {
     React.useContext(AuthContext)?.state?.profile?.id;
   const { t } = useTranslation('labels');
 
-  const handleLogout = () => {
-    destroySession();
-  };
+  const accountActions = userId
+    ? [
+        {
+          component: Link,
+          label: 'profile',
+          to: '/app/profile',
+        },
+        {
+          // must leave curried
+          onClick: () => destroySession(),
+          label: 'logout',
+        },
+      ]
+    : [
+        {
+          component: Link,
+          label: 'login',
+          to: '/login',
+        },
+        {
+          component: Link,
+          label: 'signup',
+          to: '/signup',
+        },
+      ];
 
-  return userId ? (
-    <Grid container spacing={1}>
-      <Grid item>
-        <Button
-          variant="outlined"
-          color="secondary"
-          component={Link}
-          to="/app/profile"
-        >
-          {t('profile')}
-        </Button>
-      </Grid>
-      <Grid item>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={handleLogout}
-        >
-          {t('logout')}
-        </Button>
-      </Grid>
-    </Grid>
-  ) : (
-    <Grid container spacing={1}>
-      <Grid item>
-        <Button
-          variant="outlined"
-          color="secondary"
-          component={Link}
-          to="/login"
-        >
-          {t('login')}
-        </Button>
-      </Grid>
-      <Grid item>
-        <Button
-          variant="contained"
-          color="secondary"
-          component={Link}
-          to="/signup"
-        >
-          {t('signup')}
-        </Button>
-      </Grid>
+  return (
+    <Grid container wrap="nowrap" spacing={1}>
+      {accountActions.map(({ label, ...action }) => (
+        <Grid item key={label}>
+          <Button
+            color="secondary"
+            variant="outlined"
+            {...action}
+          >
+            {t(label)}
+          </Button>
+        </Grid>
+      ))}
     </Grid>
   );
 };

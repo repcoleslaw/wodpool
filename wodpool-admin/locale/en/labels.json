@@ -29,5 +29,7 @@
   "bio": "Bio",
   "featured": "Featured",
   "type": "Type",
-  "endsOn": "Ends on"
+  "endsOn": "Ends on",
+  "termsAccepted": "Has accepted terms and conditions",
+  "allowExtraEmails": "Wants to receive marketing emails"
 }

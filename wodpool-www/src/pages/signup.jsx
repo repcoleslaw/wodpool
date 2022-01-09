@@ -5,6 +5,7 @@ import { Box, Typography } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import axios from 'axios';
 import { useTranslation } from 'q3-ui-locale';
+import { castToBoolean } from 'q3-ui-forms/lib/helpers';
 
 const Signup = (props) => {
   const [done, setDone] = React.useState(false);
@@ -39,6 +40,11 @@ const Signup = (props) => {
           <Builders.Form
             submitLabel="letsGo"
             onSubmit={handleSubmit}
+            marshalSelectively
+            marshal={{
+              allowExtraEmails: [castToBoolean],
+              termsAccepted: [castToBoolean],
+            }}
           >
             <Builders.Field
               name="firstName"
